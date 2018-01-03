@@ -3,81 +3,66 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-
+// Javascript rule
 const javascript = {
-  test: /\.(js)$/, // match anything that ends in `.js`
+  test: /\.(js)$/, // see how we match anything that ends in `.js`? Cool
   use: [{
     loader: 'babel-loader',
-    options: { presets: ['env'] }
+    options: {
+      presets: ['env']
+    } // this is one way of passing options
   }],
 };
 
-// postCSS loader which gets fed into the next loader.
-
+// postcss loader
 const postcss = {
   loader: 'postcss-loader',
   options: {
-    plugins() { return [autoprefixer({ browsers: 'last 3 versions' })]; }
-  }
+    plugins() {
+      return [autoprefixer({
+        browsers: 'last 3 versions'
+      })];
+    },
+    sourceMap: true
+  },
+
 };
 
 // sass/css loader
 const styles = {
   test: /\.(scss)$/,
+  // here we pass the options as query params b/c it's short.
+  // remember above we used an object for each loader instead of just a string?
+  // We don't just pass an array of loaders, we run them through the extract plugin so they can be outputted to their own .css file
   use: ExtractTextPlugin.extract(['css-loader?sourceMap', postcss, 'sass-loader?sourceMap'])
 };
 
 // Uglify
-const uglify = new webpack.optimize.UglifyJsPlugin({ // eslint-disable-line
-  compress: { warnings: false }
+const uglify = new webpack.optimize.UglifyJsPlugin({
+  compress: {
+    warnings: false
+  }
 });
+
+
 
 const config = {
   entry: {
-    App: './src/js/kolekcija-vina.js'
+    App: './public/js/kolekcija-vina.js'
   },
   devtool: 'source-map',
+
   output: {
-    path: path.resolve(__dirname, 'src', 'dist'),
+
+    path: path.resolve(__dirname, 'public', './dist'),
     publicPath: 'dist/',
     filename: '[name].bundle.js'
   },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
-},
-
-    // module rules
   module: {
-    loaders: [
-        {
-            test: /\.js$/,
-            loader: 'babel?{"presets":["es2015"]}',
-            exclude: /node_modules/
-        },
-        {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract(
-                "style-loader", "css-loader?sourceMap!postcss-loader")
-        },
-        {
-            test: /\.(jpg|png|gif)$/,
-            loader: "file-loader?name=images/[hash].[ext]"
-        },
-        {
-            test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: "url-loader?limit=80000&minetype=application/font-woff"
-        },
-        {
-            test: /\.(ttf|eot|svg|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: "url-loader?limit=80000"
-        }
-    ],
     rules: [javascript, styles]
   },
- 
   // plugins: [uglify]
   plugins: [
-    // output css to a separate file
     new ExtractTextPlugin('style.css'),
   ]
 };

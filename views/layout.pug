@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 html(lang="en")
     head
+        title= `${title} | ${h.siteName}`
+        link(rel='stylesheet', href='/dist/style.css')
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title= `${title} | ${h.siteName}`
+        
+        
 
     body
         block header    
@@ -13,4 +16,6 @@ html(lang="en")
         block content
 
         block scripts
-            script(src="/dist/kolekcija-vina.bundle.js")
+            script(src="/dist/App.bundle.js")
+
+            

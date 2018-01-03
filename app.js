@@ -24,8 +24,8 @@ const app = express();
 app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
 app.set('view engine', 'pug'); // we use the engine pug, mustache or EJS work great too
 
-// src folder
-app.use(express.static(path.join(__dirname, 'src')));
+// public folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // body parser
 app.use(bodyParser.json());
