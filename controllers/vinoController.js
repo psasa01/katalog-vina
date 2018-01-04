@@ -17,7 +17,6 @@ exports.snimiVino = async(req, res) => {
   const vino = new Vino(req.body);
   await vino.save();
   req.flash('success', 'Uspješno ste unijeli novo vino u bazu');
-  console.log(req);
   res.redirect('/');
 
 }

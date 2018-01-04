@@ -4,4 +4,5 @@ import '../sass/style.scss'
 
 $(document).ready(function () {
   $('.sidenav').sidenav();
+  $('.modal').modal();
 });
