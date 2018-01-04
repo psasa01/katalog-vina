@@ -9,7 +9,7 @@ const vinoSchema = new mongoose.Schema({
         required: 'Morate unijeti naziv vina!',
         trim: true,
         stripHtmlTags: true
-        
+
     },
     slug: {
         type: String,
@@ -49,12 +49,12 @@ const vinoSchema = new mongoose.Schema({
 });
 
 // presave slug, prober function because we need to bind 'this'!!!
-vinoSchema.pre('save', function(next) {
+vinoSchema.pre('save', function (next) {
     // if no changes, exit (return)
-    if (!this.isModified('name')) {
-    return next(); // stop function 
-    } 
-    this.slug = slug(this.name);
+    if (!this.isModified('naziv')) {
+        return next(); // stop function 
+    }
+    this.slug = slug(this.naziv);
     next();
     // make unique slugs
 });

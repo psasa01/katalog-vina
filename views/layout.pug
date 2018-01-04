@@ -16,7 +16,7 @@ html(lang="en")
         block header    
             nav
                 .nav-wrapper
-                    a.brand-logo(href='#!') Logo
+                    a.brand-logo(href='/') Logo
                     a.sidenav-trigger(href='#' data-target='mobile-demo')
                         i.material-icons menu
                     ul.right.hide-on-med-and-down
@@ -30,7 +30,7 @@ html(lang="en")
                             a(href='mobile.html') Mobile
                     ul#mobile-demo.sidenav
                         li
-                            a(href='sass.html') Sass
+                            a(href='/dodaj-vino') Novo Vino
                         li
                             a(href='badges.html') Components
                         li
@@ -50,8 +50,9 @@ html(lang="en")
 
 
         block scripts
-            script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
             
+            script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js')
             script(src="/dist/App.bundle.js")
 
             
