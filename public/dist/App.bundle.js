@@ -70,7 +70,7 @@
 "use strict";
 
 
-__webpack_require__(3);
+__webpack_require__(1);
 
 $(document).ready(function () {
   $('.sidenav').sidenav();
@@ -78,9 +78,7 @@ $(document).ready(function () {
 // import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */
+/* 1 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

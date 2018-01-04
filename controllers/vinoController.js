@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Vino = mongoose.model('Vino');
 
-exports.getIndex = async (req, res) => {
+exports.getIndex = async(req, res) => {
   await res.render('index', {
     title: 'Ovo je Vinski Index'
   });
@@ -13,9 +13,11 @@ exports.dodajVino = (req, res) => {
   });
 }
 
-exports.snimiVino = async (req, res) => {
+exports.snimiVino = async(req, res) => {
   const vino = new Vino(req.body);
   await vino.save();
+  req.flash('success', 'Uspješno ste unijeli novo vino u bazu');
+  console.log(req);
   res.redirect('/');
 
 }
