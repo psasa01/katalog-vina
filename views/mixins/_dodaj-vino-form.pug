@@ -1,0 +1,20 @@
+mixin dodaj-vino(vino = {})
+
+    form.col.s12(action=`/dodaj-vino/` method="POST")
+        .input-field.col.s12
+            input#naziv(type="text" name="naziv" value=vino.naziv)
+            label(for="naziv") Naziv vina
+        .input-field.col.s12.l6
+            input#naziv(type="text" name="proizvodjac" value=vino.proizvodjac)
+            label(for="proizvodjac") Naziv proizvođača
+        .input-field.col.s12.l6
+            input#naziv(type="text" name="zemlja" value=vino.zemlja)
+            label(for="zemlja") Zemlja porijekla
+        .input-field.col.s12.l6
+            input#naziv(type="text" name="vrsta" value=vino.vrsta)
+            label(for="vrsta") Vrsta vina
+        .input-field.col.s12.l6
+            input#naziv(type="text" name="godina" value=vino.godina)
+            label(for="godina") Godina berbe
+        button.btn.waves-effect.waves-light(type="submit") Spremi vino
+        

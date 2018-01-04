@@ -21,7 +21,7 @@ html(lang="en")
                         i.material-icons menu
                     ul.right.hide-on-med-and-down
                         li
-                            a(href='sass.html') Sass
+                            a(href='/dodaj-vino') Novo Vino
                         li
                             a(href='badges.html') Components
                         li
@@ -38,10 +38,20 @@ html(lang="en")
                         li
                             a(href='mobile.html') Mobile
 
+        block messages
+            if locals.flashes
+                .modal#modal1
+                    .modal-content
+                        p= message
+                    .modal-footer
+                        button.btn.waves-effect.waves-light(onClick="this.parentElement.remove()") Zatvori
+          
         block content
 
+
         block scripts
-            script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js')
+            script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+            
             script(src="/dist/App.bundle.js")
 
             

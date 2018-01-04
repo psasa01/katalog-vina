@@ -70,24 +70,17 @@
 "use strict";
 
 
-__webpack_require__(3);
-
 __webpack_require__(1);
 
-var elem = document.querySelector('.sidenav');
-// import '../../node_modules/materialize-css/dist/css/materialize.min.css'
+__webpack_require__(3);
 
-var instance = M.Sidenav.init(elem, options);
+$(document).ready(function () {
+    $('.sidenav').sidenav();
+});
+// import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 2 */,
-/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2664,10 +2657,10 @@ var _get = function t(e, i, n) {
       } }]), s;
   }();M.Range = n, M.jQueryLoaded && M.initializeJqueryWrapper(n, "range", "M_Range"), n.init(t("input[type=range]"));
 }(cash, M.anime);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2695,6 +2688,12 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

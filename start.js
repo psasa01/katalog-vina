@@ -13,7 +13,7 @@ mongoose.connection.on('error', (err) => {
 });
 
 // import models
-// require('./models/Vino');
+require('./models/Vino');
 // require('./models/User');
 
 // Start app!
