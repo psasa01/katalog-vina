@@ -1,0 +1,12 @@
+mixin vino-card(vino = {})
+
+    
+        .col.s12.m6.l3
+            .card
+                .card-image
+                    a(href="#")
+                        img(src=`./images/${vino.slika || 'slika.jpg'}`)
+                        .card-title.card-padding.black
+                            p= vino.naziv
+                .card-action.grey.lighten-2
+                    p= vino.zemlja.toUpperCase()

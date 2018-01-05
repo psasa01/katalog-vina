@@ -1,0 +1,10 @@
+extends layout
+include mixins/_vino-card
+
+block content
+    .container
+        .row
+            h2= title
+        .row
+            each vino in vina
+                +vino-card(vino)

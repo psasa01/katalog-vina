@@ -1,6 +1,6 @@
 mixin dodaj-vino(vino = {})
 
-    form.col.s12(action=`/dodaj-vino/` method="POST")
+    form.col.s12(action=`/dodaj-vino/` method="POST" enctype="multipart/form-data")
         .input-field.col.s12
             input#naziv(type="text" name="naziv" value=vino.naziv)
             label(for="naziv") Naziv vina
@@ -16,5 +16,20 @@ mixin dodaj-vino(vino = {})
         .input-field.col.s12.l6
             input#naziv(type="text" name="godina" value=vino.godina)
             label(for="godina") Godina berbe
-        button.btn.waves-effect.waves-light.col.s12.l12(type="submit") Spremi vino
+        .input-field.col.s12.l6
+            input#naziv(type="text" name="alkohol" value=vino.alkohol)
+            label(for="alkohol") Procenat alkohola
         
+        .file-field.input-field.col.l6.s12
+            .btn
+                span Dodaj Sliku
+                input(type="file" name="slika" id="slika" accept="image/gif, image/png, image/jpeg, image/jpg")
+            .file-path-wrapper
+                input.file-path.validate(type="text")
+                if vino.slika
+                    .col.l6.s12
+                        img(src=`/uploads/${vino.slika}`, alt=vino.naziv)
+                br
+                br
+        button.btn.waves-effect.waves-light.btn-large.col.s12.l12(type="submit") Spremi vino
+    

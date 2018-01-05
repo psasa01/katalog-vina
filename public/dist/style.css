@@ -76,4 +76,12 @@
   .flash p {
     margin: 0; }
 
+.card-padding {
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  text-justify: right;
+  opacity: .5;
+  padding-bottom: -1em; }
+
 /*# sourceMappingURL=style.css.map*/

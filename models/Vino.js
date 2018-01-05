@@ -16,8 +16,7 @@ const vinoSchema = new mongoose.Schema({
         stripHtmlTags: true
     },
     godina: {
-        type: String,
-        required: 'Morate unijeti godinu berbe!',
+        type: Number,
         trim: true,
         stripHtmlTags: true
     },
@@ -41,6 +40,9 @@ const vinoSchema = new mongoose.Schema({
     },
     slika: {
         type: String,
+    },
+    alkohol: {
+        type: String
     },
     datum: {
         type: Date,
