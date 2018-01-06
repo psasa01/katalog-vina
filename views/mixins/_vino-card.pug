@@ -1,12 +1,13 @@
 mixin vino-card(vino = {})
 
-    
-        .col.s12.m6.l3
-            .card
-                .card-image
-                    a(href="#")
+        a.modal-trigger(href=`#${vino.slug}`)
+            .col.s12.m6.l3
+                .card
+                    .card-image
                         img(src=`./images/${vino.slika || 'slika.jpg'}`)
-                        .card-title.card-padding.black
+                        .card-title.card-style
                             p= vino.naziv
-                .card-action.grey.lighten-2
-                    p= vino.zemlja.toUpperCase()
+                    .card-action.brown.lighten-4.action-style
+                        p= vino.zemlja.toUpperCase()
+                        
+            

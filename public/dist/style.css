@@ -65,23 +65,136 @@
             box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 3px; }
   .flash--success {
-    background: -o-linear-gradient(315deg, #d2ff52 0%, #91e842 100%);
-    background: linear-gradient(135deg, #d2ff52 0%, #91e842 100%); }
+    background: -o-linear-gradient(315deg, #4caf50 0%, #388e3c 100%);
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%); }
   .flash--error {
-    background: -o-linear-gradient(70deg, red 0%, #c80000 100%);
-    background: linear-gradient(20deg, red 0%, #c80000 100%); }
+    background: -o-linear-gradient(70deg, #f44336 0%, #d32f2f 100%);
+    background: linear-gradient(20deg, #f44336 0%, #d32f2f 100%); }
   .flash--info {
-    background: -o-linear-gradient(55deg, #f1e767 0%, #feb645 100%);
-    background: linear-gradient(35deg, #f1e767 0%, #feb645 100%); }
+    background: -o-linear-gradient(55deg, #ffeb3b 0%, #fbc02d 100%);
+    background: linear-gradient(35deg, #ffeb3b 0%, #fbc02d 100%); }
   .flash p {
     margin: 0; }
 
-.card-padding {
+.card-style {
   width: 100%;
-  height: 100%;
-  text-align: right;
-  text-justify: right;
-  opacity: .5;
-  padding-bottom: -1em; }
+  padding: 1em;
+  text-align: right; }
+
+.card-style p {
+  position: absolute;
+  display: block;
+  width: 100%;
+  left: 0;
+  bottom: -.7em;
+  background-color: rgba(121, 85, 72, 0.4);
+  padding-left: .5em;
+  padding-bottom: .2em;
+  text-align: left; }
+
+.action-style {
+  height: 3.2em; }
+
+.action-style p {
+  position: absolute;
+  right: .7em;
+  bottom: -.7em;
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.1em;
+  padding-left: .6em; }
+
+h2 {
+  color: #795548; }
+
+.moja-kolekcija-vina {
+  position: absolute;
+  height: 66%;
+  fill: white;
+  -webkit-transform: rotate(-5deg);
+      -ms-transform: rotate(-5deg);
+          transform: rotate(-5deg);
+  left: .5em;
+  bottom: .7em; }
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #795548 !important; }
+
+.file-field input[type=file]:focus + label {
+  color: #795548 !important; }
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #795548 !important;
+  -webkit-box-shadow: 0 1px 0 0 #795548 !important;
+          box-shadow: 0 1px 0 0 #795548 !important; }
+
+.file-field input[type=file]:focus {
+  border-bottom: 1px solid #795548 !important;
+  -webkit-box-shadow: 0 1px 0 0 #795548 !important;
+          box-shadow: 0 1px 0 0 #795548 !important; }
+
+input.file-path.validate.valid[type=text] {
+  border-bottom: 1px solid #795548 !important;
+  -webkit-box-shadow: 0 1px 0 0 #795548 !important;
+          box-shadow: 0 1px 0 0 #795548 !important; }
+
+/* label color */
+.input-field label {
+  color: #000 important; }
+
+.modal {
+  width: 80% !important;
+  height: 90% !important; }
+
+.modal-footer {
+  height: 6em !important; }
+
+#ukloni-modal {
+  z-index: 9999999999;
+  max-height: 15em; }
+  #ukloni-modal h5 {
+    padding-left: 1em; }
+
+.vino-modal {
+  z-index: 99999; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4] 1fr [c5] 1fr [c6] 1fr;
+  grid-template-rows: [r1] 1fr [r2] 1fr [r3] 1fr [r4] 1fr;
+  grid-template-areas: "slika slika tekst1 tekst1 tekst1 tekst1" "slika slika tekst2 tekst2 tekst2 tekst2" "slika slika tekst3 tekst3 tekst3 tekst3" "slika slika tekst4 tekst4 tekst4 tekst4";
+  height: 100%; }
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4] 1fr [c5] 1fr [c6] 1fr;
+    grid-template-rows: [r1] 15fr [r2] 15fr [r3] 1fr [r4] 1fr [r5] 1fr [r6] 1fr;
+    grid-template-areas: "slika slika slika slika slika slika" "slika slika slika slika slika slika" "tekst1 tekst1 tekst1 tekst1 tekst1 tekst1" "tekst2 tekst2 tekst2 tekst2 tekst2 tekst2" "tekst3 tekst3 tekst3 tekst3 tekst3 tekst3" "tekst4 tekst4 tekst4 tekst4 tekst4 tekst4";
+    height: 100%; } }
+
+@media (max-width: 600px) {
+  .modal-slika {
+    width: 100%; } }
+
+.slika {
+  grid-area: slika; }
+
+.tekst1 {
+  grid-area: tekst1; }
+
+.tekst2 {
+  grid-area: tekst2; }
+
+.tekst3 {
+  grid-area: tekst3; }
+
+.tekst4 {
+  grid-area: tekst4; }
+
+.modal-slika {
+  width: auto;
+  height: 100%; }
 
 /*# sourceMappingURL=style.css.map*/

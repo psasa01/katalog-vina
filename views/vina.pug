@@ -1,10 +1,11 @@
 extends layout
 include mixins/_vino-card
+include mixins/_modal
 
 block content
     .container
         .row
-            h2= title
-        .row
+            br
             each vino in vina
                 +vino-card(vino)
+                +modal(vino)

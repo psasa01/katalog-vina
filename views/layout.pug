@@ -12,19 +12,21 @@ html(lang="en")
         
         
 
-    body
+    body.brown.lighten-4
         block header  
             .navbar-fixed  
                 nav
-                    .nav-wrapper
-                        a.brand-logo(href='/') Logo
+                    .nav-wrapper.brown
+                        a(href='/') 
+                            img.moja-kolekcija-vina(src="../images/logo.svg", alt="")
+                            
                         a.sidenav-trigger(href='#' data-target='mobile-demo')
                             i.material-icons menu
                         ul.right.hide-on-med-and-down
                             li
                                 a(href='/dodaj-vino') Novo Vino
                             li
-                                a(href='badges.html') Components
+                                a(href='/zemlje') Pretraga po zemljama
                             li
                                 a(href='collapsible.html') Javascript
                             li
@@ -33,7 +35,7 @@ html(lang="en")
                             li
                                 a(href='/dodaj-vino') Novo Vino
                             li
-                                a(href='badges.html') Components
+                                a(href='/zemlje') Pretraga po Zemljama
                             li
                                 a(href='collapsible.html') Javascript
                             li
@@ -51,7 +53,6 @@ html(lang="en")
                                     button.flash__remove(onClick="this.parentElement.remove()") &times;
           
         block content
-
 
         block scripts
             

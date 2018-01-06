@@ -1,0 +1,21 @@
+extends layout
+include mixins/_vino-card
+include mixins/_modal
+
+block content
+    .container 
+        .row
+            h2= title
+            
+            pre= h.dump(zemlje)
+            pre= h.dump(slugZemlje)
+
+            each slugZemlja in slugZemlje 
+                a(href=`/${slugZemlja}`)
+                    button.brown.btn(name=`${slugZemlja}`)= slugZemlja.trim()
+            br
+            br
+            hr
+            each vino in vina
+                +vino-card(vino)
+                +modal(vino)

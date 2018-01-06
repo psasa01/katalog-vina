@@ -15,6 +15,10 @@ const vinoSchema = new mongoose.Schema({
         type: String,
         stripHtmlTags: true
     },
+    slugZemlja: {
+        type: String,
+        stripHtmlTags: true
+    },
     godina: {
         type: Number,
         trim: true,
@@ -22,7 +26,7 @@ const vinoSchema = new mongoose.Schema({
     },
     proizvodjac: {
         type: String,
-        required: 'Morate unijeti naziv proizvodjaća!',
+        required: 'Morate unijeti naziv proizvodjača!',
         trim: true,
         stripHtmlTags: true
     },
@@ -44,6 +48,9 @@ const vinoSchema = new mongoose.Schema({
     alkohol: {
         type: String
     },
+    velicina: {
+        type: String
+    },
     datum: {
         type: Date,
         default: Date.now
@@ -57,6 +64,7 @@ vinoSchema.pre('save', function (next) {
         return next(); // stop function 
     }
     this.slug = slug(this.naziv);
+    this.slugZemlja = slug(this.zemlja);
     next();
     // make unique slugs
 });

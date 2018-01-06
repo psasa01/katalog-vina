@@ -1,0 +1,31 @@
+mixin modal(vino = {})
+
+                #ukloni-modal.modal
+                    .modal-content
+                        h5 Da li zaista želite da uklonite #{vino.naziv} vino?
+                    .modal-footer
+                        a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href=`/vino/${vino._id}/ukloni`) Ukloni
+                        a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Zatvori
+                
+                div(id= vino.slug).modal.modal-fixed-footer.vino-modal
+                    .modal-content
+                        .grid-container
+                            .slika 
+                                img.modal-slika(src=`./images/${vino.slika || 'slika.jpg'}`)
+                            .tekst1
+                                .row
+                                    .col.l4.offset-l2
+                                        h5.brown-text.left-align Naziv Vina:
+                                        h5.brown-text.left-align Zemlja Porijekla:
+                                    .col.l6
+                                        h5.brown-text.left-align= vino.naziv
+                                        h5.brown-text.left-align= vino.zemlja
+                            .tekst2 tekst2
+                            .tekst3 tekst3
+                            .tekst4 tekst4
+                    .modal-footer
+                        a.modal-action.modal-close.btn-flat(href=`/vino/${vino._id}/uredi`) Uredi vino
+                        a.modal-action.modal-trigger.modal-close.btn-flat(href="#ukloni-modal") Ukloni vino  
+                        
+
+                

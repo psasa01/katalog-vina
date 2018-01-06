@@ -6,12 +6,14 @@ const uuid = require('uuid');
 
 const multerOptions = {
   storage: multer.memoryStorage(),
-  fileFilter: function(req, file, next) {
+  fileFilter: function (req, file, next) {
     const isPhoto = file.mimetype.startsWith('image/');
-    if(isPhoto) {
+    if (isPhoto) {
       next(null, true);
     } else {
-      next({ message: 'Taj tip datoteke nije podržan!'});
+      next({
+        message: 'Taj tip datoteke nije podržan!'
+      });
     }
   }
 };
@@ -30,11 +32,33 @@ exports.dodajVino = (req, res) => {
   });
 }
 
+exports.urediVino = async(req, res) => {
+  const vino = await Vino.findOne({
+    _id: req.params.id
+  });
+
+  res.render('uredi-vino', {
+    title: `Uredi vino - "${vino.naziv}"`,
+    vino
+  })
+}
+
+exports.snimiUredjenoVino = async(req, res) => {
+  const vino = await Vino.findOneAndUpdate({
+    _id: req.params.id
+  }, req.body, {
+    new: true,
+    runValidators: true
+  }).exec();
+  req.flash('success', `Uspješno ste uredili <a href="#${vino.slug}"><strong>${vino.naziv}</strong></a>!`);
+  res.redirect('/');
+}
+
 exports.dodajSliku = multer(multerOptions).single('slika');
 
-exports.resize = async (req, res, next) => {
+exports.resize = async(req, res, next) => {
   // check if there is no file to resize
-  if(!req.file) {
+  if (!req.file) {
     next();
   }
   const extension = req.file.mimetype.split('/')[1];
@@ -53,10 +77,44 @@ exports.snimiVino = async(req, res) => {
   res.redirect('/');
 }
 
-exports.prikaziVina = async (req, res) => {
+exports.prikaziVina = async(req, res) => {
   const vina = await Vino.find();
   res.render('vina', {
     title: "Kolekcija Vina",
     vina
   });
+}
+
+exports.ukloniVino = async(req, res) => {
+  const vino = await Vino.findOneAndRemove({
+    _id: req.params.id
+  });
+  req.flash('error', `Uspješno ste uklonili <strong>${vino.naziv}</strong> iz kataloga!`);
+  res.redirect('/');
+}
+
+exports.pretraziPoZemljama = async(req, res) => {
+  const vinoPromise = Vino.find();
+  const zemljePromise = Vino.distinct('zemlja');
+  const slugPromise = Vino.distinct('slugZemlja');
+
+  const [vina, zemlje, slugZemlje] = await Promise.all([vinoPromise, zemljePromise, slugPromise]);
+  zemlje.sort();
+  slugZemlje.sort();
+
+  res.render('zemlje', {
+    title: 'Pretraga po zemljama',
+    vina,
+    zemlje,
+    slugZemlje
+
+  });
+};
+
+exports.pronadjenoPoZemljama = async(req, res) => {
+
+  const vina = await Vino.find({
+    slugZemlja: req.params.zemlja
+  });
+  res.json(vina);
 }

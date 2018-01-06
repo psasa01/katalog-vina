@@ -75,6 +75,14 @@ __webpack_require__(1);
 $(document).ready(function () {
   $('.sidenav').sidenav();
   $('.modal').modal();
+
+  $('.button-collapse').sideNav({
+    menuWidth: 300, // Default is 300
+    edge: 'right', // Choose the horizontal origin
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    draggable: true // Choose whether you can drag to open on touch screens,
+
+  });
 }); // import '../vendors/materialize/js/materialize.min.js'
 // import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 
@@ -82,7 +90,7 @@ $(document).ready(function () {
 /* 1 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n    width: 100%;\r\n   ^\r\n      Invalid CSS after \"    width\": expected \"}\", was \": 100%;\"\r\n      in C:\\learn\\vina-first-try\\public\\sass\\partials\\_mystyles.scss (line 3, column 5)\n    at runLoaders (C:\\learn\\vina-first-try\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at C:\\learn\\vina-first-try\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\learn\\vina-first-try\\node_modules\\loader-runner\\lib\\LoaderRunner.js:230:18\n    at context.callback (C:\\learn\\vina-first-try\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (C:\\learn\\vina-first-try\\node_modules\\sass-loader\\lib\\loader.js:55:13)\n    at Object.<anonymous> (C:\\learn\\vina-first-try\\node_modules\\async\\dist\\async.js:2257:31)\n    at Object.callback (C:\\learn\\vina-first-try\\node_modules\\async\\dist\\async.js:958:16)\n    at options.error (C:\\learn\\vina-first-try\\node_modules\\node-sass\\lib\\index.js:294:32)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
