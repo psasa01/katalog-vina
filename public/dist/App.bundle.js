@@ -73,8 +73,15 @@
 __webpack_require__(1);
 
 $(document).ready(function () {
+
+  $('.fixed-action-btn').floatingActionButton();
+
   $('.sidenav').sidenav();
   $('.modal').modal();
+  $('.dropdown-trigger').dropdown({
+    hover: true,
+    belowOrigin: true
+  });
 
   $('.button-collapse').sideNav({
     menuWidth: 300, // Default is 300

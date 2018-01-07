@@ -76,6 +76,33 @@
   .flash p {
     margin: 0; }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #795548 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #d7ccc8 inset !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s !important;
+  -o-transition: background-color 5000s ease-in-out 0s !important;
+  transition: background-color 5000s ease-in-out 0s !important; }
+
+.spremi-button {
+  position: absolute;
+  bottom: -.4em; }
+
+.card {
+  -webkit-transition: all .6s ease;
+  -o-transition: all .6s ease;
+  transition: all .6s ease;
+  background-color: black; }
+
+.card:hover {
+  opacity: .98; }
+
 .card-style {
   width: 100%;
   padding: 1em;
@@ -108,14 +135,18 @@ h2 {
   color: #795548; }
 
 .moja-kolekcija-vina {
-  position: absolute;
+  position: absolute !important;
   height: 66%;
   fill: white;
   -webkit-transform: rotate(-5deg);
       -ms-transform: rotate(-5deg);
           transform: rotate(-5deg);
-  left: .5em;
+  left: 4em;
   bottom: .7em; }
+
+@media only screen and (min-width: 601px) {
+  .moja-kolekcija-vina {
+    right: .5em !important; } }
 
 /* label focus color */
 .input-field input[type=text]:focus + label {
@@ -123,6 +154,10 @@ h2 {
 
 .file-field input[type=file]:focus + label {
   color: #795548 !important; }
+
+input {
+  -webkit-text-fill-color: #795548;
+  border-bottom: 1px solid #a1887f !important; }
 
 /* label underline focus color */
 .input-field input[type=text]:focus {
@@ -142,7 +177,7 @@ input.file-path.validate.valid[type=text] {
 
 /* label color */
 .input-field label {
-  color: #000 important; }
+  color: #795548 !important; }
 
 .modal {
   width: 80% !important;
@@ -186,6 +221,8 @@ input.file-path.validate.valid[type=text] {
 
 .tekst2 {
   grid-area: tekst2; }
+  .tekst2 h5 {
+    bottom: 2em; }
 
 .tekst3 {
   grid-area: tekst3; }
@@ -196,5 +233,29 @@ input.file-path.validate.valid[type=text] {
 .modal-slika {
   width: auto;
   height: 100%; }
+
+button {
+  margin-bottom: .3em !important; }
+
+.btn {
+  -webkit-transition: .6s ease !important;
+  -o-transition: .6s ease !important;
+  transition: .6s ease !important; }
+
+.btn:hover {
+  opacity: 0.9 !important; }
+
+.alk-i-boca {
+  position: absolute !important;
+  bottom: 2em !important; }
+
+.modal-datum {
+  position: absolute;
+  left: 1em;
+  bottom: 0em; }
+
+.button-fab {
+  position: absolute !important;
+  bottom: .7em !important; }
 
 /*# sourceMappingURL=style.css.map*/

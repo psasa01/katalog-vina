@@ -26,7 +26,7 @@ router.get('/vino/:id/ukloni', catchErrors(vinoController.ukloniVino));
 router.get('/vina', catchErrors(vinoController.prikaziVina));
 router.get('/vino/:id/uredi', catchErrors(vinoController.urediVino));
 
-router.get('/zemlje', catchErrors(vinoController.pretraziPoZemljama));
-router.get('/:zemlja', catchErrors(vinoController.pronadjenoPoZemljama));
+router.get('/zemlje', catchErrors(vinoController.pretragaPoZemljama));
+router.get('/zemlje/:zemlja', catchErrors(vinoController.pretragaPoZemljama));
 
 module.exports = router;

@@ -1,12 +1,14 @@
-mixin vino-card(vino = {})
+mixin vino-card-2(vino = {})
 
+        
         a.modal-trigger(href=`#${vino.slug}`)
             .col.s12.m6.l3
-                .card.z-depth-2
+                .card
                     .card-image
-                        img(src=`./images/${vino.slika || 'slika.jpg'}`)
+                        img(src=`../public/images/${vino.slika || '.public/images/slika.jpg'}`)
                         .card-title.card-style
                             p= vino.naziv
                     .card-action.brown.lighten-4.action-style
                         p= vino.zemlja.toUpperCase()
+                        
             

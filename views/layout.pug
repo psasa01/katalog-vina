@@ -15,31 +15,36 @@ html(lang="en")
     body.brown.lighten-4
         block header  
             .navbar-fixed  
+                
                 nav
                     .nav-wrapper.brown
                         a(href='/') 
-                            img.moja-kolekcija-vina(src="../images/logo.svg", alt="")
+                            img.moja-kolekcija-vina(src="/images/logo.svg", alt="")
                             
                         a.sidenav-trigger(href='#' data-target='mobile-demo')
                             i.material-icons menu
                         ul.right.hide-on-med-and-down
                             li
                                 a(href='/dodaj-vino') Novo Vino
+                            
+                           
+                            // Dropdown Trigger
                             li
-                                a(href='/zemlje') Pretraga po zemljama
-                            li
-                                a(href='collapsible.html') Javascript
-                            li
-                                a(href='mobile.html') Mobile
-                        ul#mobile-demo.sidenav
-                            li
-                                a(href='/dodaj-vino') Novo Vino
-                            li
-                                a(href='/zemlje') Pretraga po Zemljama
-                            li
-                                a(href='collapsible.html') Javascript
-                            li
-                                a(href='mobile.html') Mobile
+                                a.dropdown-trigger(href='#!' data-target='dropdown1')
+                                    | Pretraga
+                                    i.material-icons.right arrow_drop_down
+                            
+            ul#mobile-demo.sidenav
+                li
+                    a(href='/dodaj-vino') Novo Vino
+                li
+                    a(href='/zemlje') Pretraga po Zemljama
+                
+            
+            ul#dropdown1.dropdown-content
+                li
+                    a(href='/zemlje') Pretraga po zemljama
+                li.divider
 
         block messages
             if locals.flashes
@@ -59,5 +64,7 @@ html(lang="en")
             script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
             script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js')
             script(src="/dist/App.bundle.js")
+            
+            
 
             

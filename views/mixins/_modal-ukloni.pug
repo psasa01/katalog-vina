@@ -1,0 +1,8 @@
+mixin modal-ukloni(vino = {})
+
+    #ukloni-modal.modal
+        .modal-content
+            h5 Da li zaista želite da uklonite #{vino.naziv} vino?
+        .modal-footer
+            a.modal-action.modal-close.btn-flat(href=`/vino/${vino._id}/ukloni`) Ukloni #{vino.naziv} vino
+            a.modal-action.modal-close.btn-flat(href='#!') Zatvori

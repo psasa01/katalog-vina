@@ -69,4 +69,26 @@ vinoSchema.pre('save', function (next) {
     // make unique slugs
 });
 
+vinoSchema.statics.listaZemalja = function () {
+    return this.aggregate([{
+            $unwind: '$zemlja'
+        },
+        {
+            $group: {
+                _id: '$zemlja',
+                count: {
+                    $sum: 1
+                }
+            }
+        },
+        {
+            $sort: {
+                _id: 1
+            }
+        }
+    ]);
+};
+
+
+
 module.exports = mongoose.model('Vino', vinoSchema);

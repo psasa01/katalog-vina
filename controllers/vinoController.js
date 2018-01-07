@@ -93,28 +93,18 @@ exports.ukloniVino = async(req, res) => {
   res.redirect('/');
 }
 
-exports.pretraziPoZemljama = async(req, res) => {
-  const vinoPromise = Vino.find();
-  const zemljePromise = Vino.distinct('zemlja');
-  const slugPromise = Vino.distinct('slugZemlja');
-
-  const [vina, zemlje, slugZemlje] = await Promise.all([vinoPromise, zemljePromise, slugPromise]);
-  zemlje.sort();
-  slugZemlje.sort();
-
+exports.pretragaPoZemljama = async(req, res) => {
+  const zemlja = req.params.zemlja;
+  const zemljaPromise = Vino.listaZemalja();
+  const vinoPromise = Vino.find({
+    zemlja: zemlja
+  });
+  const [zemlje, vina] = await Promise.all([zemljaPromise, vinoPromise]);
   res.render('zemlje', {
     title: 'Pretraga po zemljama',
-    vina,
+    zemlja,
     zemlje,
-    slugZemlje
-
+    vina
   });
+
 };
-
-exports.pronadjenoPoZemljama = async(req, res) => {
-
-  const vina = await Vino.find({
-    slugZemlja: req.params.zemlja
-  });
-  res.json(vina);
-}

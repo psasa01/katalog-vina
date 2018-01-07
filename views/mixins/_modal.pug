@@ -1,31 +1,61 @@
 mixin modal(vino = {})
 
-                #ukloni-modal.modal
-                    .modal-content
-                        h5 Da li zaista želite da uklonite #{vino.naziv} vino?
-                    .modal-footer
-                        a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href=`/vino/${vino._id}/ukloni`) Ukloni
-                        a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Zatvori
-                
+              
                 div(id= vino.slug).modal.modal-fixed-footer.vino-modal
                     .modal-content
                         .grid-container
                             .slika 
-                                img.modal-slika(src=`./images/${vino.slika || 'slika.jpg'}`)
+                                img.modal-slika(src=`/images/${vino.slika || 'slika.jpg'}`)
                             .tekst1
                                 .row
                                     .col.l4.offset-l2
-                                        h5.brown-text.left-align Naziv Vina:
-                                        h5.brown-text.left-align Zemlja Porijekla:
+                                        h5.brown-text.right-align Naziv Vina:
+                                        h5.brown-text.right-align Zemlja Porijekla:
                                     .col.l6
                                         h5.brown-text.left-align= vino.naziv
                                         h5.brown-text.left-align= vino.zemlja
-                            .tekst2 tekst2
-                            .tekst3 tekst3
-                            .tekst4 tekst4
+                            .tekst2 
+                                    .col.l4.offset-l2
+                                        br
+                                        h5.brown-text.right-align Proizvođač:
+                                        h5.brown-text.right-align Vrsta Vina:
+                                        br
+                                        
+                                    .col.l6
+                                        br
+                                        h5.brown-text.left-align= vino.proizvodjac
+                                        h5.brown-text.left-align= vino.vrsta
+                                        br
+                                        
+                            
+                            .tekst3 
+                                    .col.l4.offset-l2
+                                        br
+                                        br
+                                        h5.brown-text.right-align Godina Berbe:
+                                        
+                                    .col.l6
+                                        br
+                                        br
+                                        h5.brown-text.left-align= vino.godina
+                                        
+                            .tekst4 
+                                    .col.l4.offset-l2
+                                        p.brown-text.left-align.alk-i-boca Procenat Alkohola: #{vino.alkohol}%
+                                    .col.l6
+                                        p.brown-text.right-align.alk-i-boca Veličina Boce: #{vino.velicina} litara
                     .modal-footer
-                        a.modal-action.modal-close.btn-flat(href=`/vino/${vino._id}/uredi`) Uredi vino
-                        a.modal-action.modal-trigger.modal-close.btn-flat(href="#ukloni-modal") Ukloni vino  
+                        - h.moment.locale('bs')
+                            p.modal-datum dodao: #{h.moment(vino.datum).format('LL')} u #{h.moment().format('LT')}
                         
-
-                
+                        .fixed-action-btn.button-fab
+                            a.btn-floating.btn-large.brown
+                                i.large.material-icons arrow_drop_up
+                            ul
+                                li
+                                    a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)
+                                        i.material-icons clear
+                                            
+                                li
+                                    a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
+                                        i.material-icons mode_edit
