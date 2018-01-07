@@ -258,4 +258,10 @@ button {
   position: absolute !important;
   bottom: .7em !important; }
 
+.dropdown-content li span,
+.dropdown-content li a {
+  color: #795548 !important;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
 /*# sourceMappingURL=style.css.map*/

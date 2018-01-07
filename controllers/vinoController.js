@@ -50,7 +50,7 @@ exports.snimiUredjenoVino = async(req, res) => {
     new: true,
     runValidators: true
   }).exec();
-  req.flash('success', `Uspješno ste uredili <a href="#${vino.slug}"><strong>${vino.naziv}</strong></a>!`);
+  req.flash('success', `Uspješno ste uredili vino <strong>${vino.naziv}</strong>!`);
   res.redirect('/');
 }
 

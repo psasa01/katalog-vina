@@ -74,7 +74,9 @@ __webpack_require__(1);
 
 $(document).ready(function () {
 
-  $('.fixed-action-btn').floatingActionButton();
+  $('.fixed-action-btn').floatingActionButton({
+    hoverEnabled: false
+  });
 
   $('.sidenav').sidenav();
   $('.modal').modal();

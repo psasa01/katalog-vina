@@ -216,3 +216,9 @@ button {
     position: absolute !important;
     bottom: .7em !important;
 }
+
+.dropdown-content li span,
+.dropdown-content li a {
+    color: $brown !important;
+    box-sizing: border-box;
+}
