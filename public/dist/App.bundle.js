@@ -75,7 +75,8 @@ __webpack_require__(1);
 $(document).ready(function () {
 
   $('.fixed-action-btn').floatingActionButton({
-    hoverEnabled: false
+    hoverEnabled: false,
+    direction: 'left'
   });
 
   $('.sidenav').sidenav();

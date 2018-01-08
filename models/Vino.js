@@ -54,6 +54,14 @@ const vinoSchema = new mongoose.Schema({
     datum: {
         type: Date,
         default: Date.now
+    },
+    korisnik: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true,
+        autopopulate: {
+            select: 'ime'
+        }
     }
 });
 

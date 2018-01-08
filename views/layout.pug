@@ -34,11 +34,42 @@ html(lang="en")
                                     | Pretraga
                                     i.material-icons.right arrow_drop_down
                             
-            ul#mobile-demo.sidenav
+                            if !user
+
+                                li
+                                    a(href='/login') Prijava
+                                li
+                                    a(href='/register') Registracija
+                            else
+                                li
+                                    a(href='/logout') Odjava
+                                li
+                                    a(href=('/racun'))
+                                        img.circle.responsive-img.user-image(src=user.gravatar)
+        ul#mobile-demo.sidenav
+            if user 
+                li
+                    a(href=('/racun'))
+                        img.circle.responsive-img.user-image-mobile(src=user.gravatar)
+                        
+                li.divider
                 li
                     a(href='/dodaj-vino') Novo Vino
                 li
                     a(href='/zemlje') Pretraga po Zemljama
+                li
+                    a(href='/login') Prijava
+                li
+                    a(href='/register') Registracija
+            else
+                li
+                    a(href='/dodaj-vino') Novo Vino
+                li
+                    a(href='/zemlje') Pretraga po Zemljama
+                li
+                    a(href='/login') Prijava
+                li
+                    a(href='/register') Registracija
                 
             
             ul#dropdown1.dropdown-content

@@ -7,7 +7,8 @@ import '../sass/style.scss'
 $(document).ready(function () {
 
   $('.fixed-action-btn').floatingActionButton({
-    hoverEnabled: false
+    hoverEnabled: false,
+    direction: 'left'
   });
 
   $('.sidenav').sidenav();

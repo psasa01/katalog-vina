@@ -56,10 +56,10 @@
     display: block;
     background: white;
     position: absolute;
-    width: calc(100% - 16px);
-    height: calc(100% - 16px);
-    top: 8px;
-    left: 8px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
     z-index: -1;
     -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
             box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
@@ -117,7 +117,8 @@ select:-webkit-autofill:focus {
   background-color: rgba(121, 85, 72, 0.4);
   padding-left: .5em;
   padding-bottom: .2em;
-  text-align: left; }
+  text-align: left;
+  font-size: .7em !important; }
 
 .action-style {
   height: 3.2em; }
@@ -133,6 +134,9 @@ select:-webkit-autofill:focus {
 
 h2 {
   color: #795548; }
+
+h5 {
+  font-size: 1.2em !important; }
 
 .moja-kolekcija-vina {
   position: absolute !important;
@@ -245,9 +249,24 @@ button {
 .btn:hover {
   opacity: 0.9 !important; }
 
+.login-forma {
+  padding: 2em 0 !important; }
+
+.login-h4 {
+  font-size: 1.8em !important; }
+
+@media (max-width: 600px) {
+  .login-h4 {
+    font-size: 1.5em !important; } }
+
 .alk-i-boca {
   position: absolute !important;
   bottom: 2em !important; }
+
+.alk-i-boca-desno {
+  position: absolute !important;
+  bottom: 2em !important;
+  right: 5em !important; }
 
 .modal-datum {
   position: absolute;
@@ -263,5 +282,16 @@ button {
   color: #795548 !important;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+
+.user-image {
+  height: 3.5em !important;
+  margin-top: .4em !important; }
+
+.user-image-mobile {
+  height: 3.1em !important;
+  margin-top: .2em !important; }
+
+.flash__remove {
+  cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map*/

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const vinoController = require('../controllers/vinoController');
+const userController = require('../controllers/userController');
+const authController = require('../controllers/authController');
 
 
 const {
@@ -8,7 +10,11 @@ const {
 } = require('../handlers/errorHandlers');
 
 router.get('/', catchErrors(vinoController.prikaziVina));
-router.get('/dodaj-vino', vinoController.dodajVino);
+router.get('/dodaj-vino',
+authController.isLoggedIn, 
+vinoController.dodajVino
+);
+
 router.post('/dodaj-vino',
   vinoController.dodajSliku,
   vinoController.resize,
@@ -28,5 +34,20 @@ router.get('/vino/:id/uredi', catchErrors(vinoController.urediVino));
 
 router.get('/zemlje', catchErrors(vinoController.pretragaPoZemljama));
 router.get('/zemlje/:zemlja', catchErrors(vinoController.pretragaPoZemljama));
+
+router.get('/login', userController.login);
+router.post('/login', authController.login);
+
+router.get('/register', userController.registerForm);
+router.post('/register', 
+  userController.validateRegister,
+  userController.register,
+  authController.login
+)
+
+router.get('/logout', authController.logout);
+
+router.get('/racun', authController.isLoggedIn, userController.racun);
+router.post('/racun', catchErrors(userController.urediKorisnickiRacun));
 
 module.exports = router;

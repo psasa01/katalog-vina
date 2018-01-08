@@ -50,41 +50,39 @@ block content
                                         h5.brown-text.left-align= vino.zemlja
                             .tekst2 
                                     .col.l4.offset-l2
-                                        br
+                                        
                                         h5.brown-text.right-align Proizvođač:
                                         h5.brown-text.right-align Vrsta Vina:
-                                        br
+                                        
                                         
                                     .col.l6
-                                        br
+                                        
                                         h5.brown-text.left-align= vino.proizvodjac
                                         h5.brown-text.left-align= vino.vrsta
-                                        br
+                                       
                                         
                             
                             .tekst3 
                                     .col.l4.offset-l2
-                                        br
-                                        br
+                                        
                                         h5.brown-text.right-align Godina Berbe:
                                         
                                     .col.l6
-                                        br
-                                        br
+                                        
                                         h5.brown-text.left-align= vino.godina
                                         
                             .tekst4 
                                     .col.l4.offset-l2
                                         p.brown-text.left-align.alk-i-boca Procenat Alkohola: #{vino.alkohol}%
                                     .col.l6
-                                        p.brown-text.right-align.alk-i-boca Veličina Boce: #{vino.velicina} litara
+                                        p.brown-text.right-align.alk-i-boca-desno Veličina Boce: #{vino.velicina} litara
                     .modal-footer
                         - h.moment.locale('bs')
                             p.modal-datum dodao: #{h.moment(vino.datum).format('LL')} u #{h.moment().format('LT')}
                         
                         .fixed-action-btn.button-fab
                             a.btn-floating.btn-large.brown
-                                i.large.material-icons arrow_drop_up
+                                i.large.material-icons chevron_left
                             ul
                                 li
                                     a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)

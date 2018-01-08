@@ -71,6 +71,7 @@ exports.resize = async(req, res, next) => {
 };
 
 exports.snimiVino = async(req, res) => {
+  req.body.korisnik = req.user._id;
   const vino = new Vino(req.body);
   await vino.save();
   req.flash('success', 'Uspješno ste unijeli novo vino u bazu');

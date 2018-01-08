@@ -15,7 +15,7 @@ const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
-// require('./handlers/passport');
+require('./handlers/passport');
 
 // create Express app
 const app = express();
@@ -51,8 +51,8 @@ app.use(session({
 }));
 
 // passport.js
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // flash
 app.use(flash());
