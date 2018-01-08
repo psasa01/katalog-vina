@@ -80,7 +80,7 @@ exports.snimiVino = async(req, res) => {
 
 exports.prikaziVina = async(req, res) => {
   const vina = await Vino.find();
-  res.json(vina);
+
   res.render('vina', {
     title: "Kolekcija Vina",
     vina

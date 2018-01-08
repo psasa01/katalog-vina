@@ -41,19 +41,22 @@ mixin modal(vino = {})
                                     .col.l4.offset-l2
                                         p.brown-text.left-align.alk-i-boca Procenat Alkohola: #{vino.alkohol}%
                                     .col.l6
-                                        p.brown-text.right-align.alk-i-boca-right Veličina Boce: #{vino.velicina} litara
+                                        p.brown-text.right-align.alk-i-boca-desno Veličina Boce: #{vino.velicina} litara
+
+                                
                     .modal-footer
                         - h.moment.locale('bs')
-                            p.modal-datum dodao: #{h.moment(vino.datum).format('LL')} u #{h.moment().format('LT')}
-                        
-                        .fixed-action-btn.button-fab
-                            a.btn-floating.btn-large.brown
-                                i.large.material-icons chevron_left
-                            ul
-                                li
-                                    a.tooltipped.btn-floating.red(data-position="bottom" data-delay="50" data-tooltip="I am a tooltip" href=`/vino/${vino._id}/ukloni`)
-                                        i.material-icons clear
+                            p.modal-datum #{ime} dodao: #{h.moment(vino.datum).format('LL')} u #{h.moment().format('LT')}
+                            
+                        if user && vino.korisnik.equals(user._id)    
+                            .fixed-action-btn.button-fab
+                                a.btn-floating.btn-large.brown
+                                    i.large.material-icons chevron_left
+                                ul
+                                    li
+                                        a.tooltipped.btn-floating.red(data-position="bottom" data-delay="50" data-tooltip="I am a tooltip" href=`/vino/${vino._id}/ukloni`)
+                                            i.material-icons clear
                                             
-                                li
-                                    a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
-                                        i.material-icons mode_edit
+                                    li
+                                        a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
+                                            i.material-icons mode_edit

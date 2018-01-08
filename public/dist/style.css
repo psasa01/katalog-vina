@@ -90,6 +90,20 @@ select:-webkit-autofill:focus {
   -o-transition: background-color 5000s ease-in-out 0s !important;
   transition: background-color 5000s ease-in-out 0s !important; }
 
+.login-forma input:-webkit-autofill,
+.login-forma input:-webkit-autofill:hover,
+.login-forma input:-webkit-autofill:focus input:-webkit-autofill,
+.login-forma textarea:-webkit-autofill,
+.login-forma textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+.login-forma select:-webkit-autofill,
+.login-forma select:-webkit-autofill:hover,
+.login-forma select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #795548 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #efebe9 inset !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s !important;
+  -o-transition: background-color 5000s ease-in-out 0s !important;
+  transition: background-color 5000s ease-in-out 0s !important; }
+
 .spremi-button {
   position: absolute;
   bottom: -.4em; }

@@ -20,7 +20,7 @@ block content
                 
                 a.modal-trigger(href=`#${vino.slug}`)
                     .col.s12.m6.l3
-                        .card
+                        .card.z-depth-2
                             .card-image
                                 img(src=`/images/${vino.slika || '.public/images/slika.jpg'}`)
                                 .card-title.card-style
@@ -79,17 +79,19 @@ block content
                     .modal-footer
                         - h.moment.locale('bs')
                             p.modal-datum dodao: #{h.moment(vino.datum).format('LL')} u #{h.moment().format('LT')}
+
                         
-                        .fixed-action-btn.button-fab
-                            a.btn-floating.btn-large.brown
-                                i.large.material-icons chevron_left
-                            ul
-                                li
-                                    a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)
-                                        i.material-icons clear
-                                li
-                                    a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
-                                        i.material-icons mode_edit
+                        if user && vino.korisnik.equals(user._id)    
+                            .fixed-action-btn.button-fab
+                                a.btn-floating.btn-large.brown
+                                    i.large.material-icons chevron_left
+                                ul
+                                    li
+                                        a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)
+                                            i.material-icons clear
+                                    li
+                                        a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
+                                            i.material-icons mode_edit
                                 
                         
                         
