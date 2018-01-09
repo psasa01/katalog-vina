@@ -62,7 +62,8 @@ const vinoSchema = new mongoose.Schema({
         autopopulate: {
             select: 'ime'
         }
-    }
+    },
+    ime: String
 });
 
 // presave slug, prober function because we need to bind 'this'!!!

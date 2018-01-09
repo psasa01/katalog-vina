@@ -78,7 +78,7 @@ block content
                                         p.brown-text.right-align.alk-i-boca-desno Veličina Boce: #{vino.velicina} litara
                     .modal-footer
                         - h.moment.locale('bs')
-                            p.modal-datum dodao: #{h.moment(vino.datum).format('LL')} u #{h.moment().format('LT')}
+                            p.modal-datum Dodao #{vino.ime}, #{h.moment(vino.datum).format('LL')} u #{h.moment().format('LT')}
 
                         
                         if user && vino.korisnik.equals(user._id)    
