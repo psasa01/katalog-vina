@@ -313,7 +313,14 @@ button {
   top: .6em;
   height: 1em;
   width: 100%;
-  background: -o-linear-gradient(57deg, transparent, rgba(0, 0, 0, 0.233));
-  background: linear-gradient(33deg, transparent, rgba(0, 0, 0, 0.233)); }
+  background: -o-linear-gradient(57deg, transparent, transparent 25%, rgba(0, 0, 0, 0.25));
+  background: linear-gradient(33deg, transparent, transparent 25%, rgba(0, 0, 0, 0.25)); }
+
+.card-ime {
+  position: absolute;
+  right: .7em;
+  bottom: -1.1em;
+  font-size: .7em;
+  color: #d7ccc8; }
 
 /*# sourceMappingURL=style.css.map*/

@@ -50,4 +50,6 @@ router.get('/logout', authController.logout);
 router.get('/racun', authController.isLoggedIn, userController.racun);
 router.post('/racun', catchErrors(userController.urediKorisnickiRacun));
 
+
+
 module.exports = router;
