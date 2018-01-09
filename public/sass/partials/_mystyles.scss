@@ -274,3 +274,11 @@ button {
 .flash__remove {
     cursor: pointer;
 }
+
+.korisnik {
+    position: absolute;
+    top: .6em;
+    height: 1em;
+    width: 100%;
+    background: linear-gradient(33deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.233));
+}

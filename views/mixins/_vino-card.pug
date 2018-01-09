@@ -5,6 +5,7 @@ mixin vino-card(vino = {})
                 .card.z-depth-2
                     .card-image
                         img(src=`./images/${vino.slika || 'slika.jpg'}`)
+                        .korisnik
                         .card-title.card-style
                             p= vino.naziv
                     .card-action.brown.lighten-4.action-style
