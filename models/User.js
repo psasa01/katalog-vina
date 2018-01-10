@@ -23,6 +23,12 @@ const userSchema = new Schema({
             validator.isEmail,
             'Nažalost niste unijeli validnu email adresu!'
         ]
+    },
+    facebook: String,
+    tokens: Array,
+    slika: {
+        type: String,
+        default: ''
     }
 });
 

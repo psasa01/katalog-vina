@@ -3,6 +3,8 @@ const router = express.Router();
 const vinoController = require('../controllers/vinoController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const passport = require('passport');
+const passportConfig = require('../handlers/passport');
 
 
 const {
@@ -55,6 +57,13 @@ router.get('/logout', authController.logout);
 
 router.get('/racun', authController.isLoggedIn, userController.racun);
 router.post('/racun', catchErrors(userController.urediKorisnickiRacun));
+
+router.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
+router.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/',
+  successFlash: `Uspješno ste se prijavili putem Facebooka. Dobrodošli`,
+  failureRedirect: '/login'
+}))
 
 
 

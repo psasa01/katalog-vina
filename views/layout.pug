@@ -45,12 +45,12 @@ html(lang="en")
                                     a(href='/logout') Odjava
                                 li
                                     a(href=('/racun'))
-                                        img.circle.responsive-img.user-image(src=user.gravatar)
+                                        img.circle.responsive-img.user-image(src=user.slika || user.gravatar)
         ul#mobile-demo.sidenav
             if user 
                 li
                     a(href=('/racun'))
-                        img.circle.responsive-img.user-image-mobile(src=user.gravatar)
+                        img.circle.responsive-img.user-image-mobile(src=user.slika || user.gravatar)
                         
                 li.divider
                 li
