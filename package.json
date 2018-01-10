@@ -25,7 +25,6 @@
     "md5": "^2.2.1",
     "moment": "^2.20.1",
     "mongoose": "^5.0.0-rc1",
-    "mongoose-autopopulate": "^0.6.0",
     "mongoose-mongodb-errors": "0.0.2",
     "mongoose-strip-html-tags": "0.0.1",
     "multer": "^1.3.0",

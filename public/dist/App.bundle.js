@@ -101,7 +101,7 @@ $(document).ready(function () {
 /* 1 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module parse failed: Unexpected character '@' (1:0)\nYou may need an appropriate loader to handle this file type.\n| @import 'partials/variables';\r\n| @import 'partials/flashes';\r\n| @import 'partials/mystyles';");
 
 /***/ })
 /******/ ]);
