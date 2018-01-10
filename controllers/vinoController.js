@@ -112,3 +112,33 @@ exports.pretragaPoZemljama = async(req, res) => {
   });
 
 };
+
+exports.pretragaPoVrstama = async(req, res) => {
+  const vrsta = req.params.vrsta;
+  const vrstaPromise = Vino.popisVrsti();
+  const vinoPromise = Vino.find({
+    vrsta
+  });
+  const [vrste, vina] = await Promise.all([vrstaPromise, vinoPromise]);
+  res.render('vrste', {
+    title: 'Pretraga po vrstama',
+    vrsta,
+    vrste,
+    vina
+  });
+};
+
+exports.pretragaPoKorisnicima = async(req, res) => {
+  const korisnik = req.params.korisnik;
+  const korisnikPromise = Vino.popisKorisnika();
+  const vinoPromise = Vino.find({
+    ime: korisnik
+  });
+  const [korisnici, vina] = await Promise.all([korisnikPromise, vinoPromise]);
+  res.render('korisnici', {
+    title: 'Pretraga po korisnicima',
+    korisnik,
+    korisnici,
+    vina
+  });
+};

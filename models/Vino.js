@@ -98,6 +98,45 @@ vinoSchema.statics.listaZemalja = function () {
     ]);
 };
 
+vinoSchema.statics.popisVrsti = function () {
+    return this.aggregate([{
+            $unwind: '$vrsta'
+        },
+        {
+            $group: {
+                _id: '$vrsta',
+                count: {
+                    $sum: 1
+                }
+            }
+        },
+        {
+            $sort: {
+                _id: 1
+            }
+        }
+    ]);
+};
+
+vinoSchema.statics.popisKorisnika = function () {
+    return this.aggregate([{
+            $unwind: '$ime'
+        },
+        {
+            $group: {
+                _id: '$ime',
+                count: {
+                    $sum: 1
+                }
+            }
+        },
+        {
+            $sort: {
+                _id: 1
+            }
+        }
+    ]);
+};
 
 
 module.exports = mongoose.model('Vino', vinoSchema);

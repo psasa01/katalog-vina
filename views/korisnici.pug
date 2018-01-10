@@ -8,9 +8,9 @@ block content
             hr
 
                      
-            each zemlja in zemlje
-                a(href=`/zemlje/${zemlja._id}`) 
-                    Button.btn.waves-effect.waves-light.btn-zemlja.brown #{zemlja._id} - (#{zemlja.count}) 
+            each korisnik in korisnici
+                a(href=`/korisnici/${korisnik._id}`) 
+                    Button.btn.waves-effect.waves-light.btn-zemlja.brown #{korisnik._id} - (#{korisnik.count}) 
                      
            
             br

@@ -35,6 +35,12 @@ router.get('/vino/:id/uredi', catchErrors(vinoController.urediVino));
 router.get('/zemlje', catchErrors(vinoController.pretragaPoZemljama));
 router.get('/zemlje/:zemlja', catchErrors(vinoController.pretragaPoZemljama));
 
+router.get('/vrste', catchErrors(vinoController.pretragaPoVrstama));
+router.get('/vrste/:vrsta', catchErrors(vinoController.pretragaPoVrstama));
+
+router.get('/korisnici', catchErrors(vinoController.pretragaPoKorisnicima));
+router.get('/korisnici/:korisnik', catchErrors(vinoController.pretragaPoKorisnicima));
+
 router.get('/login', userController.login);
 router.post('/login', authController.login);
 
