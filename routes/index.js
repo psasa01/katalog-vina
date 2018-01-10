@@ -13,8 +13,8 @@ const {
 
 router.get('/', catchErrors(vinoController.prikaziVina));
 router.get('/dodaj-vino',
-authController.isLoggedIn, 
-vinoController.dodajVino
+  authController.isLoggedIn,
+  vinoController.dodajVino
 );
 
 router.post('/dodaj-vino',
@@ -47,7 +47,7 @@ router.get('/login', userController.login);
 router.post('/login', authController.login);
 
 router.get('/register', userController.registerForm);
-router.post('/register', 
+router.post('/register',
   userController.validateRegister,
   userController.register,
   authController.login
@@ -58,7 +58,9 @@ router.get('/logout', authController.logout);
 router.get('/racun', authController.isLoggedIn, userController.racun);
 router.post('/racun', catchErrors(userController.urediKorisnickiRacun));
 
-router.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
+router.get('/auth/facebook', passport.authenticate('facebook', {
+  scope: 'email'
+}));
 router.get('/auth/facebook/callback', passport.authenticate('facebook', {
   successRedirect: '/',
   successFlash: `Uspješno ste se prijavili putem Facebooka. Dobrodošli`,
