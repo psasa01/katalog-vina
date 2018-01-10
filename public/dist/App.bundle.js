@@ -84,6 +84,7 @@ $(document).ready(function () {
   $('.dropdown-trigger').dropdown({
     hover: true,
     belowOrigin: true
+
   });
 
   $('.button-collapse').sideNav({

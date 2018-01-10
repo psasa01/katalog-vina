@@ -313,14 +313,18 @@ button {
   top: .6em;
   height: 1em;
   width: 100%;
-  background: -o-linear-gradient(57deg, transparent, transparent 25%, rgba(0, 0, 0, 0.25));
-  background: linear-gradient(33deg, transparent, transparent 25%, rgba(0, 0, 0, 0.25)); }
+  background: -o-linear-gradient(310deg, transparent, transparent 25%, rgba(0, 0, 0, 0.25));
+  background: linear-gradient(140deg, transparent, transparent 25%, rgba(0, 0, 0, 0.25)); }
 
 .card-ime {
   position: absolute;
   right: .7em;
   bottom: -1.1em;
   font-size: .7em;
-  color: #d7ccc8; }
+  color: #bcaaa4; }
+
+.dropdown-content,
+.dropdown-content li {
+  top: 3.5em !important; }
 
 /*# sourceMappingURL=style.css.map*/

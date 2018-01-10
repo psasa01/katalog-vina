@@ -31,7 +31,7 @@ html(lang="en")
                             // Dropdown Trigger
                             li
                                 a.dropdown-trigger(href='#!' data-target='dropdown1')
-                                    | Pretraga
+                                    | Pretraga po
                                     i.material-icons.right arrow_drop_down
                             
                             if !user
@@ -73,7 +73,13 @@ html(lang="en")
             
             ul#dropdown1.dropdown-content
                 li
-                    a(href='/zemlje') Pretraga po zemljama
+                    a(href='/zemlje') Zemljama
+                li.divider
+                li
+                    a(href='/zemlje') Vrstama
+                li.divider
+                li
+                    a(href='/zemlje') Korisnicima
                 li.divider
 
         block messages
