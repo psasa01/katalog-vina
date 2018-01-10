@@ -16,8 +16,13 @@ mixin login-form
                             label(for='password') Šifra
                         .col.s10.offset-s1
                             br
-                            button.btn.btn-large.waves-effect.waves-light.col.s12.brown(type='submit' name='login') Prijava
-                            a(href='/auth/facebook') Facebook
+                            row
+                                button.btn.btn-large.waves-effect.waves-light.col.s12.brown.btn-prijava(type='submit' name='login') Prijava
+                                a.btn.btn-large.waves-effect.waves-light.col.s12.blue.darken-4.btn-fb(href='/auth/facebook') 
+                                    .fa.fa-facebook.fa-2x  
+                                    | acebook prijava
+                            
+                                    
                         .col.s10.offset-s1
                             label(style='float: right;')
                                 br

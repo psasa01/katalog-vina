@@ -327,4 +327,12 @@ button {
 .dropdown-content li {
   top: 3.5em !important; }
 
+#spinner {
+  display: none;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  z-index: 999999;
+  color: brown; }
+
 /*# sourceMappingURL=style.css.map*/
