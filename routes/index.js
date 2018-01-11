@@ -69,5 +69,7 @@ router.get('/auth/facebook/callback', passport.authenticate('facebook', {
 
 router.get('/admin', catchErrors(userController.adminPanel));
 
+router.get('/admin/oduzmi/:id', catchErrors(userController.oduzmiAdminPrava));
+router.get('/admin/dodijeli/:id', catchErrors(userController.dodijeliAdminPrava));
 
 module.exports = router;

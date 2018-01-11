@@ -99,3 +99,29 @@ exports.adminPanel = async(req, res) => {
         korisnici
     });
 };
+
+exports.oduzmiAdminPrava = async(req, res) => {
+    const user = await User.findOneAndUpdate({
+        _id: req.params.id
+    }, {
+        level: 30
+    }, {
+        new: true,
+        runValidators: true
+    });
+    req.flash('success', `Uspješno ste oduzeli administratorska prava korisniku ${user.ime}`);
+    res.redirect('back');
+}
+
+exports.dodijeliAdminPrava = async(req, res) => {
+    const user = await User.findOneAndUpdate({
+        _id: req.params.id
+    }, {
+        level: 10
+    }, {
+        new: true,
+        runValidators: true
+    });
+    req.flash('success', `Uspješno ste dodjelili administratorska prava korisniku ${user.ime}`);
+    res.redirect('back');
+}

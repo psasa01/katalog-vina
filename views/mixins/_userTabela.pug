@@ -24,7 +24,7 @@ mixin userTabela(korisnik = {})
                     td= korisnik.email
                     td
                         - h.moment.locale('bs')
-                            p #{h.moment(korisnik.registrovan).format('ll')}
+                            p #{h.moment(korisnik.registrovan).format('ll')}, #{h.moment(korisnik.registrovan).format('LT')}
 
                     td= korisnik.brojVina
 
@@ -37,11 +37,13 @@ mixin userTabela(korisnik = {})
 
                     if user.level == 1
                         if korisnik.level > 10
-                            td.right    
-                                button.indigo.lighten-1 Dodijeli admin prava   
+                            td.right
+                                a(href=`/admin/dodijeli/${korisnik._id}`)    
+                                    button.indigo.lighten-1 Dodijeli admin prava   
                         else if korisnik.level < 11 && korisnik.level > 1
                             td.right
-                                button.red.lighten-1 Oduzmi admin prava        
+                                a(href=`/admin/oduzmi/${korisnik._id}`)
+                                    button.red.lighten-1 Oduzmi admin prava        
                         else
                             td.right 
                     else
