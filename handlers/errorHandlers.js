@@ -1,3 +1,5 @@
+// errorHandlers file by Wes Bos from Learn Node tutorial
+
 /*
   Catch Errors Handler
 

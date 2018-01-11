@@ -17,11 +17,12 @@ mixin login-form
                         .col.s10.offset-s1
                             br
                             row
-                                button.btn.btn-large.waves-effect.waves-light.col.s12.brown.btn-prijava(type='submit' name='login') Prijava
-                                a.btn.btn-large.waves-effect.waves-light.col.s12.blue.darken-4.btn-fb(href='/auth/facebook') 
-                                    .fa.fa-facebook.fa-2x  
-                                    | acebook prijava
-                            
+                                a#btn-reg.btn.btn-large.waves-effect.waves-light.col.s12.m5.l4.blue.darken-4.right(href='/auth/facebook') 
+                                    | Facebook prijava  
+                                a#btn-reg.btn.btn-large.waves-effect.waves-light.col.s12.m5.l4.brown.right(type='submit' name='login') 
+                                    | Prijava  
+
+                                
                                     
                         .col.s10.offset-s1
                             label(style='float: right;')

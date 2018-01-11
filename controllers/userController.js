@@ -41,6 +41,14 @@ exports.validateRegister = (req, res, next) => {
 }
 
 exports.register = async(req, res, next) => {
+    const userFind = await User.findOne({
+        email: req.body.email
+    });
+    if(userFind) {
+        req.flash('error', 'Korisnik s navedenom email adresom već postoji!');
+        res.redirect('/register');
+        
+    } else {
     const user = new User({
         email: req.body.email,
         ime: req.body.name
@@ -50,6 +58,7 @@ exports.register = async(req, res, next) => {
     await register(user, req.body.password);
 
     next();
+}
 };
 
 exports.racun = (req, res) => {

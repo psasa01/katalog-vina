@@ -33,6 +33,10 @@ const userSchema = new Schema({
     slika: {
         type: String,
         default: ''
+    },
+    level: {
+        type: Number,
+        default: 30
     }
 });
 

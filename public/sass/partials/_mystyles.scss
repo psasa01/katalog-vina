@@ -6,6 +6,7 @@ textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
+    box-shadow:  0 0 0px 1000px $brownLighten4 inset !important;
     -webkit-text-fill-color: $brown !important;
     -webkit-box-shadow: 0 0 0px 1000px $brownLighten4 inset !important;
     transition: background-color 5000s ease-in-out 0s !important;
@@ -19,6 +20,7 @@ select:-webkit-autofill:focus {
 .login-forma select:-webkit-autofill,
 .login-forma select:-webkit-autofill:hover,
 .login-forma select:-webkit-autofill:focus {
+    box-shadow: 0 0 0px 1000px $brownLighten5 inset !important;
     -webkit-text-fill-color: $brown !important;
     -webkit-box-shadow: 0 0 0px 1000px $brownLighten5 inset !important;
     transition: background-color 5000s ease-in-out 0s !important;
@@ -140,8 +142,12 @@ input.file-path.validate.valid[type=text] {
     height: 90% !important;
 }
 
+@media (max-width: 600px) {
+    height: 100% !important;
+}
+
 .modal-footer {
-    height: 6em !important;
+    height: 3em !important;
 }
 
 #ukloni-modal {
@@ -165,22 +171,24 @@ input.file-path.validate.valid[type=text] {
 
 @media (max-width: 600px) {
     .grid-container {
-        grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4] 1fr [c5] 1fr [c6] 1fr;
-        grid-template-rows: [r1] 15fr [r2] 15fr [r3] 1fr [r4] 1fr [r5] 1fr [r6] 1fr;
-        grid-template-areas: "slika slika slika slika slika slika" "slika slika slika slika slika slika" "tekst1 tekst1 tekst1 tekst1 tekst1 tekst1" "tekst2 tekst2 tekst2 tekst2 tekst2 tekst2" "tekst3 tekst3 tekst3 tekst3 tekst3 tekst3" "tekst4 tekst4 tekst4 tekst4 tekst4 tekst4";
+        grid-template-columns: [c1] 1fr [c2] 1fr;
+        grid-template-rows: [r1] 1fr [r2] 1fr [r3] 1fr [r4] 1fr;
+        grid-template-areas: "tekst1 tekst1" "tekst2 tekst2" "tekst3 tekst3" "tekst4 tekst4";
         height: 100%;
     }
 }
 
 @media (max-width: 600px) {
-    .modal-slika {
-        width: 100%;
+    .slika {
+        display: none;
     }
 }
 
 .slika {
     grid-area: slika;
 }
+
+
 
 .tekst1 {
     grid-area: tekst1;
@@ -199,6 +207,8 @@ input.file-path.validate.valid[type=text] {
 
 .tekst4 {
     grid-area: tekst4;
+    display: flex;
+    
 }
 
 .modal-slika {
@@ -234,14 +244,14 @@ button {
 }
 
 .alk-i-boca {
-    position: absolute !important;
-    bottom: 2em !important;
+    
+    bottom: 0em !important;
 }
 
 .alk-i-boca-desno {
-    position: absolute !important;
-    bottom: 2em !important;
-    right: 5em !important;
+    
+    bottom: 0em !important;
+    
 }
 
 .modal-datum {
@@ -303,4 +313,8 @@ button {
     top: 50%;
     z-index: 999999;
     color: brown;
+}
+
+#btn-reg {
+    margin: 2px;
 }

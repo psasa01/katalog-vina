@@ -6,7 +6,7 @@ html(lang="en")
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css')
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
         
-
+        
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
@@ -51,12 +51,22 @@ html(lang="en")
                                     a(href='/login') Prijava
                                 li
                                     a(href='/register') Registracija
-                            else
+                            else if user.level != 1
                                 li
                                     a(href='/logout') Odjava
                                 li
                                     a(href=('/racun'))
                                         img.circle.responsive-img.user-image(src=user.slika || user.gravatar)
+                            else if user.level = 1
+                                li  
+                                    a(href='#') Admin
+                                li
+                                    a(href='/logout') Odjava
+                                li
+                                    a(href=('/racun'))
+                                        img.circle.responsive-img.user-image(src=user.slika || user.gravatar)
+
+                            
         ul#mobile-demo.sidenav
             if user 
                 li
