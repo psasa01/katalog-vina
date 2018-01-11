@@ -2,9 +2,11 @@
 html(lang="en")
     head
         title= `${title} | ${h.siteName}`
+        link(rel='icon' type='image/png' href='./images/favicon-32.png' sizes='32x32')
         link(rel='stylesheet', href='/dist/style.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css')
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+        link(rel='icon' type='image/png' href='./public/images/favicon-32.png' sizes='32x32')
         
         
         meta(charset="UTF-8")
@@ -34,7 +36,7 @@ html(lang="en")
                             
                         a.sidenav-trigger(href='#' data-target='mobile-demo')
                             i.material-icons menu
-                        ul.right.hide-on-med-and-down
+                        ul.right.hide-on-med-and-down.right-margin
                             li
                                 a(href='/dodaj-vino') Novo Vino
                             
@@ -51,20 +53,24 @@ html(lang="en")
                                     a(href='/login') Prijava
                                 li
                                     a(href='/register') Registracija
-                            else if user.level != 1
+                            else if user.level > 11
                                 li
                                     a(href='/logout') Odjava
                                 li
                                     a(href=('/racun'))
                                         img.circle.responsive-img.user-image(src=user.slika || user.gravatar)
-                            else if user.level = 1
+                                li= user.ime 
+                                    | &nbsp;&nbsp;
+                            else if user.level < 11
                                 li  
-                                    a(href='#') Admin
+                                    a(href='/admin') Admin
                                 li
                                     a(href='/logout') Odjava
                                 li
                                     a(href=('/racun'))
                                         img.circle.responsive-img.user-image(src=user.slika || user.gravatar)
+                                li= user.ime 
+                                    | &nbsp;&nbsp;
 
                             
         ul#mobile-demo.sidenav

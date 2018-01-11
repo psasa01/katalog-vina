@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Vino = mongoose.model('Vino');
+const User = mongoose.model('User');
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
@@ -59,23 +60,39 @@ exports.dodajSliku = multer(multerOptions).single('slika');
 exports.resize = async(req, res, next) => {
   // check if there is no file to resize
   if (!req.file) {
-    next();
+    return next();
   }
   const extension = req.file.mimetype.split('/')[1];
   req.body.slika = `${uuid.v4()}.${extension}`;
   // resize
   const slika = await jimp.read(req.file.buffer);
-  await slika.resize(jimp.AUTO, 800);
-  await slika.write(`./public/images/${req.body.slika}`);
+  const resize = slika.resize(jimp.AUTO, 800);
+  const write = slika.write(`./public/images/${req.body.slika}`);
+  Promise.all([resize, write]);
   next();
 };
 
 exports.snimiVino = async(req, res) => {
 
+  const userPromise = User.findOneAndUpdate({
+    ime: req.user.ime
+  }, {
+    brojVina: req.user.brojVina + 1
+  }, {
+    new: true,
+    runValidators: true
+  }).exec();
+
+
+
   req.body.korisnik = req.user._id;
   const vino = new Vino(req.body);
   vino.ime = req.user.ime;
-  await vino.save();
+
+  const vinoPromise = vino.save();
+
+  Promise.all([vinoPromise, userPromise]);
+
   req.flash('success', 'Uspješno ste unijeli novo vino u bazu');
   res.redirect('/');
 }
@@ -90,10 +107,21 @@ exports.prikaziVina = async(req, res) => {
 }
 
 exports.ukloniVino = async(req, res) => {
+
+  const user = await User.findOneAndUpdate({
+    ime: req.user.ime
+  }, {
+    brojVina: req.user.brojVina - 1
+  }, {
+    new: true,
+    runValidators: true
+  }).exec();
+
   const vino = await Vino.findOneAndRemove({
     _id: req.params.id
   });
-  req.flash('error', `Uspješno ste uklonili <strong>${vino.naziv}</strong> iz kataloga!`);
+
+  req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);
   res.redirect('/');
 }
 

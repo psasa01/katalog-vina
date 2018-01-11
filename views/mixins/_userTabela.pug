@@ -1,0 +1,51 @@
+mixin userTabela(korisnik = {})
+
+    
+
+    table.bordered.highlight.responsive-table
+        thead
+            tr
+                td 
+                    strong Korisničko ime
+                td 
+                    strong Korisnički Email
+                td 
+                    strong Registrovan
+                td 
+                    strong Broj vina
+                td 
+                    strong Uloga
+                td.right 
+        each korisnik in korisnici
+
+            tbody
+                tr  
+                    td= korisnik.ime
+                    td= korisnik.email
+                    td
+                        - h.moment.locale('bs')
+                            p #{h.moment(korisnik.registrovan).format('ll')}
+
+                    td= korisnik.brojVina
+
+                    if korisnik.level == 1
+                        td Glavni Admin
+                    else if korisnik.level < 11
+                        td Admin
+                    else    
+                        td User
+
+                    if user.level == 1
+                        if korisnik.level > 10
+                            td.right    
+                                button.indigo.lighten-1 Dodijeli admin prava   
+                        else if korisnik.level < 11 && korisnik.level > 1
+                            td.right
+                                button.red.lighten-1 Oduzmi admin prava        
+                        else
+                            td.right 
+                    else
+                        
+                        
+                            
+                    

@@ -260,8 +260,10 @@ input.file-path.validate.valid[type=text] {
   width: auto;
   height: 100%; }
 
-button {
-  margin-bottom: .3em !important; }
+tr button {
+  margin-bottom: .3em !important;
+  color: #d7ccc8 !important;
+  cursor: pointer; }
 
 .btn {
   -webkit-transition: .6s ease !important;
@@ -342,5 +344,19 @@ button {
 
 #btn-reg {
   margin: 2px; }
+
+tr {
+  height: 20px !important;
+  line-height: .01em !important;
+  margin: 0 !important;
+  padding: 0 !important; }
+
+.right-margin {
+  position: absolute !important;
+  right: 3em !important; }
+
+@media (max-width: 1100px) {
+  table {
+    font-size: .8em !important; } }
 
 /*# sourceMappingURL=style.css.map*/

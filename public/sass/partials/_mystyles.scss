@@ -6,7 +6,7 @@ textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    box-shadow:  0 0 0px 1000px $brownLighten4 inset !important;
+    box-shadow: 0 0 0px 1000px $brownLighten4 inset !important;
     -webkit-text-fill-color: $brown !important;
     -webkit-box-shadow: 0 0 0px 1000px $brownLighten4 inset !important;
     transition: background-color 5000s ease-in-out 0s !important;
@@ -188,8 +188,6 @@ input.file-path.validate.valid[type=text] {
     grid-area: slika;
 }
 
-
-
 .tekst1 {
     grid-area: tekst1;
 }
@@ -208,7 +206,6 @@ input.file-path.validate.valid[type=text] {
 .tekst4 {
     grid-area: tekst4;
     display: flex;
-    
 }
 
 .modal-slika {
@@ -217,8 +214,10 @@ input.file-path.validate.valid[type=text] {
     ;
 }
 
-button {
+tr button {
     margin-bottom: .3em !important;
+    color: $brownLighten4 !important;
+    cursor: pointer;
 }
 
 .btn {
@@ -244,14 +243,11 @@ button {
 }
 
 .alk-i-boca {
-    
     bottom: 0em !important;
 }
 
 .alk-i-boca-desno {
-    
     bottom: 0em !important;
-    
 }
 
 .modal-datum {
@@ -317,4 +313,22 @@ button {
 
 #btn-reg {
     margin: 2px;
+}
+
+tr {
+    height: 20px !important;
+    line-height: .01em !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.right-margin {
+    position: absolute !important;
+    right: 3em !important;
+}
+
+@media (max-width: 1100px) {
+    table {
+        font-size: .8em !important;
+    }
 }

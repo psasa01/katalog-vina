@@ -1,0 +1,12 @@
+extends layout
+include mixins/_userTabela
+
+block content
+
+    .container
+        .row
+            h2= title
+
+        .row.col.l12
+            +userTabela
+            

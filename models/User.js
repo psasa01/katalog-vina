@@ -37,6 +37,14 @@ const userSchema = new Schema({
     level: {
         type: Number,
         default: 30
+    },
+    brojVina: {
+        type: Number,
+        default: 0
+    },
+    registrovan: {
+        type: Date,
+        default: Date.now()
     }
 });
 

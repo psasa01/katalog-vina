@@ -67,6 +67,7 @@ router.get('/auth/facebook/callback', passport.authenticate('facebook', {
   failureRedirect: '/login'
 }))
 
+router.get('/admin', catchErrors(userController.adminPanel));
 
 
 module.exports = router;

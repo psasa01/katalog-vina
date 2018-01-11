@@ -63,7 +63,9 @@ const vinoSchema = new mongoose.Schema({
             select: 'ime'
         }
     },
-    ime: String
+    ime: {
+        type: String
+    }
 });
 
 // presave slug, prober function because we need to bind 'this'!!!
@@ -100,7 +102,10 @@ vinoSchema.statics.listaZemalja = function () {
 
 vinoSchema.statics.popisVrsti = function () {
     return this.aggregate([{
-            $unwind: '$vrsta'
+            $unwind: {
+                path: '$vrsta',
+
+            }
         },
         {
             $group: {
@@ -120,7 +125,10 @@ vinoSchema.statics.popisVrsti = function () {
 
 vinoSchema.statics.popisKorisnika = function () {
     return this.aggregate([{
-            $unwind: '$ime'
+            $unwind: {
+                path: '$ime',
+                preserveNullAndEmptyArrays: true
+            }
         },
         {
             $group: {

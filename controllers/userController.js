@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const Vino = mongoose.model('Vino');
 const promisify = require('es6-promisify');
+
 
 exports.login = (req, res) => {
     res.render('login', {
@@ -44,21 +46,21 @@ exports.register = async(req, res, next) => {
     const userFind = await User.findOne({
         email: req.body.email
     });
-    if(userFind) {
+    if (userFind) {
         req.flash('error', 'Korisnik s navedenom email adresom već postoji!');
         res.redirect('/register');
-        
+
     } else {
-    const user = new User({
-        email: req.body.email,
-        ime: req.body.name
-    });
+        const user = new User({
+            email: req.body.email,
+            ime: req.body.name
+        });
 
-    const register = promisify(User.register, User);
-    await register(user, req.body.password);
+        const register = promisify(User.register, User);
+        await register(user, req.body.password);
 
-    next();
-}
+        next();
+    }
 };
 
 exports.racun = (req, res) => {
@@ -83,4 +85,17 @@ exports.urediKorisnickiRacun = async(req, res) => {
     });
     req.flash('success', `Uspješno ste promjenili podatke za korisnika: ${user.ime}`);
     res.redirect('/');
+};
+
+exports.adminPanel = async(req, res) => {
+    const korisnici = await User.find().sort([
+        ['level', 'ascending']
+    ]);
+
+
+
+    res.render('admin', {
+        title: 'Admin Panel',
+        korisnici
+    });
 };
