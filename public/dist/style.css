@@ -359,4 +359,10 @@ tr {
   table {
     font-size: .8em !important; } }
 
+.nav-slika:hover {
+  background-color: rgba(255, 0, 0, 0); }
+
+hr {
+  opacity: .5; }
+
 /*# sourceMappingURL=style.css.map*/

@@ -45,6 +45,13 @@ const userSchema = new Schema({
     registrovan: {
         type: Date,
         default: Date.now()
+    },
+    secretToken: {
+        type: String
+    },
+    active: {
+        type: Boolean,
+        default: false
     }
 });
 

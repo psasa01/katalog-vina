@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Vino = mongoose.model('Vino');
 const promisify = require('es6-promisify');
-
+const randomstring = require('randomstring');
+const mailer = require('../handlers/mailer');
 
 exports.login = (req, res) => {
+    console.log(req.body);
     res.render('login', {
         title: 'Login'
     });
@@ -49,12 +51,30 @@ exports.register = async(req, res, next) => {
     if (userFind) {
         req.flash('error', 'Korisnik s navedenom email adresom već postoji!');
         res.redirect('/register');
-
     } else {
+
+        // secret token
+        const secretToken = randomstring.generate();
         const user = new User({
             email: req.body.email,
-            ime: req.body.name
+            ime: req.body.name,
+            secretToken,
         });
+
+        const html = `
+            Poštovani,
+            <br>
+            zahvaljujemo Vam se na registraciji. Da biste aktivirali korisnički račun potrebno je da pratite link ispod, 
+            te unesete aktivacijski kod!
+            <br>
+            Aktivacijski kod: ${secretToken}
+            <br>
+            <a href="http://localhost:7777/aktivacija"> Aktiviraj korisnički račun </a>
+            <br>
+            <br>
+            Zelimo Vam ugodan dan!`
+
+        await mailer.sendEmail('admin@mojakolekcijavina.com', user.email, 'Molimo Vas da verifikujete zahtjev za registraciju na www.mojakolekcijavina.com', html);
 
         const register = promisify(User.register, User);
         await register(user, req.body.password);
@@ -124,4 +144,45 @@ exports.dodijeliAdminPrava = async(req, res) => {
     });
     req.flash('success', `Uspješno ste dodjelili administratorska prava korisniku ${user.ime}`);
     res.redirect('back');
+};
+
+exports.reset = (req, res) => {
+    res.render('reset', {
+        title: 'Resetirajte korisničku šifru'
+    });
+};
+
+exports.resetEmailForm = async(req, res) => {
+    const user = await User.findOne({
+        email: req.body.reset  
+    });    
+
+    if(!user) {
+        req.flash('error', 'Korisnik s navedenim emailom ne postoji u bazi!. Molimo registrujte se.');
+        res.redirect('/register')
+    } else {
+        const html = `
+        Poštovani,
+        <br>
+        ovaj email je odgovor na Vaš zahtjev za promjenom šifre na stranici mojaKolekcijaVina. 
+        <br>
+        Da biste promjenili šifru pratite slijedeći link.
+        <br>
+        <br>
+        <a href="http://localhost:7777/reset-pass"> Promjena šifre </a>
+        <br>
+        <br>
+        Ukoliko niste zatražili promjenu šifre ignorišite ovaj email.
+        <br>
+        <br>
+        Želimo Vam ugodan dan!`
+
+        await mailer.sendEmail('admin@mojakolekcijavina.com', user.email, 'Poslali ste zahtjev za promjenu šifre na mojaKolekcijaVina', html);
+        req.flash('success', 'Poslali smo Vam email sa potrebnim podacima za promjenu šifre.');
+        res.redirect('/');
+    };
+};
+
+exports.promjenaSifre = async (req, res) => {
+    
 }

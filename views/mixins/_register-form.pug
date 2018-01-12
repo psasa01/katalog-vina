@@ -6,9 +6,11 @@ mixin register-form
             br
             .z-depth-3.brown.lighten-5.col.s12.login-forma
                 form(action="/register" method="POST")
-                    .col.s10.offset-s1
-                        h4.login-h4.brown-text.center-align.col.s10.offset-s1 Molimo unesite podatke za registraciju
-                    .col.s12
+                    
+                    h4.login-h4.brown-text.center-align.col.s10.offset-s1 Molimo unesite podatke za registraciju
+                        hr
+                           
+               
                         
                         .input-field.col.s10.offset-s1
                             input#ime.validate(type='text' name="name")

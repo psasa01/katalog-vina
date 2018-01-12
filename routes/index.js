@@ -44,12 +44,13 @@ router.get('/korisnici', catchErrors(vinoController.pretragaPoKorisnicima));
 router.get('/korisnici/:korisnik', catchErrors(vinoController.pretragaPoKorisnicima));
 
 router.get('/login', userController.login);
-router.post('/login', authController.login);
+router.post('/login', catchErrors(authController.isActive), authController.login);
 
 router.get('/register', userController.registerForm);
 router.post('/register',
   userController.validateRegister,
   userController.register,
+  authController.isActive,
   authController.login
 )
 
@@ -71,5 +72,12 @@ router.get('/admin', catchErrors(userController.adminPanel));
 
 router.get('/admin/oduzmi/:id', catchErrors(userController.oduzmiAdminPrava));
 router.get('/admin/dodijeli/:id', catchErrors(userController.dodijeliAdminPrava));
+
+router.get('/aktivacija', authController.aktivacija);
+router.post('/aktivacija', catchErrors(authController.aktiviraj));
+
+router.get('/reset', userController.reset);
+router.post('/reset-email-form', catchErrors(userController.resetEmailForm));
+router.post('/reset-password-form', catchErrors(userController.promjenaSifre));
 
 module.exports = router;

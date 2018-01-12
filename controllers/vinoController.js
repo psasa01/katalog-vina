@@ -133,7 +133,7 @@ exports.pretragaPoZemljama = async(req, res) => {
   });
   const [zemlje, vina] = await Promise.all([zemljaPromise, vinoPromise]);
   res.render('zemlje', {
-    title: 'Pretraga po zemljama',
+    title: 'Pregled vina po zemljama',
     zemlja,
     zemlje,
     vina
@@ -149,7 +149,7 @@ exports.pretragaPoVrstama = async(req, res) => {
   });
   const [vrste, vina] = await Promise.all([vrstaPromise, vinoPromise]);
   res.render('vrste', {
-    title: 'Pretraga po vrstama',
+    title: 'Pregled vina po vrstama',
     vrsta,
     vrste,
     vina
@@ -164,7 +164,7 @@ exports.pretragaPoKorisnicima = async(req, res) => {
   });
   const [korisnici, vina] = await Promise.all([korisnikPromise, vinoPromise]);
   res.render('korisnici', {
-    title: 'Pretraga po korisnicima',
+    title: 'Pregled vina po korisnicima',
     korisnik,
     korisnici,
     vina
