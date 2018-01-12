@@ -68,16 +68,23 @@ const vinoSchema = new mongoose.Schema({
     }
 });
 
-// presave slug, prober function because we need to bind 'this'!!!
-vinoSchema.pre('save', function (next) {
+// presave slug, proper function because we need to bind 'this'!!!
+vinoSchema.pre('save', async function (next) {
     // if no changes, exit (return)
     if (!this.isModified('naziv')) {
         return next(); // stop function 
     }
     this.slug = slug(this.naziv);
-    this.slugZemlja = slug(this.zemlja);
-    next();
+    // this.slugZemlja = slug(this.zemlja);
+    // next();
     // make unique slugs
+    const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)`, 'i');
+    const vinaSlug = await this.constructor.find({
+        slug: slugRegEx
+    });
+    if (vinaSlug.length) {
+        this.slug = `${this.slug}-${vinaSlug.length + 1}`;
+    }
 });
 
 vinoSchema.statics.listaZemalja = function () {
