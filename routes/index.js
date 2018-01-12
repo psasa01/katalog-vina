@@ -78,6 +78,7 @@ router.post('/aktivacija', catchErrors(authController.aktiviraj));
 
 router.get('/reset', userController.reset);
 router.post('/reset-email-form', catchErrors(userController.resetEmailForm));
-router.post('/reset-password-form', catchErrors(userController.promjenaSifre));
+router.get('/reset-pass/:token', catchErrors(userController.promjenaSifre));
+
 
 module.exports = router;

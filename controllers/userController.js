@@ -169,7 +169,7 @@ exports.resetEmailForm = async(req, res) => {
         Da biste promjenili šifru pratite slijedeći link.
         <br>
         <br>
-        <a href="http://localhost:7777/reset-pass"> Promjena šifre </a>
+        <a href="http://localhost:7777/reset-pass/${user.secretToken}"> Promjena šifre </a>
         <br>
         <br>
         Ukoliko niste zatražili promjenu šifre ignorišite ovaj email.
@@ -184,5 +184,18 @@ exports.resetEmailForm = async(req, res) => {
 };
 
 exports.promjenaSifre = async (req, res) => {
-    
-}
+
+    const user = await User.findOne({
+        secretToken: req.params.token
+    });
+
+    if(!user) {
+        req.flash('error', 'Poslali ste pogrešan token ili je token istekao!');
+        res.redirect('/login');
+    } else {
+        req.flash('success', 'Molimo Vas da unesete novu šifru.')
+        res.render('promjena-sifre', {
+            user
+        });
+    };
+};
