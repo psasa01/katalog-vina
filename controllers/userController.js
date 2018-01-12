@@ -4,6 +4,8 @@ const Vino = mongoose.model('Vino');
 const promisify = require('es6-promisify');
 const randomstring = require('randomstring');
 const mailer = require('../handlers/mailer');
+const passport = require('passport');
+
 
 exports.login = (req, res) => {
     console.log(req.body);
@@ -44,7 +46,7 @@ exports.validateRegister = (req, res, next) => {
     next(); // no errors
 }
 
-exports.register = async(req, res, next) => {
+exports.register = async(req, res) => {
     const userFind = await User.findOne({
         email: req.body.email
     });
@@ -69,7 +71,7 @@ exports.register = async(req, res, next) => {
             <br>
             Aktivacijski kod: ${secretToken}
             <br>
-            <a href="http://localhost:7777/aktivacija"> Aktiviraj korisnički račun </a>
+            <a href="http://${req.headers.host}/aktivacija"> Aktiviraj korisnički račun </a>
             <br>
             <br>
             Zelimo Vam ugodan dan!`
@@ -79,7 +81,8 @@ exports.register = async(req, res, next) => {
         const register = promisify(User.register, User);
         await register(user, req.body.password);
 
-        next();
+        req.flash('success', 'Uspješno ste se registrovali. Ubrzo ćemo Vam poslati email sa aktivacijskim kodom.');
+        res.redirect('login');
     }
 };
 
@@ -146,6 +149,15 @@ exports.dodijeliAdminPrava = async(req, res) => {
     res.redirect('back');
 };
 
+exports.uporediSifre = exports.confirmedPasswords = (req, res, next) => {
+    if (req.body.password === req.body['password-potvrda']) {
+        return next();
+    } else {
+        req.flash('error', 'Šifre se ne podudaraju');
+        res.redirect('back');
+    }
+};
+
 exports.reset = (req, res) => {
     res.render('reset', {
         title: 'Resetirajte korisničku šifru'
@@ -154,13 +166,22 @@ exports.reset = (req, res) => {
 
 exports.resetEmailForm = async(req, res) => {
     const user = await User.findOne({
-        email: req.body.reset  
-    });    
+        email: req.body.reset,
+        active: true
+    });
 
-    if(!user) {
-        req.flash('error', 'Korisnik s navedenim emailom ne postoji u bazi!. Molimo registrujte se.');
+
+
+    if (!user) {
+        req.flash('error', 'Korisnik ne postoji u bazi ili nije aktivan!. Molimo registrujte se ili aktivirajte račun.');
         res.redirect('/register')
     } else {
+
+        const resetPasswordToken = randomstring.generate();
+        user.resetPasswordToken = resetPasswordToken;
+        user.resetPasswordExpire = Date.now() + 3600000; // 1 sat
+        await user.save();
+
         const html = `
         Poštovani,
         <br>
@@ -169,33 +190,64 @@ exports.resetEmailForm = async(req, res) => {
         Da biste promjenili šifru pratite slijedeći link.
         <br>
         <br>
-        <a href="http://localhost:7777/reset-pass/${user.secretToken}"> Promjena šifre </a>
+        <a href="http://${req.headers.host}/reset-pass/${user.resetPasswordToken}"> Promjena šifre </a>
         <br>
         <br>
         Ukoliko niste zatražili promjenu šifre ignorišite ovaj email.
         <br>
         <br>
-        Želimo Vam ugodan dan!`
+        Želimo Vam ugodan dan!`;
 
         await mailer.sendEmail('admin@mojakolekcijavina.com', user.email, 'Poslali ste zahtjev za promjenu šifre na mojaKolekcijaVina', html);
+
         req.flash('success', 'Poslali smo Vam email sa potrebnim podacima za promjenu šifre.');
         res.redirect('/');
     };
 };
 
-exports.promjenaSifre = async (req, res) => {
+exports.promjenaSifre = async(req, res) => {
 
     const user = await User.findOne({
-        secretToken: req.params.token
+        resetPasswordToken: req.params.token,
+        resetPasswordExpire: {
+            $gt: Date.now()
+        }
     });
 
-    if(!user) {
-        req.flash('error', 'Poslali ste pogrešan token ili je token istekao!');
+    console.log(user);
+
+    if (!user) {
+        req.flash('error', 'Nažalost, rok u kojem ste mogli promjeniti šifru je istekao!');
         res.redirect('/login');
     } else {
         req.flash('success', 'Molimo Vas da unesete novu šifru.')
         res.render('promjena-sifre', {
-            user
+            title: 'Promjena šifre'
         });
     };
 };
+
+exports.promjenaSifreFinal = async(req, res) => {
+    const user = await User.findOne({
+        resetPasswordToken: req.params.token
+
+    });
+    console.log(user);
+
+    if (!user) {
+        req.flash('error', 'Nažalost istekao je rok u kojem ste mogli promjeniti šifru');
+        return res.redirect('/');
+    } else {
+        console.log(req.body.password);
+        const setPassword = promisify(user.setPassword, user);
+        await setPassword(req.body.password);
+
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+
+        await user.save();
+
+        req.flash('success', 'Uspješno ste promjenili šifru! Možete se prijaviti.');
+        res.redirect('/login');
+    }
+}

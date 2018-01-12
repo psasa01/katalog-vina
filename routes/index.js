@@ -49,9 +49,7 @@ router.post('/login', catchErrors(authController.isActive), authController.login
 router.get('/register', userController.registerForm);
 router.post('/register',
   userController.validateRegister,
-  userController.register,
-  authController.isActive,
-  authController.login
+  userController.register
 )
 
 router.get('/logout', authController.logout);
@@ -79,6 +77,10 @@ router.post('/aktivacija', catchErrors(authController.aktiviraj));
 router.get('/reset', userController.reset);
 router.post('/reset-email-form', catchErrors(userController.resetEmailForm));
 router.get('/reset-pass/:token', catchErrors(userController.promjenaSifre));
+router.post('/reset-pass/:token',
+  userController.uporediSifre,
+  catchErrors(userController.promjenaSifreFinal)
+);
 
 
 module.exports = router;
