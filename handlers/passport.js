@@ -19,8 +19,6 @@ passport.use(new facebookStrategy(secret.facebook, (accessToken, refreshToken, p
             ]
         }, (err, user) => {
 
-            if (!user.profile.emails) return done(err);
-
             if (err) return done(err);
 
 
