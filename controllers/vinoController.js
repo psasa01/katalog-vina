@@ -75,7 +75,7 @@ exports.resize = async(req, res, next) => {
 exports.snimiVino = async(req, res) => {
 
   const userPromise = User.findOneAndUpdate({
-    ime: req.user.ime
+    _id: req.user._id
   }, {
     brojVina: req.user.brojVina + 1
   }, {
@@ -109,7 +109,7 @@ exports.prikaziVina = async(req, res) => {
 exports.ukloniVino = async(req, res) => {
 
   const user = await User.findOneAndUpdate({
-    ime: req.user.ime
+    _id: req.user._id
   }, {
     brojVina: req.user.brojVina - 1
   }, {
