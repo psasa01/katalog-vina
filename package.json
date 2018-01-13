@@ -4,7 +4,8 @@
   "description": "Katalog Vina, first try",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+    "start": "node ./start.js",
+    "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
     "watch": "nodemon start",
     "assets": "webpack -w"
   },
