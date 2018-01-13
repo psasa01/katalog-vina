@@ -57,14 +57,15 @@ router.get('/logout', authController.logout);
 router.get('/racun', authController.isLoggedIn, userController.racun);
 router.post('/racun', catchErrors(userController.urediKorisnickiRacun));
 
-router.get('/auth/facebook', passport.authenticate('facebook', {
+router.get('/auth/facebook', catchErrors(passport.authenticate('facebook', {
   scope: 'email'
-}));
-router.get('/auth/facebook/callback', passport.authenticate('facebook', {
+})));
+router.get('/auth/facebook/callback', catchErrors(passport.authenticate('facebook', {
   successRedirect: '/',
   successFlash: `Uspješno ste se prijavili putem Facebooka. Dobrodošli`,
-  failureRedirect: '/login'
-}))
+  failureRedirect: '/login',
+  failureFlash: 'Nije Moguće!'
+})));
 
 router.get('/admin', catchErrors(userController.adminPanel));
 
