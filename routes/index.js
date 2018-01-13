@@ -82,5 +82,7 @@ router.post('/reset-pass/:token',
   catchErrors(userController.promjenaSifreFinal)
 );
 
+router.get('/galerija', vinoController.galerija);
+
 
 module.exports = router;

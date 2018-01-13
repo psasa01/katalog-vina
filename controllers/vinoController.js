@@ -170,3 +170,9 @@ exports.pretragaPoKorisnicima = async(req, res) => {
     vina
   });
 };
+
+exports.galerija = (req, res) => {
+  res.render('galerija', {
+    title: 'Galerija fotografija'
+  });
+}

@@ -365,4 +365,10 @@ tr {
 hr {
   opacity: .5; }
 
+.carousel-item {
+  height: 90vh !important; }
+  .carousel-item img {
+    height: 600px;
+    width: auto; }
+
 /*# sourceMappingURL=style.css.map*/

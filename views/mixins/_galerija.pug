@@ -1,0 +1,18 @@
+mixin galerija
+
+    .carousel.carousel-slider.center
+        
+        .carousel-item
+            img(src=`./images/0baf84c3-a761-4d01-ba0d-0ffbae286a72.jpeg`)
+    .container  
+        .row
+            form.col.s12(action=`/dodaj-sliku/` method="POST" enctype="multipart/form-data")
+                .file-field.input-field.col.s12
+                    button.btn.brown.waves-effect.waves-light.col.s2 Dodaj
+                        input(type="file" name="slika" id="slika" accept="image/gif, image/png, image/jpeg, image/jpg")
+                    .file-path-wrapper.col.s8
+                        input.file-path.validate(type="text")
+
+                    button.btn.waves-effect.waves-light.green.lighte-2.col.s2(type="submit") Potvrdi
+                
+             

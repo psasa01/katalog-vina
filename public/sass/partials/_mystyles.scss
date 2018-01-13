@@ -340,3 +340,15 @@ tr {
 hr {
     opacity: .5;
 }
+
+
+
+.carousel-item {
+    height: 90vh !important;
+    & img {
+       
+        height: 600px;
+        width: auto;
+       
+    }
+}
