@@ -5,7 +5,7 @@ module.exports = {
         profileFields: ['id', 'emails', 'name'],
         callbackURL: process.env.FB_CALLBACK
     }
-    
+
     // ,
     // mailer: {
     //     MAILGUN_USER: 'postmaster@sandbox7510097b9bed48eeb09c15428748bc84.mailgun.org',
@@ -13,4 +13,3 @@ module.exports = {
 
     // }
 }
-

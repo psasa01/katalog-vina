@@ -18,10 +18,7 @@ passport.use(new facebookStrategy(secret.facebook, (accessToken, refreshToken, p
                 }
             ]
         }, (err, user) => {
-
             if (err) return done(err);
-
-
 
             if (user) {
                 if (user.facebook.id == undefined) {

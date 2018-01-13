@@ -25,7 +25,7 @@ exports.isLoggedIn = (req, res, next) => {
     };
 };
 
-exports.isActive = async (req, res, next) => {
+exports.isActive = async(req, res, next) => {
     const user = await User.findOne({
         email: req.body.email
     });
@@ -44,7 +44,7 @@ exports.aktivacija = (req, res) => {
     });
 };
 
-exports.aktiviraj = async (req,res) => {
+exports.aktiviraj = async(req, res) => {
     const token = req.body.token;
 
     const user = await User.findOne({
@@ -61,5 +61,3 @@ exports.aktiviraj = async (req,res) => {
         res.redirect('login');
     };
 }
-
-
