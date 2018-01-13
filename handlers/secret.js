@@ -3,7 +3,7 @@ module.exports = {
         clientID: process.env.FACEBOOK_ID || '712105322328284',
         clientSecret: process.env.FACEBOOK_SECRET || 'd6b34140f75823a680753c615de1eecd',
         profileFields: ['id', 'emails', 'name'],
-        callbackURL: `http://${req.headers.host}/auth/facebook/callback`
+        callbackURL: process.env.FACEBOOK_CALLBACK || 'http://localhost:7777/auth/facebook/callback'
     },
     mailer: {
         MAILGUN_USER: 'postmaster@sandbox7510097b9bed48eeb09c15428748bc84.mailgun.org',
