@@ -5,14 +5,18 @@ const autoprefixer = require('autoprefixer');
 
 // Javascript rule
 const javascript = {
-  test: /\.(js)$/, // see how we match anything that ends in `.js`? Cool
+  test: /\.(js)$/,
   use: [{
     loader: 'babel-loader',
     options: {
       presets: ['env']
-    } // this is one way of passing options
+    }
   }],
 };
+
+// image loader
+
+
 
 // postcss loader
 const postcss = {
@@ -25,15 +29,11 @@ const postcss = {
     },
     sourceMap: true
   },
-
 };
 
 // sass/css loader
 const styles = {
-  test: /\.(scss)$/,
-  // here we pass the options as query params b/c it's short.
-  // remember above we used an object for each loader instead of just a string?
-  // We don't just pass an array of loaders, we run them through the extract plugin so they can be outputted to their own .css file
+  test: /\.(s?css)$/,
   use: ExtractTextPlugin.extract(['css-loader?sourceMap', postcss, 'sass-loader?sourceMap'])
 };
 

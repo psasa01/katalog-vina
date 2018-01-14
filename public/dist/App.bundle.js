@@ -72,6 +72,11 @@
 
 __webpack_require__(1);
 
+// import 'owl.carousel/dist/assets/owl.carousel.css';
+// import $ from 'jquery';
+// import 'imports?jQuery=jquery!owl.carousel';
+
+
 $(document).ready(function () {
 
   $('.fixed-action-btn').floatingActionButton({
@@ -87,9 +92,21 @@ $(document).ready(function () {
 
   });
 
-  $('.carousel.carousel-slider').carousel({
+  // $('.carousel.carousel-slider').carousel({
+  //   fullWidth: true,
+  //   indicators: true
+  // });
 
-    indicators: true
+
+  $('.owl-carousel').owlCarousel({
+    items: 2,
+    stagePadding: 50,
+    merge: true,
+    autoWidth: true,
+    mergeFit: true,
+    nav: true,
+    dots: true,
+    stageDrag: false
   });
 
   $('.button-collapse').sideNav({

@@ -365,10 +365,14 @@ tr {
 hr {
   opacity: .5; }
 
-.carousel-item {
-  height: 90vh !important; }
-  .carousel-item img {
-    height: 600px;
-    width: auto; }
+.owl-carousel {
+  height: 800px !important; }
+
+.owl-item {
+  height: 800px !important;
+  width: auto !important; }
+
+.owl-item img {
+  height: 100% !important; }
 
 /*# sourceMappingURL=style.css.map*/

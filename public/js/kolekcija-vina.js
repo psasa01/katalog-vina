@@ -1,6 +1,10 @@
 // import '../vendors/materialize/js/materialize.min.js'
 // import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 import '../sass/style.scss'
+// import 'owl.carousel/dist/assets/owl.carousel.css';
+// import $ from 'jquery';
+// import 'imports?jQuery=jquery!owl.carousel';
+
 
 
 
@@ -20,9 +24,21 @@ $(document).ready(function () {
 
   });
 
-  $('.carousel.carousel-slider').carousel({
-    
-    indicators: true
+  // $('.carousel.carousel-slider').carousel({
+  //   fullWidth: true,
+  //   indicators: true
+  // });
+
+
+  $('.owl-carousel').owlCarousel({
+    items: 2,
+    stagePadding: 50,
+    merge: true,
+    autoWidth: true,
+    mergeFit: true,
+    nav: true,
+    dots: true,
+    stageDrag: false
   });
 
 
