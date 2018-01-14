@@ -29,6 +29,7 @@ $(document).ready(function () {
     direction: 'left'
   });
 
+
   $('.sidenav').sidenav();
   $('.modal').modal();
   $('.dropdown-trigger').dropdown({
@@ -37,7 +38,10 @@ $(document).ready(function () {
 
   });
 
-  $('#gallery').unitegallery();
+  $('#gallery').unitegallery({
+    gallery_skin: "alexis", //it's the default skin
+    slider_bullets_skin: "alexis" //example how to change only skin for slider bullets
+  });
 
   // $('.carousel.carousel-slider').carousel({
   //   fullWidth: true,

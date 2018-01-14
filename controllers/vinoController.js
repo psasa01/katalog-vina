@@ -59,7 +59,7 @@ exports.dodajSliku = multer(multerOptions).single('slika');
 
 exports.resize = async(req, res, next) => {
   // check if there is no file to resize
-  console.log(req.file)
+  // console.log(req.file)
   if (!req.file) {
     return next();
   }

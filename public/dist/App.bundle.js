@@ -60,19 +60,17 @@
 /******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */,
-/* 1 */,
-/* 2 */
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(3);
+__webpack_require__(1);
 
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import $ from 'jquery';
@@ -103,7 +101,10 @@ $(document).ready(function () {
 
   });
 
-  $('#gallery').unitegallery();
+  $('#gallery').unitegallery({
+    gallery_skin: "alexis", //it's the default skin
+    slider_bullets_skin: "alexis" //example how to change only skin for slider bullets
+  });
 
   // $('.carousel.carousel-slider').carousel({
   //   fullWidth: true,
@@ -135,7 +136,7 @@ $(document).ready(function () {
 // import '../unitegallery/css/unite-gallery.css';
 
 /***/ }),
-/* 3 */
+/* 1 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

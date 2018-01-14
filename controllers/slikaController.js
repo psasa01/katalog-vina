@@ -30,7 +30,7 @@ exports.snimiSliku = async(req, res) => {
 
 exports.resize400 = async(req, res, next) => {
     // check if there is no file to resize
-    console.log(req.file)
+    // console.log(req.file)
     if (!req.file) {
         return next();
     }
@@ -47,7 +47,7 @@ exports.resize400 = async(req, res, next) => {
 
 exports.resize1200 = async(req, res, next) => {
     // check if there is no file to resize
-    console.log(req.file)
+    // console.log(req.file)
     if (!req.file) {
         return next();
     }

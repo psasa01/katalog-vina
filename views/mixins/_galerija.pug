@@ -1,8 +1,5 @@
 mixin galerija(slika = {})
 
-    pre= h.dump(slike)
-
-    #gallery
-        a(href='#')
-            img(alt=`${slika.opis}` src=`./images/thumbs/thumb_${slika.thumb}` data-image=`./images/big/big_${slika.big}` style='display:none')
+    a(href='#')
+        img(alt=`${slika.opis}` src=`./images/thumbs/thumb_${slika.thumb}` data-image=`./images/big/big_${slika.big}` style='display:none')
                 
