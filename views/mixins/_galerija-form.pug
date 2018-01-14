@@ -16,16 +16,16 @@ mixin galerija-form
         
 
         .row#dodaj-sliku-forma
-            hr   
+               
             form.col.s12(action=`/dodajSliku` method="POST" enctype="multipart/form-data" )
                 .input-field.col.s12
                     input#opis(type="text" name="opis")
                     label(for="opis") Dodajte opis fotografije
 
                 .file-field.input-field.col.s12
-                    button.btn.brown.col.s12.m2 Izaberite sliku
+                    button.btn.brown.col.s12.m3 Izaberite sliku
                         input(type="file" name="slika" id="slika" accept="image/gif, image/png, image/jpeg, image/jpg")
-                    .file-path-wrapper.col.s12.m8
+                    .file-path-wrapper.col.s12.m7
                         input.file-path.validate(type="text")
                     button.btn.waves-effect.waves-light.col.s12.m2.blue(type="submit") Potvrdite
 
