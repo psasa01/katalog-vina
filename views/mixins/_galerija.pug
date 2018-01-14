@@ -1,12 +1,8 @@
-mixin galerija
+mixin galerija(slika = {})
 
-    
-    .container  
-        .row
+    pre= h.dump(slike)
 
-            .owl-carousel
-                .owl-item
-                    img(src="/images/intelligence-growth-1050x700.jpg")
-
-                .owl-item
-                    img(src="/images/pexels-photo-248797.jpeg")
+    #gallery
+        a(href='#')
+            img(alt=`${slika.opis}` src=`./images/thumbs/thumb_${slika.thumb}` data-image=`./images/big/big_${slika.big}` style='display:none')
+                

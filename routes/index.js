@@ -3,6 +3,7 @@ const router = express.Router();
 const vinoController = require('../controllers/vinoController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const slikaController = require('../controllers/slikaController');
 const passport = require('passport');
 const passportConfig = require('../handlers/passport');
 
@@ -82,7 +83,13 @@ router.post('/reset-pass/:token',
   catchErrors(userController.promjenaSifreFinal)
 );
 
-router.get('/galerija', vinoController.galerija);
+router.get('/galerija', catchErrors(slikaController.galerija));
+
+router.post('/dodajSliku',
+  slikaController.dodajSliku,
+  slikaController.resize400,
+  slikaController.resize1200,
+  catchErrors(slikaController.snimiSliku));
 
 
 module.exports = router;

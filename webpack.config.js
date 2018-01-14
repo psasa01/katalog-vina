@@ -16,6 +16,12 @@ const javascript = {
 
 // image loader
 
+const images = {
+  test: /\.(png|jpg|gif)$/,
+  use: 'file-loader?name=[name].[ext]&outputPath=images/'
+
+
+}
 
 
 // postcss loader
@@ -59,7 +65,7 @@ const config = {
     filename: '[name].bundle.js'
   },
   module: {
-    rules: [javascript, styles]
+    rules: [javascript, styles, images]
   },
   // plugins: [uglify]
   plugins: [

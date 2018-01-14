@@ -1,6 +1,14 @@
 extends layout
-include mixins/_galerija
+include mixins/_galerija-form
+
 
 block content
 
-    +galerija
+    .container            
+        +galerija-form
+        
+        .row
+            #gallery
+                each slika in slike
+                    a(href='#')
+                        img(alt=`${slika.opis}` src=`./images/thumbs/thumb_${slika.thumb}` data-image=`./images/big/big_${slika.big}` style='display:none')

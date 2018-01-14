@@ -3,12 +3,19 @@ html(lang="en")
     head
         title= `${title} | ${h.siteName}`
         link(rel='icon' type='image/png' href='./images/favicon-32.png' sizes='32x32')
+        
+        link(rel='stylesheet' href='/unitegallery/css/unite-gallery.css' type='text/css') 
+        
         link(rel='stylesheet', href='/dist/style.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css')
-        link(rel='stylesheet' href='/owl.carousel/dist/assets/owl.carousel.min.css')
-        link(rel="stylesheet" href="/owl.carousel/dist/assets/owl.theme.default.min.css")
+        
+        //- link(rel='stylesheet' href='/owl.carousel/dist/assets/owl.carousel.min.css')
+        //- link(rel="stylesheet" href="/owl.carousel/dist/assets/owl.theme.default.min.css")
+        
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
         link(rel='icon' type='image/png' href='./public/images/favicon-32.png' sizes='32x32')
+
+        
         
         
         
@@ -140,8 +147,17 @@ html(lang="en")
         block scripts
             script(src="https://use.fontawesome.com/46a5f844ac.js")
             script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+            //- script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js", integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=",  crossorigin="anonymous")
             script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js')
-            script(src='/owl.carousel/dist/owl.carousel.min.js')
+            
+            //- script(src='/owl.carousel/dist/owl.carousel.min.js')
+            //- script(type='text/javascript').
+            //-     $(document).ready(function(){
+            //-     $("#gallery").unitegallery();
+            //-     });
+            script(type='text/javascript' src='unitegallery/js/unitegallery.min.js')
+            script(type='text/javascript' src='unitegallery/themes/tiles/ug-theme-tiles.js')
+            
             script(src="/dist/App.bundle.js")
             
             

@@ -1,0 +1,32 @@
+mixin galerija-form
+
+    
+    
+
+        
+        if user && user.level == 1
+            .button-div.col.s12.m6
+                button#prikaz-forme.btn-floating.btn-large.waves-effect.waves-light.blue.darken-2
+                    i.large.material-icons add
+                    
+        .row
+            .title-div.col.s12.m6
+                h2= title
+            
+        
+
+        .row#dodaj-sliku-forma
+            hr   
+            form.col.s12(action=`/dodajSliku` method="POST" enctype="multipart/form-data" )
+                .input-field.col.s12
+                    input#opis(type="text" name="opis")
+                    label(for="opis") Dodajte opis fotografije
+
+                .file-field.input-field.col.s12
+                    button.btn.brown.col.s12.m2 Izaberite sliku
+                        input(type="file" name="slika" id="slika" accept="image/gif, image/png, image/jpeg, image/jpg")
+                    .file-path-wrapper.col.s12.m8
+                        input.file-path.validate(type="text")
+                    button.btn.waves-effect.waves-light.col.s12.m2.blue(type="submit") Potvrdite
+
+

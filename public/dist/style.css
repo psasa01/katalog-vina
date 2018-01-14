@@ -375,4 +375,30 @@ hr {
 .owl-item img {
   height: 100% !important; }
 
+#gallery a button {
+  position: absolute !important;
+  display: block !important;
+  z-index: 999999999 !important; }
+
+.galerija-naslov {
+  position: relative; }
+
+.button-div {
+  position: absolute !important;
+  bottom: 2em !important;
+  right: 2em !important; }
+
+@media (max-width: 600px) {
+  .button-div {
+    position: relative !important; } }
+
+h4 {
+  color: #795548; }
+
+.show {
+  display: block !important; }
+
+#dodaj-sliku-forma {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map*/

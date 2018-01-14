@@ -59,6 +59,7 @@ exports.dodajSliku = multer(multerOptions).single('slika');
 
 exports.resize = async(req, res, next) => {
   // check if there is no file to resize
+  console.log(req.file)
   if (!req.file) {
     return next();
   }
@@ -86,6 +87,7 @@ exports.snimiVino = async(req, res) => {
 
 
   req.body.korisnik = req.user._id;
+
   const vino = new Vino(req.body);
   vino.ime = req.user.ime;
 
@@ -170,9 +172,3 @@ exports.pretragaPoKorisnicima = async(req, res) => {
     vina
   });
 };
-
-exports.galerija = (req, res) => {
-  res.render('galerija', {
-    title: 'Galerija fotografija'
-  });
-}

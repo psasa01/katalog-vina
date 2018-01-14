@@ -60,24 +60,35 @@
 /******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(1);
+__webpack_require__(3);
 
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import $ from 'jquery';
 // import 'imports?jQuery=jquery!owl.carousel';
 
 
+// import '../unitegallery/js/jquery-11.0.min.js';
+// import '../unitegallery/js/unitegallery.min.js';
+// import '../unitegallery/themes/tiles/ug-theme-tiles.js';
+
+
 $(document).ready(function () {
+
+  $('#prikaz-forme').click(function () {
+    $('#dodaj-sliku-forma').toggleClass('show', 10000, 'easeOutSine');
+  });
 
   $('.fixed-action-btn').floatingActionButton({
     hoverEnabled: false,
@@ -92,24 +103,27 @@ $(document).ready(function () {
 
   });
 
+  $('#gallery').unitegallery();
+
   // $('.carousel.carousel-slider').carousel({
   //   fullWidth: true,
   //   indicators: true
   // });
 
 
-  $('.owl-carousel').owlCarousel({
-    items: 2,
-    stagePadding: 50,
-    merge: true,
-    autoWidth: true,
-    mergeFit: true,
-    nav: true,
-    dots: true,
-    stageDrag: false
-  });
+  // $('.owl-carousel').owlCarousel({
+  //   items: 2,
+  //   stagePadding: 50,
+  //   merge: true,
+  //   autoWidth: true,
+  //   mergeFit: true,
+  //   nav: true,
+  //   dots: true,
+  //   stageDrag: false
+  // });
 
-  $('.button-collapse').sideNav({
+
+  $('.button-collapse').sidenav({
     menuWidth: 300, // Default is 300
     edge: 'right', // Choose the horizontal origin
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
@@ -118,9 +132,10 @@ $(document).ready(function () {
   });
 }); // import '../vendors/materialize/js/materialize.min.js'
 // import '../../node_modules/materialize-css/dist/css/materialize.min.css'
+// import '../unitegallery/css/unite-gallery.css';
 
 /***/ }),
-/* 1 */
+/* 3 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
