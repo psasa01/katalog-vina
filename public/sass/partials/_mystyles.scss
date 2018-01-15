@@ -77,6 +77,12 @@ h2 {
     color: $brown;
 }
 
+@media (max-width: 600px) {
+    h2 {
+        font-size: 2.2em !important;
+    }
+}
+
 h5 {
     font-size: 1.2em !important;
 }
@@ -365,16 +371,14 @@ hr {
 }
 
 .button-div {
-    position: absolute !important;
+    z-index: 9;
+    position: fixed !important;
     bottom: 2em !important;
     right: 2em !important;
 }
 
-@media (max-width: 600px) {
-    .button-div {
-        position: relative !important;
-    }
-}
+
+    
 
 h4 {
     color: $brown;
@@ -386,4 +390,8 @@ h4 {
 
 #dodaj-sliku-forma {
     display: none;
+}
+
+.btn-zemlja {
+    margin-top: .28em !important;
 }

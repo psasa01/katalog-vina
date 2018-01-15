@@ -44,46 +44,42 @@ block content
                                 img.modal-slika(src=`/images/${vino.slika || 'slika.jpg'}`)
                             .tekst1
                                 .row
-                                    .col.l4.offset-l2
-                                        h5.brown-text.right-align Naziv Vina:
-                                        h5.brown-text.right-align Zemlja Porijekla:
-                                    .col.l6
-                                        h5.brown-text.left-align= vino.naziv
-                                        h5.brown-text.left-align= vino.zemlja
-                            .tekst2 
-                                    .col.l4.offset-l2
-                                        
-                                        h5.brown-text.right-align Proizvođač:
-                                        h5.brown-text.right-align Vrsta Vina:
-                                        
-                                        
-                                    .col.l6
-                                        
-                                        h5.brown-text.left-align= vino.proizvodjac
-                                        h5.brown-text.left-align= vino.vrsta
+                                    
                                        
+                                    .col.l6.offset-l4
+                                        h5.brown-text.left-align Naziv Vina: #{vino.naziv}
+                                        h5.brown-text.left-align Zemlja Porijekla: #{vino.zemlja}
+                            .tekst2 
+                                                                          
                                         
+                                    .col.l6.offset-l4
+                                       
+                                        h5.brown-text.left-align Proizvođač: #{vino.proizvodjac}
+                                        h5.brown-text.left-align Vrsta: #{vino.vrsta}
+                                                                                
                             
                             .tekst3 
-                                    .col.l4.offset-l2
+                                                                           
+                                    .col.l6.offset-l4
                                         
-                                        h5.brown-text.right-align Godina Berbe:
+                                        h5.brown-text.left-align Godina berbe: #{vino.godina}
                                         
-                                    .col.l6
-                                        
-                                        h5.brown-text.left-align= vino.godina
-                                        
-                            .tekst4 
-                                    .col.l4.offset-l2
-                                        p.brown-text.left-align.alk-i-boca Procenat Alkohola: #{vino.alkohol}%
-                                    .col.l6
-                                        p.brown-text.right-align.alk-i-boca-desno Veličina Boce: #{vino.velicina} litara
+                            .tekst4
+                                
+                                    .col.l6.offset-l4
+                                                                                
+
+                                        p.brown-text.left-align Procenat Alkohola: #{vino.alkohol}%
+                                        p.brown-text.left-align Veličina Boce: #{vino.velicina} litara
+
+                                
                     .modal-footer
                         - h.moment.locale('bs')
-                            p.modal-datum Dodao #{vino.ime}, #{h.moment(vino.datum).format('LL')} u #{h.moment().format('LT')}
+                            p.modal-datum #{ime} Dodao #{vino.ime}, #{h.moment(vino.datum).fromNow()}
 
-                        
-                        if user && vino.korisnik.equals(user._id)    
+                            
+                            
+                        if user && vino.korisnik.equals(user._id)
                             .fixed-action-btn.button-fab
                                 a.btn-floating.btn-large.brown
                                     i.large.material-icons chevron_left
@@ -94,9 +90,15 @@ block content
                                     li
                                         a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
                                             i.material-icons mode_edit
-                                
                         
-                        
-                        // a.modal-action.modal-close.btn-flat(href=`/vino/${vino._id}/uredi`) Uredi vino
-                        // a.modal-action.modal-trigger.modal-close.btn-flat(href="#ukloni-modal") Ukloni vino  
-                        
+                        else if user && user.level === 1
+                            .fixed-action-btn.button-fab
+                                a.btn-floating.btn-large.brown
+                                    i.large.material-icons chevron_left
+                                ul
+                                    li
+                                        a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)
+                                            i.material-icons clear
+                                    li
+                                        a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
+                                            i.material-icons mode_edit

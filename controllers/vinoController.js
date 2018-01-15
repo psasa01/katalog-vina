@@ -4,6 +4,7 @@ const User = mongoose.model('User');
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
+const fs = require('fs');
 
 const multerOptions = {
   storage: multer.memoryStorage(),
@@ -121,6 +122,11 @@ exports.ukloniVino = async(req, res) => {
 
   const vino = await Vino.findOneAndRemove({
     _id: req.params.id
+  });
+
+  fs.unlink(`./public/images/${vino.slika}`, (err) => {
+    if(err) throw err;
+    
   });
 
   req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);

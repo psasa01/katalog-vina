@@ -43,7 +43,19 @@ mixin modal(vino = {})
 
                             
                             
-                        if user && vino.korisnik.equals(user._id)    
+                        if user && vino.korisnik.equals(user._id)
+                            .fixed-action-btn.button-fab
+                                a.btn-floating.btn-large.brown
+                                    i.large.material-icons chevron_left
+                                ul
+                                    li
+                                        a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)
+                                            i.material-icons clear
+                                    li
+                                        a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
+                                            i.material-icons mode_edit
+                        
+                        else if user && user.level === 1
                             .fixed-action-btn.button-fab
                                 a.btn-floating.btn-large.brown
                                     i.large.material-icons chevron_left
