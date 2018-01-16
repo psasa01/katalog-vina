@@ -31,7 +31,14 @@ mixin register-form
                                 a#btn-reg.btn.btn-large.waves-effect.waves-light.col.s12.m5.l4.blue.darken-4.right(href='/auth/facebook') 
                                     | Facebook prijava
                                 button#btn-reg.btn.btn-large.waves-effect.waves-light.col.m5.s12.l4.brown.right(type='submit' name='register') Registracija
-                                
-                                  
-                        br
-                        br                  
+
+        .fixed-action-btn.button-fab
+            a.btn-floating.btn-large.brown
+                i.large.material-icons fast_rewind
+            ul
+                li
+                    a.btn-floating.red(href=`/`)
+                        i.material-icons home
+                li
+                    button.btn-floating.blue(onclick=`history.back()`)
+                        i.material-icons chevron_left            

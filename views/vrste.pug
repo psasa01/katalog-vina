@@ -30,13 +30,6 @@ block content
                             .card-action.brown.lighten-4.action-style
                                 p= vino.zemlja.toUpperCase()
 
-                #ukloni-modal.modal
-                    .modal-content
-                        h5 Da li zaista želite da uklonite #{vino.naziv} vino?
-                    .modal-footer
-                        a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href=`/vino/${vino._id}/ukloni`) Ukloni
-                        a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Zatvori
-                
                 div(id= vino.slug).modal.modal-fixed-footer.vino-modal
                     .modal-content
                         .grid-container
@@ -85,7 +78,7 @@ block content
                                     i.large.material-icons chevron_left
                                 ul
                                     li
-                                        a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)
+                                        a.btn-floating.red.modal-trigger.modal-close(href=`#ukloni_${vino._id}`)
                                             i.material-icons clear
                                     li
                                         a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
@@ -97,8 +90,27 @@ block content
                                     i.large.material-icons chevron_left
                                 ul
                                     li
-                                        a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)
+                                        a.btn-floating.red.modal-trigger(href=`#ukloni_${vino._id}`)
                                             i.material-icons clear
                                     li
                                         a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
                                             i.material-icons mode_edit
+
+
+                .div(id=`ukloni_${vino._id}`).modal.izbrisi-vino-modal
+                    .modal-content
+                        h5 Da li zaista želite da uklonite #{vino.naziv} vino?
+                    .modal-footer
+                        a.modal-action.modal-close.btn-flat(href=`/vino/${vino._id}/ukloni`) Ukloni
+                        a.modal-action.modal-close.btn-flat(href='#!') Zatvori
+
+        .fixed-action-btn.button-fab
+            a.btn-floating.btn-large.brown
+                i.large.material-icons fast_rewind
+            ul
+                li
+                    a.btn-floating.red(href=`/`)
+                        i.material-icons home
+                li
+                    button.btn-floating.blue(onclick=`history.back()`)
+                        i.material-icons chevron_left
