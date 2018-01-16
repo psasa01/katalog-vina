@@ -3,6 +3,8 @@
 // import '../unitegallery/css/unite-gallery.css';
 
 import '../sass/style.scss'
+// import 'masonry-layout/dist/masonry.pkgd.min'
+// import 'imagesloaded/imagesloaded.pkgd.min'
 
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import $ from 'jquery';
@@ -24,6 +26,8 @@ $(document).ready(function () {
     $('#dodaj-sliku-forma').toggleClass('show', 10000, 'easeOutSine');
   });
 
+  
+
   $('.fixed-action-btn').floatingActionButton({
     hoverEnabled: false,
     direction: 'left'
@@ -43,6 +47,13 @@ $(document).ready(function () {
     slider_bullets_skin: "alexis" //example how to change only skin for slider bullets
   });
 
+  
+  
+  $('.grid-item').hover(function () {
+    $(this).children().addClass('icon-izbrisi-show');
+  }, (function () {
+    $(this).children().removeClass('icon-izbrisi-show');
+  }));
   // $('.carousel.carousel-slider').carousel({
   //   fullWidth: true,
   //   indicators: true
@@ -68,5 +79,16 @@ $(document).ready(function () {
     draggable: true, // Choose whether you can drag to open on touch screens,
 
   });
+
+  // external js: masonry.pkgd.js, imagesloaded.pkgd.js
+
+// init Masonry after all images have loaded
+var $grid = $('.grid').imagesLoaded( function() {
+  $grid.masonry({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    columnWidth: '.grid-sizer'
+  }); 
+});
 
 });

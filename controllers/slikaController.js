@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Slika = mongoose.model('Slika');
 const multer = require('multer');
 const jimp = require('jimp');
+const fs = require('fs');
 
 const multerOptions = {
     storage: multer.memoryStorage(),
@@ -69,3 +70,27 @@ exports.galerija = async(req, res) => {
         slike
     });
 }
+
+exports.izbrisiSlikuPage = async(req, res) => {
+    const slike = await Slika.find();
+    res.render('izbrisi-sliku', {
+        title: 'Brisanje fotografija',
+        slike
+    })
+};
+
+exports.izbrisiSliku = async(req, res) => {
+    const slika = await Slika.findOneAndRemove({
+        _id: req.params.id
+    });
+
+    await fs.unlink(`./public/images/big/big_${slika.big}`, (err) => {
+        if(err) throw err;
+    });
+    await fs.unlink(`./public/images/thumbs/thumb_${slika.thumb}`, (err) => {
+        if(err) throw err;
+    });
+
+    req.flash('success', 'Uspješno ste izbrisali fotografiju iz galerije!');
+    res.redirect('/izbrisi-sliku');
+};

@@ -91,5 +91,7 @@ router.post('/dodajSliku',
   slikaController.resize1200,
   catchErrors(slikaController.snimiSliku));
 
+router.get('/izbrisi-sliku', catchErrors(slikaController.izbrisiSlikuPage));
+router.get('/slika/:id/ukloni', catchErrors(slikaController.izbrisiSliku));
 
 module.exports = router;

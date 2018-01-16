@@ -393,6 +393,12 @@ hr {
   bottom: 2em !important;
   right: 2em !important; }
 
+.button-div-2 {
+  z-index: 9;
+  position: fixed !important;
+  bottom: 2em !important;
+  left: 2em !important; }
+
 h4 {
   color: #795548; }
 
@@ -404,5 +410,60 @@ h4 {
 
 .btn-zemlja {
   margin-top: .28em !important; }
+
+/* MASONRY.JS */
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+/* ---- .grid-item ---- */
+.grid-sizer,
+.grid-item {
+  width: 20%; }
+
+@media (max-width: 1100px) {
+  .grid-sizer,
+  .grid-item {
+    width: 33.33%; } }
+
+@media (max-width: 800px) {
+  .grid-sizer,
+  .grid-item {
+    width: 50%; } }
+
+.grid-item {
+  float: left; }
+  .grid-item img {
+    display: block;
+    width: 100%; }
+
+.icon-izbrisi-hide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  cursor: pointer; }
+
+.icon-izbrisi-show {
+  cursor: pointer;
+  display: block; }
+
+.icon-izbrisi-hide i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: red;
+  cursor: pointer; }
+
+.izbrisi-sliku-modal {
+  height: 30% !important; }
 
 /*# sourceMappingURL=style.css.map*/

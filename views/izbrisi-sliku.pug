@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+    .container  
+
+        .row
+
+            h2= title
+                
+
+            .grid
+                .grid-sizer
+                    each slika in slike
+                       
+                        .grid-item
+                            .icon-izbrisi-hide
+                                a.modal-trigger(href=`#${slika._id}`)
+                                    i.material-icons.medium cancel
+                            
+                            img(src=`./images/thumbs/thumb_${slika.thumb}`)  
+                            
+                        div(id= slika._id).modal.izbrisi-sliku-modal
+                            .modal-content
+                                h5 Da li zaista želite da uklonite fotografiju?
+                            .modal-footer
+                                a.modal-action.modal-close.btn-flat(href=`/slika/${slika._id}/ukloni`) Ukloni fotografiju
+                                a.modal-action.modal-close.btn-flat(href='#!') Zatvori
