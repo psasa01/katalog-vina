@@ -111,18 +111,19 @@ exports.prikaziVina = async(req, res) => {
 
 exports.ukloniVino = async(req, res) => {
 
+  const vino = await Vino.findOneAndRemove({
+    _id: req.params.id
+  });
+
   const user = await User.findOneAndUpdate({
-    _id: req.user._id
-  }, {
-    brojVina: req.user.brojVina - 1
+    ime: vino.ime
+  }, { $inc: {brojVina: -1}
   }, {
     new: true,
     runValidators: true
   }).exec();
 
-  const vino = await Vino.findOneAndRemove({
-    _id: req.params.id
-  });
+
 
   fs.unlink(`./public/images/${vino.slika}`, (err) => {
     if(err) throw err;
