@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const slug = require('slugs');
 require('mongoose-strip-html-tags')(mongoose);
+const mongodbErrorHandler = require('mongoose-mongodb-errors');
 
 const vinoSchema = new mongoose.Schema({
     naziv: {
@@ -153,5 +154,6 @@ vinoSchema.statics.popisKorisnika = function () {
     ]);
 };
 
+vinoSchema.plugin(mongodbErrorHandler);
 
 module.exports = mongoose.model('Vino', vinoSchema);

@@ -1,4 +1,4 @@
-.---------Protection--------{}
+/* .---------Protection--------{} */
 
 .ug-gallery-wrapper, 
 .ug-gallery-wrapper *{
@@ -28,7 +28,7 @@
 }
 
 
-.---------General_Styles--------{}
+/* .---------General_Styles--------{} */
 
 .ug-rtl{
 	direction:rtl;
@@ -66,7 +66,7 @@
 }
 
 .ug-gallery-wrapper .ug-progress-bar-inner{
-	xposition:absolute;
+	position:absolute;
 }
 
 .ug-gallery-wrapper.ug-fullscreen{
@@ -109,7 +109,7 @@
 }
 
 
-.--------------SLIDER------------------{}
+/* .--------------SLIDER------------------{} */
 
 .ug-gallery-wrapper .ug-slider-wrapper{
 	position:absolute;
@@ -139,7 +139,7 @@
 
 .ug-slider-wrapper,
 .ug-item-wrapper img{
-	
+	user-select:none;
 	-webkit-user-select: none;	/* make unselectable */         
 	-moz-user-select: none; 
 	-ms-user-select: none;	
@@ -278,7 +278,7 @@
 }
 
 
-.--------------VIDEO_PLAYER------------------{}
+/* .--------------VIDEO_PLAYER------------------{} */
 
 .ug-gallery-wrapper .ug-videoplayer{
 	position:absolute;
@@ -315,25 +315,25 @@
 	background-position: 0px -64px;
 }
 
-.--------------THUMBS_STRIP------------------{}
+/* .--------------THUMBS_STRIP------------------{} */
 
 
 .ug-gallery-wrapper .ug-thumbs-strip,
 .ug-gallery-wrapper .ug-thumbs-grid{
 	position:absolute;
 	overflow:hidden;
-	
+	user-select: none;
 	-webkit-user-select: none;	/* make unselectable */         
 	-moz-user-select: none; 
 	-ms-user-select: none;
 	
-	xbackground-color:green;
+	background-color:green;
 	z-index:10;
 }
 
 .ug-thumbs-strip.ug-dragging{
-	xcursor: -webkit-grab;
-	xcursor: -moz-grab;
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
 }
 
 .ug-gallery-wrapper .ug-thumbs-strip-inner,
@@ -344,7 +344,7 @@
 .ug-thumb-wrapper.ug-thumb-generated{
 	position:absolute;
 	overflow:hidden;
-	
+	user-select: none;
 	-webkit-user-select: none;	/* make unselectable */         
 	-moz-user-select: none; 
 	-ms-user-select: none;
@@ -437,7 +437,7 @@ img.ug-sepia-effect{
 }
 
 
-.--------------BULLETS------------------{}
+/* .--------------BULLETS------------------{} */
 
 
 .ug-gallery-wrapper .ug-bullets{
@@ -461,7 +461,7 @@ img.ug-sepia-effect{
 }
 
 
-.--------------TEXT_PANEL------------------{}
+/* .--------------TEXT_PANEL------------------{} */
 
 .ug-gallery-wrapper .ug-textpanel{
 	position:absolute;
@@ -509,7 +509,7 @@ img.ug-sepia-effect{
 }
 
 
-.--------------ZOOM_PANEL------------------{}
+/* .--------------ZOOM_PANEL------------------{} */
 
 .ug-slider-wrapper .ug-zoompanel{
 	position:absolute;
@@ -524,7 +524,7 @@ img.ug-sepia-effect{
 }
 
 
-.--------------ZOOM_PANEL_BUTTONS------------------{}
+/* .--------------ZOOM_PANEL_BUTTONS------------------{} */
 
 .ug-gallery-wrapper .ug-arrow-left{
 	position:absolute;	
@@ -540,13 +540,13 @@ img.ug-sepia-effect{
 }
 
 
-.--------------GRID_PANEL_AND_ARROWS------------------{}
+/* .--------------GRID_PANEL_AND_ARROWS------------------{} */
 
 
 .ug-gallery-wrapper .ug-grid-panel{
 	position:absolute;
     background-color: #000000;
-    xbackground-color: blue;
+    background-color: blue;
 
     z-index:2;
 }
@@ -583,7 +583,7 @@ img.ug-sepia-effect{
 }
 
 
-.--------------STRIP_PANEL------------------{}
+/* .--------------STRIP_PANEL------------------{} */
 
 .ug-gallery-wrapper .ug-strip-panel{
 	position:absolute;
@@ -605,7 +605,7 @@ img.ug-sepia-effect{
 	position:absolute;
 }
 
-.--------------TILES------------------{}
+/* .--------------TILES------------------{} */
 
 .ug-thumb-wrapper.ug-tile{
 	display:block;
@@ -652,7 +652,7 @@ img.ug-sepia-effect{
 }
 
 .ug-thumb-wrapper.ug-tile img.ug-thumb-image{
-
+	user-select: none;
 	-webkit-user-select: none;	/* make unselectable */         
 	-moz-user-select: none; 
 	-ms-user-select: none;	
@@ -694,7 +694,7 @@ img.ug-sepia-effect{
 	height:38px;
 	background-repeat:no-repeat;
 	background-position:0 0;
-	xbackground-color:green;
+	/* background-color:green; */
 	z-index:6;
 	top:1px;
 	left:1px;
@@ -741,7 +741,7 @@ img.ug-sepia-effect{
 	font-weight:bold;
 }
 
-.--------------CAROUSEL------------------{}
+/* .--------------CAROUSEL------------------{} */
 
 .ug-gallery-wrapper .ug-carousel-wrapper{
 	position:absolute;
@@ -753,7 +753,7 @@ img.ug-sepia-effect{
 }
 
 
-.------------------LIGHTBOX---------------------{}
+/* .------------------LIGHTBOX---------------------{} */
 
 .ug-gallery-wrapper.ug-lightbox{
 	display: none;
@@ -797,7 +797,7 @@ img.ug-sepia-effect{
 
 .ug-lightbox .ug-slider-wrapper{
 	z-index:1;
-	xbackground-color:green;
+	background-color:green;
 	background-color:transparent !important;
 }
 
@@ -882,7 +882,7 @@ img.ug-sepia-effect{
 	font-size: 16px;
 }
 
-.------------------LOADMORE_BUTTON---------------------{}
+/* .------------------LOADMORE_BUTTON---------------------{} */
 
 .ug-loadmore-wrapper{
 	margin-top:20px;
@@ -912,7 +912,7 @@ img.ug-sepia-effect{
 
 
 
-.------------------CATEGORY_TABS---------------------{}
+/* .------------------CATEGORY_TABS---------------------{} */
 
 	.ug-tabs-wrapper{
 		margin-top:0px;
@@ -953,7 +953,7 @@ img.ug-sepia-effect{
 	}
 
 
-.------------------DEFAULT_SKIN---------------------{}
+/* .------------------DEFAULT_SKIN---------------------{} */
 
 /* --- arrows -- */
 

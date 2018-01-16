@@ -49,7 +49,7 @@ mixin modal(vino = {})
                                     i.large.material-icons chevron_left
                                 ul
                                     li
-                                        a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)
+                                        a.btn-floating.red.modal-trigger.modal-close(href=`#ukloni_${vino._id}`)
                                             i.material-icons clear
                                     li
                                         a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
@@ -61,8 +61,16 @@ mixin modal(vino = {})
                                     i.large.material-icons chevron_left
                                 ul
                                     li
-                                        a.btn-floating.red(href=`/vino/${vino._id}/ukloni`)
+                                        a.btn-floating.red.modal-trigger(href=`#ukloni_${vino._id}`)
                                             i.material-icons clear
                                     li
                                         a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
                                             i.material-icons mode_edit
+
+
+                .div(id=`ukloni_${vino._id}`).modal.izbrisi-vino-modal
+                    .modal-content
+                        h5 Da li zaista želite da uklonite #{vino.naziv} vino?
+                    .modal-footer
+                        a.modal-action.modal-close.btn-flat(href=`/vino/${vino._id}/ukloni`) Ukloni
+                        a.modal-action.modal-close.btn-flat(href='#!') Zatvori

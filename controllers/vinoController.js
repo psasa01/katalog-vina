@@ -79,7 +79,7 @@ exports.snimiVino = async(req, res) => {
   const userPromise = User.findOneAndUpdate({
     _id: req.user._id
   }, {
-    brojVina: req.user.brojVina + 1
+    $inc: {brojVina: 1}
   }, {
     new: true,
     runValidators: true
@@ -94,7 +94,7 @@ exports.snimiVino = async(req, res) => {
 
   const vinoPromise = vino.save();
 
-  Promise.all([vinoPromise, userPromise]);
+  await Promise.all([vinoPromise, userPromise]);
 
   req.flash('success', 'Uspješno ste unijeli novo vino u bazu');
   res.redirect('/');

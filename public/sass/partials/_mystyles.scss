@@ -419,6 +419,13 @@ h4 {
   width: 20%;
 }
 
+@media (max-width: 1440px) {
+    .grid-sizer,
+    .grid-item {
+        width: 25%;
+    }
+} 
+
 @media (max-width: 1100px) {
     .grid-sizer,
     .grid-item {
@@ -467,5 +474,9 @@ h4 {
 }
 
 .izbrisi-sliku-modal {
+    height: 30% !important;
+}
+
+.izbrisi-vino-modal {
     height: 30% !important;
 }

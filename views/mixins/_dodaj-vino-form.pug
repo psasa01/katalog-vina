@@ -2,25 +2,25 @@ mixin dodaj-vino(vino = {})
 
     form.col.s12(action=`/dodaj-vino/${vino._id || ''}` method="POST" enctype="multipart/form-data")
         .input-field.col.s12
-            input#naziv(type="text" name="naziv" value=vino.naziv)
+            input#naziv.validate(type="text" name="naziv" value=vino.naziv)
             label(for="naziv") Naziv vina
         .input-field.col.s12.l6
-            input#naziv(type="text" name="proizvodjac" value=vino.proizvodjac)
+            input#proizvodjac.validate(type="text" name="proizvodjac" value=vino.proizvodjac)
             label(for="proizvodjac") Naziv proizvođača
         .input-field.col.s12.l6
-            input#naziv(type="text" name="zemlja" value=vino.zemlja)
+            input#zemlja.validate(type="text" name="zemlja" value=vino.zemlja)
             label(for="zemlja") Zemlja porijekla
         .input-field.col.s12.l6
-            input#naziv(type="text" name="vrsta" value=vino.vrsta)
+            input#vrsta.validate(type="text" name="vrsta" value=vino.vrsta)
             label(for="vrsta") Vrsta vina
         .input-field.col.s12.l6
-            input#naziv(type="text" name="godina" value=vino.godina)
+            input#godina(type="text" name="godina" value=vino.godina)
             label(for="godina") Godina berbe
         .input-field.col.s12.l6
-            input#naziv(type="text" name="alkohol" value=vino.alkohol)
+            input#alkohol(type="text" name="alkohol" value=vino.alkohol)
             label(for="alkohol") Procenat alkohola
         .input-field.col.s12.l6
-            input#naziv(type="text" name="velicina" value=vino.velicina)
+            input#velicina(type="text" name="velicina" value=vino.velicina)
             label(for="velicina") Veličina boce
         .file-field.input-field.col.l6.s12
             .btn.brown
