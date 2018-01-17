@@ -72,19 +72,6 @@
 
 __webpack_require__(1);
 
-// import 'masonry-layout/dist/masonry.pkgd.min'
-// import 'imagesloaded/imagesloaded.pkgd.min'
-
-// import 'owl.carousel/dist/assets/owl.carousel.css';
-// import $ from 'jquery';
-// import 'imports?jQuery=jquery!owl.carousel';
-
-
-// import '../unitegallery/js/jquery-11.0.min.js';
-// import '../unitegallery/js/unitegallery.min.js';
-// import '../unitegallery/themes/tiles/ug-theme-tiles.js';
-
-
 $(document).ready(function () {
 
   $('#prikaz-forme').click(function () {
@@ -105,39 +92,21 @@ $(document).ready(function () {
   });
 
   $('#gallery').unitegallery({
-    gallery_skin: "alexis", //it's the default skin
-    slider_bullets_skin: "alexis" //example how to change only skin for slider bullets
+    gallery_skin: "alexis",
+    slider_bullets_skin: "alexis"
   });
 
   $('.grid-item').hover(function () {
-    $(this).children().addClass('icon-izbrisi-show');
+    $(this).children().addClass('icon-izbrisi-show', 2000, 'swing');
   }, function () {
-    $(this).children().removeClass('icon-izbrisi-show');
+    $(this).children().removeClass('icon-izbrisi-show', 2000, 'swing');
   });
-  // $('.carousel.carousel-slider').carousel({
-  //   fullWidth: true,
-  //   indicators: true
-  // });
-
-
-  // $('.owl-carousel').owlCarousel({
-  //   items: 2,
-  //   stagePadding: 50,
-  //   merge: true,
-  //   autoWidth: true,
-  //   mergeFit: true,
-  //   nav: true,
-  //   dots: true,
-  //   stageDrag: false
-  // });
-
 
   $('.button-collapse').sidenav({
-    menuWidth: 300, // Default is 300
-    edge: 'right', // Choose the horizontal origin
-    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    draggable: true // Choose whether you can drag to open on touch screens,
-
+    menuWidth: 300,
+    edge: 'right',
+    closeOnClick: true,
+    draggable: true
   });
 
   // external js: masonry.pkgd.js, imagesloaded.pkgd.js
@@ -150,9 +119,15 @@ $(document).ready(function () {
       columnWidth: '.grid-sizer'
     });
   });
-}); // import '../vendors/materialize/js/materialize.min.js'
-// import '../../node_modules/materialize-css/dist/css/materialize.min.css'
-// import '../unitegallery/css/unite-gallery.css';
+}); // import $ from 'jquery'
+// import 'materialize-css/dist/js/materialize.min.js'
+// import 'materialize-css/dist/css/materialize.min.css'
+// import 'unitegallery/dist/css/unite-gallery.css';
+// import 'unitegallery/dist/js/jquery-11.0.min.js';
+// import 'unitegallery/dist/js/unitegallery.min.js';
+// import 'unitegallery/dist/themes/tiles/ug-theme-tiles.js';
+// import 'masonry-layout/dist/masonry.pkgd.min'
+// import 'imagesloaded/imagesloaded.pkgd.min'
 
 /***/ }),
 /* 1 */

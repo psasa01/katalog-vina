@@ -474,4 +474,22 @@ h4 {
 .izbrisi-vino-modal {
   height: 10em !important; }
 
+#home-button {
+  right: 2em !important;
+  bottom: 2em !important;
+  position: fixed !important; }
+
+.footer {
+  width: 100%;
+  position: fixed;
+  background-color: #a1887f;
+  color: black;
+  height: 1.5em;
+  bottom: 0em;
+  font-size: .8em;
+  opacity: .75; }
+  .footer .p {
+    position: absolute;
+    right: 1em; }
+
 /*# sourceMappingURL=style.css.map*/

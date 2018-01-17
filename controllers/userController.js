@@ -69,7 +69,9 @@ exports.register = async(req, res) => {
             zahvaljujemo Vam se na registraciji. Da biste aktivirali korisnički račun potrebno je da pratite link ispod, 
             te unesete aktivacijski kod!
             <br>
-            Aktivacijski kod: ${secretToken}
+            Aktivacijski kod: 
+            <br>
+            <strong>${secretToken}</strong>
             <br>
             <a href="http://${req.headers.host}/aktivacija"> Aktiviraj korisnički račun </a>
             <br>
