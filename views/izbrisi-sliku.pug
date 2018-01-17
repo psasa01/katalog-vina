@@ -1,4 +1,5 @@
 extends layout
+include mixins/_home-button
 
 block content
 
@@ -26,3 +27,4 @@ block content
                             .modal-footer
                                 a.modal-action.modal-close.btn-flat(href=`/slika/${slika._id}/ukloni`) Ukloni fotografiju
                                 a.modal-action.modal-close.btn-flat(href='#!') Zatvori
+    +home-button

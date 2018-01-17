@@ -10,8 +10,10 @@ Spisak mailova koji su u opticaju i na koje mailgun može poslati poruku.
 Šifre su iste za gmail i za aplikaciju.
 S obzirom da stranica nema svoj DNS još uvijek nije aktivno slanje poruka na ostale adrese tako da je i registracija trenutno onemogućena. Registracija je izvršena za prve dvije email adrese
 
-kolekcijavinaadm@gmail.com - pass: adminvina - registrovan
-kolekcijavinausr@gmail.com - pass: uservina - registrovan
+kolekcijavinaadm@gmail.com - pass: adminvina - registrovan,
+
+kolekcijavinausr@gmail.com - pass: uservina - registrovan,
+
 kolekcijavinausr2@gmail.com -pass: uservina - nije registrovan. Ostavljen za eventualnu probu aktivacije.
 
 U slučaju gubitka šifre, moguće je poslati token na email adresu te pomoću linka koji korisnik dobije promjeniti šifru.
@@ -29,6 +31,7 @@ Problem na koji sam naišao je webpack. Htio sam da kroz webpack učitam scss, c
 https://kolekcija-vina.herokuapp.com/.
 
 lokalno pokretanje: npm run dev
+port: 7777
 
 
 
