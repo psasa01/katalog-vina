@@ -1,6 +1,6 @@
 Kolekcija Vina - projekat za vježbu 
 
-Kroz proces učenja već nekoliko mjeseci, gledajući razne tutorijale, najviše sam se oslonio na tutorial Learn Node od Wes Bosa. (https://learnnode.com). U aplikaciji sam i iskoristio nekoliko snippeta, konkretno dijelove webpack konfiguracije i čitav errorHandlers.js file. Jako mi se svidio način na koji se async/await funkcija umota u error handler koji je definisan u posebnom fajlu da bi se izbjeglo korištenje try/catch konstrukcije.
+Kroz proces učenja već nekoliko mjeseci, gledajući razne tutorijale, najviše sam se oslonio na tutorial Learn Node od Wes Bosa. (https://learnnode.com). U aplikaciji sam i iskoristio nekoliko snippeta, konkretno dijelove webpack konfiguracije, css za flash poruke i čitav errorHandlers.js file. Jako mi se svidio način na koji se async/await funkcija umota u error handler koji je definisan u posebnom fajlu da bi se izbjeglo korištenje try/catch konstrukcije.
 
 Vodio sam se idejom da napravim katalog vina za prijatelja koji je strastveni kolekcionar. Aplikacija je na bosanskom jeziku jer je namjenjena konkretnom korisniku kojem to odgovara i ima nekoliko različitih segmenata:
 
