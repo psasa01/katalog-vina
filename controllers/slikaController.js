@@ -85,10 +85,10 @@ exports.izbrisiSliku = async(req, res) => {
     });
 
     await fs.unlink(`./public/images/big/big_${slika.big}`, (err) => {
-        if(err) throw err;
+        if (err) throw err;
     });
     await fs.unlink(`./public/images/thumbs/thumb_${slika.thumb}`, (err) => {
-        if(err) throw err;
+        if (err) throw err;
     });
 
     req.flash('success', 'Uspješno ste izbrisali fotografiju iz galerije!');
