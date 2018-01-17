@@ -28,6 +28,8 @@ Problem na koji sam naišao je webpack. Htio sam da kroz webpack učitam scss, c
 
 https://kolekcija-vina.herokuapp.com/.
 
+lokalno pokretanje: npm run dev
+
 
 
 
