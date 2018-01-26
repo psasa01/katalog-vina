@@ -4,7 +4,7 @@ const User = mongoose.model('User');
 
 exports.login = passport.authenticate('local', {
     failureRedirect: '/login',
-    failureFlash: 'Greška pri prijavljivanju!',
+    failureFlash: { type: 'error', message: 'Greška pri prijavljivanju!' },
     successRedirect: '/',
     successFlash: 'Uspješno ste se prijavili. Dobrodošli na "Moju Kolekciju Vina"!'
 });
@@ -29,8 +29,11 @@ exports.isActive = async(req, res, next) => {
     const user = await User.findOne({
         email: req.body.email
     });
-
-    if (user.active === true) {
+    if(!user) {
+        req.flash('error', 'Nažalost, u bazi ne postoji korisnik s navedenim podacima!');
+        res.redirect('login');
+    }
+    else if (user.active === true) {
         return next();
     } else {
         req.flash('error', 'Da biste se prijavili morate aktivirati korisnički račun. Provjerite email!');

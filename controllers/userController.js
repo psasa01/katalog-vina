@@ -10,7 +10,9 @@ const passport = require('passport');
 exports.login = (req, res) => {
     console.log(req.body);
     res.render('login', {
-        title: 'Login'
+        title: 'Login',
+        user : req.user,
+        error: req.flash('Greška pri prijavljivanju!')
     });
 };
 
