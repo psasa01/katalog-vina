@@ -2,7 +2,7 @@ extends layout
 include mixins/_home-button
 
 block content
-    .container 
+    .container#sliphover 
         .row
             h2= title
             hr
@@ -12,17 +12,18 @@ block content
                 a(href=`/zemlje/${zemlja._id}`) 
                     Button.btn.waves-effect.waves-light.btn-zemlja.brown #{zemlja._id} - (#{zemlja.count}) 
                      
-           
+  
             br
             br
             hr
+        .row#sliphover             
             each vino in vina
                 
                 a.modal-trigger(href=`#${vino.slug}`)
                     .col.s12.m6.l3
                         .card.z-depth-2
                             .card-image
-                                img(src=`/images/${vino.slika || '.public/images/slika.jpg'}`)
+                                img(src=`/images/${vino.slika || 'slika.jpg'}` data-caption=`<a class="modal-trigger" style="position: absolute; line-height: 2em; bottom: .25em; font-size: 1.1em; padding-left: .4em; display: block; color:#ddd; background-color: rgba(0,0,0,.5); width: 100%" href='#${vino.slug}'>${vino.naziv}</a>`)
                                 .korisnik
                                     p.card-ime= vino.ime
                                 .card-title.card-style
@@ -62,8 +63,8 @@ block content
                                     .col.l6.offset-l4
                                                                                 
 
-                                        p.brown-text.left-align Procenat Alkohola: #{vino.alkohol}%
-                                        p.brown-text.left-align Veličina Boce: #{vino.velicina} litara
+                                        h5.brown-text.left-align Procenat Alkohola: #{vino.alkohol}%
+                                        h5.brown-text.left-align Veličina Boce: #{vino.velicina} litara
 
                                 
                     .modal-footer

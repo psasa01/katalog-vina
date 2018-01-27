@@ -116,6 +116,10 @@ select:-webkit-autofill:focus {
   transition: all .6s ease;
   background-color: black; }
 
+@media (max-width: 960px) {
+  .card:hover {
+    opacity: .98; } }
+
 .card-title {
   display: none; }
 
@@ -498,5 +502,17 @@ h4 {
 
 .navbar-fixed {
   z-index: 9999999999 !important; }
+
+@media (max-width: 992px) {
+  h5.brown-text.left-align {
+    padding-left: 5.5em;
+    font-size: .7em; } }
+
+@media (max-width: 600px) {
+  h5.brown-text.left-align {
+    padding-left: 1em; } }
+
+.container {
+  width: 80% !important; }
 
 /*# sourceMappingURL=style.css.map*/

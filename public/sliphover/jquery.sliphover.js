@@ -37,7 +37,10 @@
         init: function() {
 
             //disable on touch devices
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 960) {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                return;
+            }
+            if ($(window).width() <= 960) {
                 return;
             }
 
@@ -240,3 +243,5 @@
     };
 
 })(jQuery, window, document);
+
+
