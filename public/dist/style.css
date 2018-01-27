@@ -510,7 +510,7 @@ h4 {
 
 @media (max-width: 600px) {
   h5.brown-text.left-align {
-    padding-left: 1em; } }
+    padding-left: 0em; } }
 
 .container {
   width: 80% !important; }
