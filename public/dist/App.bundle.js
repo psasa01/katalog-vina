@@ -116,7 +116,7 @@ $(document).ready(function () {
     verticalMiddle: false,
     textAlign: 'left',
     withLink: true,
-    target: '.card-image'
+    target: '.sliphover-target'
   });
 
   // external js: masonry.pkgd.js, imagesloaded.pkgd.js

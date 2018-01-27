@@ -26,7 +26,7 @@ block content
                 a.modal-trigger(href=`#${vino.slug}`)
                     .col.s12.m6.l3
                         .card.z-depth-2
-                            .card-image(data-caption=`<a class="modal-trigger sliphover-options" href='#${vino.slug}'>${vino.naziv}</a>`)
+                            .card-image.sliphover-target(data-caption=`<a class="modal-trigger sliphover-options" href='#${vino.slug}'>${vino.naziv}</a>`)
                                 img(src=`/images/${vino.slika || 'slika.jpg'}` )
                                 .korisnik
                                     p.card-ime= vino.ime
