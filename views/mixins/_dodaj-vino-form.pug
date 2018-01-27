@@ -23,19 +23,19 @@ mixin dodaj-vino(vino = {})
             input#velicina(type="text" name="velicina" value=vino.velicina)
             label(for="velicina") Veličina boce
         .file-field.input-field.col.l6.s12
-            .btn.brown
+            .btn.brown.col.s12
                 if !vino.slika
                     span Dodaj Sliku
                 else
                     span Promjeni Sliku
-                input(type="file" name="slika" id="slika" accept="image/gif, image/png, image/jpeg, image/jpg")
+                input.col.s12(type="file" name="slika" id="slika" accept="image/gif, image/png, image/jpeg, image/jpg")
             .file-path-wrapper
                 input.file-path.validate(type="text")
                 
         if !vino.naziv
-            button.btn.waves-effect.waves-light.btn-large.spremi-button.col.s12.l6.brown(type="submit") Spremi vino
+            button.btn.waves-effect.waves-light.btn-large.spremi-button.col.s12.l6.green(type="submit") Spremi vino
         else
-            button.btn.waves-effect.waves-light.btn-large.spremi-button.col.s12.l6.brown(type="submit") Uredi vino
+            button.btn.waves-effect.waves-light.btn-large.spremi-button.col.s12.l6.green(type="submit") Uredi vino
         br
         br
 
