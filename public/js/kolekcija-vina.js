@@ -54,8 +54,12 @@ $(document).ready(function () {
     draggable: true,
   });
 
-  $('#container').sliphover({
-    caption: 'data-caption'
+  $('#sliphover').sliphover({
+    caption: 'data-caption',
+    backgroundColor: 'rgba(0,0,0,.2)',
+    fontColor: '#ddd',
+    verticalMiddle: false,
+    textAlign: 'left'
   });
 
 
@@ -70,4 +74,4 @@ $(document).ready(function () {
     });
   });
 
-});
+}); 

@@ -36,8 +36,18 @@ select:-webkit-autofill:focus {
     background-color: black;
 }
 
-.card:hover {
-    opacity: .98;
+// .card:hover {
+//     opacity: .98;
+// }
+
+.card-title {
+    display: none;
+}
+
+@media (max-width: 960px) {
+    .card-title {
+        display: block;
+    }
 }
 
 .card-style {
@@ -501,4 +511,8 @@ h4 {
         position: absolute;
         right: 1em;
     }
+}
+
+.navbar-fixed {
+    z-index: 9999999999 !important;
 }

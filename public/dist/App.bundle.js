@@ -109,6 +109,14 @@ $(document).ready(function () {
     draggable: true
   });
 
+  $('#sliphover').sliphover({
+    caption: 'data-caption',
+    backgroundColor: 'rgba(0,0,0,.2)',
+    fontColor: '#ddd',
+    verticalMiddle: false,
+    textAlign: 'left'
+  });
+
   // external js: masonry.pkgd.js, imagesloaded.pkgd.js
 
   // init Masonry after all images have loaded
