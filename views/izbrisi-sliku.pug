@@ -10,16 +10,15 @@ block content
             h2= title
                 
 
-            .grid
+            .grid#sliphover
                 .grid-sizer
                     each slika in slike
                        
                         .grid-item
-                            .icon-izbrisi-hide
-                                a.modal-trigger(href=`#${slika._id}`)
-                                    i.material-icons.medium cancel
+                            //- a.modal-trigger(href=`#${slika._id}`)
+                            //-         i.material-icons.medium cancel
                             
-                            img(src=`./images/thumbs/thumb_${slika.thumb}`)  
+                            img(src=`./images/thumbs/thumb_${slika.thumb}` data-caption=`<a href="#${slika._id}" class="modal-trigger sliphover-izbrisi"><i class="material-icons medium">cancel</i></a>`)  
                             
                         div(id= slika._id).modal.izbrisi-sliku-modal
                             .modal-content

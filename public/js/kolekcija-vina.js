@@ -59,7 +59,9 @@ $(document).ready(function () {
     backgroundColor: 'rgba(0,0,0,.175)',
     fontColor: '#ddd',
     verticalMiddle: false,
-    textAlign: 'left'
+    textAlign: 'left',
+    withLink: true,
+    target: '.card-image'
   });
 
 

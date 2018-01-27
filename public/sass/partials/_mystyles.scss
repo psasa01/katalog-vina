@@ -169,6 +169,10 @@ input.file-path.validate.valid[type=text] {
     height: 3em !important;
 }
 
+.modal-btn {
+    margin-right: .3em !important;
+}
+
 #ukloni-modal {
     z-index: 9999999999;
     max-height: 15em;
@@ -464,9 +468,12 @@ h4 {
 
 .grid-item {
     float: left;
+    
     & img {
         display: block;
-        width: 100%;
+        margin-right: .2em;
+        width: 99%;
+        margin-bottom: 1.2%;
     }
 }
 
@@ -501,6 +508,12 @@ h4 {
 
 .izbrisi-vino-modal {
     height: 10em !important;
+}
+
+@media (max-width: 680px) {
+    .izbrisi-vino-modal {
+        height: 12em !important;
+    }
 }
 
 #home-button {
@@ -544,4 +557,25 @@ h4 {
 
 .container {
     width: 80% !important;
+}
+
+.sliphover-options {
+    position: absolute; 
+    line-height: 2em; 
+    bottom: .5em; 
+    font-size: 1.1em; 
+    padding-left: .5em; 
+    display: block; 
+    color:#eee; 
+    background-color: rgba(0,0,0,.2); 
+    width: 100%
+}
+
+.sliphover-izbrisi {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: red;
+    transform: translate(-50%, -50%);
+    opacity: .8;
 }
