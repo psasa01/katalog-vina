@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('#dodaj-sliku-forma').toggleClass('show', 10000, 'easeOutSine');
   });
 
-  
+
 
   $('.fixed-action-btn').floatingActionButton({
     hoverEnabled: false,
@@ -33,12 +33,12 @@ $(document).ready(function () {
   });
 
   $('#gallery').unitegallery({
-    gallery_skin: "alexis", 
-    slider_bullets_skin: "alexis" 
+    gallery_skin: "alexis",
+    slider_bullets_skin: "alexis"
   });
 
-  
-  
+
+
   $('.grid-item').hover(function () {
     $(this).children().addClass('icon-izbrisi-show', 2000, 'swing');
   }, (function () {
@@ -48,21 +48,26 @@ $(document).ready(function () {
 
 
   $('.button-collapse').sidenav({
-    menuWidth: 300, 
-    edge: 'right', 
-    closeOnClick: true, 
-    draggable: true, 
+    menuWidth: 300,
+    edge: 'right',
+    closeOnClick: true,
+    draggable: true,
   });
 
-// external js: masonry.pkgd.js, imagesloaded.pkgd.js
+  $('#container').sliphover({
+    caption: 'data-caption'
+  });
 
-// init Masonry after all images have loaded
-var $grid = $('.grid').imagesLoaded( function() {
-  $grid.masonry({
-    itemSelector: '.grid-item',
-    percentPosition: true,
-    columnWidth: '.grid-sizer'
-  }); 
-});
+
+  // external js: masonry.pkgd.js, imagesloaded.pkgd.js
+
+  // init Masonry after all images have loaded
+  var $grid = $('.grid').imagesLoaded(function () {
+    $grid.masonry({
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      columnWidth: '.grid-sizer'
+    });
+  });
 
 });
