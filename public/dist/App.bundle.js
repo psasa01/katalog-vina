@@ -83,6 +83,11 @@ $(document).ready(function () {
     direction: 'left'
   });
 
+  $('.tooltipped').tooltip({
+    outDuration: 20,
+    exitDelay: 20,
+    position: 'top'
+  });
   $('.sidenav').sidenav();
   $('.modal').modal();
   $('.dropdown-trigger').dropdown({

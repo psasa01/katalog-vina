@@ -31,11 +31,12 @@ block content
             i.large.material-icons fast_rewind
         ul
             li
-                a.btn-floating.red(href=`/`)
+                a.tooltipped.btn-floating.red(href=`/` data-position="top" data-delay="10" data-tooltip="Početna")
                     i.material-icons home
             li
-                button.btn-floating.blue(onclick=`history.back()`)
+                button.tooltipped.btn-floating.blue(onclick=`history.back()` data-position="top" data-delay="10" data-tooltip="Natrag")
                     i.material-icons chevron_left
             li
-                a.btn-floating.green(href=`/galerija`)
-                    i.material-icons photo_size_select_actual
+                a(href=`/galerija` )
+                    button.tooltipped.btn-floating.green(data-position="top" data-delay="10" data-tooltip="Galerija")
+                        i.material-icons photo_size_select_actual
