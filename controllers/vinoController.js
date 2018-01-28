@@ -22,7 +22,7 @@ const multerOptions = {
 
 
 
-exports.getIndex = async(req, res) => {
+exports.getIndex = async (req, res) => {
   await res.render('index', {
     title: 'Ovo je Vinski Index'
   });
@@ -34,7 +34,7 @@ exports.dodajVino = (req, res) => {
   });
 }
 
-exports.urediVino = async(req, res) => {
+exports.urediVino = async (req, res) => {
   const vino = await Vino.findOne({
     _id: req.params.id
   });
@@ -45,20 +45,20 @@ exports.urediVino = async(req, res) => {
   })
 }
 
-exports.snimiUredjenoVino = async(req, res) => {
+exports.snimiUredjenoVino = async (req, res) => {
   const vino = await Vino.findOneAndUpdate({
     _id: req.params.id
   }, req.body, {
-    new: true,
-    runValidators: true
-  }).exec();
+      new: true,
+      runValidators: true
+    }).exec();
   req.flash('success', `Uspješno ste uredili vino <strong>${vino.naziv}</strong>!`);
   res.redirect('/');
 }
 
 exports.dodajSliku = multer(multerOptions).single('slika');
 
-exports.resize = async(req, res, next) => {
+exports.resize = async (req, res, next) => {
   // check if there is no file to resize
   // console.log(req.file)
   if (!req.file) {
@@ -74,16 +74,16 @@ exports.resize = async(req, res, next) => {
   next();
 };
 
-exports.snimiVino = async(req, res) => {
+exports.snimiVino = async (req, res) => {
 
   const userPromise = User.findOneAndUpdate({
     _id: req.user._id
   }, {
-    $inc: {brojVina: 1}
-  }, {
-    new: true,
-    runValidators: true
-  }).exec();
+      $inc: { brojVina: 1 }
+    }, {
+      new: true,
+      runValidators: true
+    }).exec();
 
 
 
@@ -100,7 +100,7 @@ exports.snimiVino = async(req, res) => {
   res.redirect('/');
 }
 
-exports.prikaziVina = async(req, res) => {
+exports.prikaziVina = async (req, res) => {
   const vina = await Vino.find();
 
   res.render('vina', {
@@ -109,7 +109,7 @@ exports.prikaziVina = async(req, res) => {
   });
 }
 
-exports.ukloniVino = async(req, res) => {
+exports.ukloniVino = async (req, res) => {
 
   const vino = await Vino.findOneAndRemove({
     _id: req.params.id
@@ -117,24 +117,25 @@ exports.ukloniVino = async(req, res) => {
 
   const user = await User.findOneAndUpdate({
     ime: vino.ime
-  }, { $inc: {brojVina: -1}
   }, {
-    new: true,
-    runValidators: true
-  }).exec();
+    $inc: { brojVina: -1 }
+    }, {
+      new: true,
+      runValidators: true
+    }).exec();
 
 
 
   fs.unlink(`./public/images/${vino.slika}`, (err) => {
-    if(err) throw err;
-    
+    if (err) throw err;
+
   });
 
   req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);
   res.redirect('/');
 }
 
-exports.pretragaPoZemljama = async(req, res) => {
+exports.pretragaPoZemljama = async (req, res) => {
   const zemlja = req.params.zemlja;
   const zemljaPromise = Vino.listaZemalja();
   const vinoPromise = Vino.find({
@@ -150,7 +151,7 @@ exports.pretragaPoZemljama = async(req, res) => {
 
 };
 
-exports.pretragaPoVrstama = async(req, res) => {
+exports.pretragaPoVrstama = async (req, res) => {
   const vrsta = req.params.vrsta;
   const vrstaPromise = Vino.popisVrsti();
   const vinoPromise = Vino.find({
@@ -165,7 +166,7 @@ exports.pretragaPoVrstama = async(req, res) => {
   });
 };
 
-exports.pretragaPoKorisnicima = async(req, res) => {
+exports.pretragaPoKorisnicima = async (req, res) => {
   const korisnik = req.params.korisnik;
   const korisnikPromise = Vino.popisKorisnika();
   const vinoPromise = Vino.find({

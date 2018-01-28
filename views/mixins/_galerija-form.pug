@@ -1,7 +1,14 @@
 mixin galerija-form
 
     
-    
+        #spinner.preloader-wrapper.big.active
+            .spinner-layer.spinner-blue-only
+                .circle-clipper.left
+                    .circle
+                .gap-patch
+                    .circle
+                .circle-clipper.right
+                    .circle
 
         
         if user && user.level == 1
@@ -16,10 +23,12 @@ mixin galerija-form
             .title-div
                 h2= title
             
-        
+      
 
         .row#dodaj-sliku-forma
-               
+
+            
+
             form.col.s12(action=`/dodajSliku` method="POST" enctype="multipart/form-data" )
                 .input-field.col.s12
                     input#opis(type="text" name="opis")
@@ -30,6 +39,7 @@ mixin galerija-form
                         input(type="file" name="slika" id="slika" accept="image/gif, image/png, image/jpeg, image/jpg")
                     .file-path-wrapper.col.s12.m7
                         input.file-path.validate(type="text")
+
                     button.btn.waves-effect.waves-light.col.s12.m2.blue(type="submit") Potvrdite
 
 

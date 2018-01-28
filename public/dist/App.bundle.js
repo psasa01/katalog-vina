@@ -96,11 +96,13 @@ $(document).ready(function () {
     slider_bullets_skin: "alexis"
   });
 
-  $('.grid-item').hover(function () {
-    $(this).children().addClass('icon-izbrisi-show', 2000, 'swing');
-  }, function () {
-    $(this).children().removeClass('icon-izbrisi-show', 2000, 'swing');
-  });
+  if ($(window).width() < 960) {
+    $('.grid-item').hover(function () {
+      $(this).children().addClass('icon-izbrisi-show', 2000, 'swing');
+    }, function () {
+      $(this).children().removeClass('icon-izbrisi-show', 2000, 'swing');
+    });
+  }
 
   $('.button-collapse').sidenav({
     menuWidth: 300,
@@ -138,6 +140,10 @@ $(document).ready(function () {
 // import 'unitegallery/dist/themes/tiles/ug-theme-tiles.js';
 // import 'masonry-layout/dist/masonry.pkgd.min'
 // import 'imagesloaded/imagesloaded.pkgd.min'
+
+function showSpinner() {
+  $('#spinner').css('display', 'block');
+}
 
 /***/ }),
 /* 1 */

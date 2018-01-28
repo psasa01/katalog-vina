@@ -7,29 +7,34 @@ const fs = require('fs');
 const multerOptions = {
     storage: multer.memoryStorage(),
     fileFilter: function (req, file, next) {
+        // console.log(file);
         const isPhoto = file.mimetype.startsWith('image/');
         if (isPhoto) {
             next(null, true);
         } else {
-            next({
-                message: 'Taj tip datoteke nije podržan!'
-            });
+            next();
         }
     }
 };
 
 exports.dodajSliku = multer(multerOptions).single('slika');
 
-exports.snimiSliku = async(req, res) => {
-    const slika = new Slika(req.body);
-    await slika.save();
+exports.snimiSliku = async (req, res) => {
+    if (!req.body.thumb) {
+        req.flash('error', 'Niste odabrali datoteku ili vrsta datoteke nije podržana!');
+        res.redirect('/galerija');
+    } else {
+        const slika = new Slika(req.body);
+        await slika.save();
 
-    req.flash('success', 'Uspješno ste dodali sliku u galeriju!');
-    res.redirect('/galerija');
+        req.flash('success', 'Uspješno ste dodali sliku u galeriju!');
+        res.redirect('/galerija');
+    }
+
 
 }
 
-exports.resize400 = async(req, res, next) => {
+exports.resize400 = async (req, res, next) => {
     // check if there is no file to resize
     // console.log(req.file)
     if (!req.file) {
@@ -46,7 +51,7 @@ exports.resize400 = async(req, res, next) => {
     next();
 };
 
-exports.resize1200 = async(req, res, next) => {
+exports.resize1200 = async (req, res, next) => {
     // check if there is no file to resize
     // console.log(req.file)
     if (!req.file) {
@@ -63,7 +68,7 @@ exports.resize1200 = async(req, res, next) => {
     next();
 };
 
-exports.galerija = async(req, res) => {
+exports.galerija = async (req, res) => {
     const slike = await Slika.find();
     res.render('galerija', {
         title: 'Galerija fotografija',
@@ -71,7 +76,7 @@ exports.galerija = async(req, res) => {
     });
 }
 
-exports.izbrisiSlikuPage = async(req, res) => {
+exports.izbrisiSlikuPage = async (req, res) => {
     const slike = await Slika.find();
     res.render('izbrisi-sliku', {
         title: 'Brisanje fotografija',
@@ -79,7 +84,7 @@ exports.izbrisiSlikuPage = async(req, res) => {
     })
 };
 
-exports.izbrisiSliku = async(req, res) => {
+exports.izbrisiSliku = async (req, res) => {
     const slika = await Slika.findOneAndRemove({
         _id: req.params.id
     });

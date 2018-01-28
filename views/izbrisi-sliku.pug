@@ -1,5 +1,4 @@
 extends layout
-include mixins/_home-button
 
 block content
 
@@ -15,8 +14,8 @@ block content
                     each slika in slike
                        
                         .grid-item.sliphover-target( data-caption=`<a href="#${slika._id}" class="modal-trigger sliphover-izbrisi"><i class="material-icons medium">cancel</i></a>`)
-                            //- a.modal-trigger(href=`#${slika._id}`)
-                            //-         i.material-icons.medium cancel
+                            a.icon-izbrisi-hide.modal-trigger(href=`#${slika._id}`)
+                                i.material-icons.medium cancel
                             
                             img(src=`./images/thumbs/thumb_${slika.thumb}`)  
                             
@@ -24,6 +23,19 @@ block content
                             .modal-content
                                 h5 Da li zaista želite da uklonite fotografiju?
                             .modal-footer
-                                a.modal-action.modal-close.btn-flat(href=`/slika/${slika._id}/ukloni`) Ukloni fotografiju
-                                a.modal-action.modal-close.btn-flat(href='#!') Zatvori
-    +home-button
+                                a.modal-action.modal-close.btn.red.modal-btn(href=`/slika/${slika._id}/ukloni`) Ukloni fotografiju
+                                a.modal-action.modal-close.btn.green.modal-btn(href='#!') Zatvori
+
+    .fixed-action-btn.button-fab#home-button
+        a.btn-floating.btn-large.brown
+            i.large.material-icons fast_rewind
+        ul
+            li
+                a.btn-floating.red(href=`/`)
+                    i.material-icons home
+            li
+                button.btn-floating.blue(onclick=`history.back()`)
+                    i.material-icons chevron_left
+            li
+                a.btn-floating.green(href=`/galerija`)
+                    i.material-icons photo_size_select_actual

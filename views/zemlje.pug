@@ -104,7 +104,7 @@ block content
                     .modal-content
                         h5 Da li zaista želite da uklonite #{vino.naziv} vino?
                     .modal-footer
-                        a.modal-action.modal-close.btn-flat(href=`/vino/${vino._id}/ukloni`) Ukloni
-                        a.modal-action.modal-close.btn-flat(href='#!') Zatvori
+                        a.modal-action.modal-close.btn.red.modal-btn(href=`/vino/${vino._id}/ukloni`) Ukloni
+                        a.modal-action.modal-close.btn.green.modal-btn(href='#!') Zatvori
 
         +home-button

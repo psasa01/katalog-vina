@@ -324,8 +324,10 @@ tr button {
   margin-top: .4em !important; }
 
 .user-image-mobile {
-  height: 3.1em !important;
-  margin-top: .2em !important; }
+  height: 5em !important;
+  margin-top: 1.5em !important;
+  margin-left: 1.5em !important;
+  margin-bottom: 0em !important; }
 
 .flash__remove {
   cursor: pointer; }
@@ -357,7 +359,7 @@ tr button {
   z-index: 999999; }
 
 #spinner {
-  display: block;
+  display: none;
   position: fixed;
   right: 50%;
   top: 50%;
@@ -491,6 +493,26 @@ h4 {
 .izbrisi-sliku-modal {
   height: 10em !important; }
 
+.brisanje-slike {
+  display: none; }
+
+.brisanje-slike i {
+  color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+
+@media (max-width: 960px) {
+  .brisanje-slike {
+    display: block; } }
+
+@media (max-width: 680px) and (max-width: 680px) {
+  .izbrisi-sliku-modal {
+    height: 16em !important; } }
+
 .izbrisi-vino-modal {
   height: 10em !important; }
 
@@ -515,6 +537,9 @@ h4 {
   .footer .p {
     position: absolute;
     right: 1em; }
+
+.sidenav {
+  z-index: 99999 !important; }
 
 .navbar-fixed {
   z-index: 9999 !important; }

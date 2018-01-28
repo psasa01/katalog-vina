@@ -31,6 +31,8 @@ html(lang="en")
         block header
 
 
+
+
             .navbar-fixed  
                 
                 nav
@@ -82,9 +84,9 @@ html(lang="en")
         ul#mobile-demo.sidenav
             if user 
                 li
-                    a(href=('/racun'))
-                        img.circle.responsive-img.user-image-mobile(src=user.slika || user.gravatar)
-                        
+                    img.circle.responsive-img.user-image-mobile(src=user.slika || user.gravatar)
+                li
+                    a(href='/dodaj-vino') #{user.ime}       
                 li.divider
                 li
                     a(href='/dodaj-vino') Novo Vino
