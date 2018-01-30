@@ -8,6 +8,7 @@
 // import 'masonry-layout/dist/masonry.pkgd.min'
 // import 'imagesloaded/imagesloaded.pkgd.min'
 
+import 'normalize-css/normalize.css';
 import '../sass/style.scss'
 
 $(document).ready(function () {

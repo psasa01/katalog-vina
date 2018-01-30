@@ -72,6 +72,18 @@
 
 __webpack_require__(1);
 
+__webpack_require__(2);
+
+// import $ from 'jquery'
+// import 'materialize-css/dist/js/materialize.min.js'
+// import 'materialize-css/dist/css/materialize.min.css'
+// import 'unitegallery/dist/css/unite-gallery.css';
+// import 'unitegallery/dist/js/jquery-11.0.min.js';
+// import 'unitegallery/dist/js/unitegallery.min.js';
+// import 'unitegallery/dist/themes/tiles/ug-theme-tiles.js';
+// import 'masonry-layout/dist/masonry.pkgd.min'
+// import 'imagesloaded/imagesloaded.pkgd.min'
+
 $(document).ready(function () {
 
   $('#prikaz-forme').click(function () {
@@ -136,15 +148,7 @@ $(document).ready(function () {
       columnWidth: '.grid-sizer'
     });
   });
-}); // import $ from 'jquery'
-// import 'materialize-css/dist/js/materialize.min.js'
-// import 'materialize-css/dist/css/materialize.min.css'
-// import 'unitegallery/dist/css/unite-gallery.css';
-// import 'unitegallery/dist/js/jquery-11.0.min.js';
-// import 'unitegallery/dist/js/unitegallery.min.js';
-// import 'unitegallery/dist/themes/tiles/ug-theme-tiles.js';
-// import 'masonry-layout/dist/masonry.pkgd.min'
-// import 'imagesloaded/imagesloaded.pkgd.min'
+});
 
 function showSpinner() {
   $('#spinner').css('display', 'block');
@@ -152,6 +156,12 @@ function showSpinner() {
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
