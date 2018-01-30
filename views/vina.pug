@@ -1,10 +1,12 @@
 extends layout
 //- include mixins/_vino-card
 //- include mixins/_modal
+include mixins/_spinner
 
 block content
 
-
+    if(!vina)
+        +spinner
 
     .container
         .row#sliphover

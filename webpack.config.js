@@ -50,7 +50,15 @@ const uglify = new webpack.optimize.UglifyJsPlugin({
   }
 });
 
+const woff = {
+  test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+  loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+}
 
+const ttf = {
+  test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+  loader: 'file-loader'
+}
 
 const config = {
   entry: {
@@ -65,7 +73,7 @@ const config = {
     filename: '[name].bundle.js'
   },
   module: {
-    rules: [javascript, styles, images]
+    rules: [javascript, styles, images, woff, ttf]
   },
   // plugins: [uglify]
   plugins: [

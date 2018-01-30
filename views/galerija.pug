@@ -4,6 +4,9 @@ include mixins/_galerija-form
 
 block content
 
+    if(!slike)
+        +spinner
+
     .container            
         +galerija-form
         
