@@ -10,4 +10,4 @@ mixin vino-card(vino = {})
                         .card-title.card-style
                             p= vino.naziv
                     .card-action.brown.lighten-4.action-style
-                        p= vino.zemlja.toUpperCase()
+                        a(href=`/zemlje/${vino.zemlja}`)= vino.zemlja.toUpperCase() aaa
