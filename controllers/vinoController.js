@@ -118,7 +118,7 @@ exports.ukloniVino = async (req, res) => {
   const user = await User.findOneAndUpdate({
     ime: vino.ime
   }, {
-    $inc: { brojVina: -1 }
+      $inc: { brojVina: -1 }
     }, {
       new: true,
       runValidators: true
@@ -127,12 +127,17 @@ exports.ukloniVino = async (req, res) => {
 
 
   fs.unlink(`./public/images/${vino.slika}`, (err) => {
-    if (err) throw err;
+    if (err) {
+      req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);
+      res.redirect('/');
+    } else {
+      req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga i sliku iz baze!`);
+      res.redirect('/');
+    }
 
   });
 
-  req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);
-  res.redirect('/');
+
 }
 
 exports.pretragaPoZemljama = async (req, res) => {
