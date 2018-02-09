@@ -34,6 +34,7 @@ select:-webkit-autofill:focus {
 .card {
     transition: all .6s ease;
     background-color: black;
+    cursor: pointer;
 }
 
 @media (max-width: 960px) {
@@ -591,7 +592,13 @@ h4 {
     width: 80% !important;
 }
 
-.sliphover-options {
+.sliphover-wrapper {
+    height: 100%;
+    width: 100%;
+
+}
+
+.sliphover-options p {
     position: absolute; 
     line-height: 2em; 
     bottom: .5em; 
@@ -600,7 +607,7 @@ h4 {
     display: block; 
     color:#eee; 
     background-color: rgba(0,0,0,.2); 
-    width: 100%
+    width: 100%;
 }
 
 .sliphover-izbrisi {

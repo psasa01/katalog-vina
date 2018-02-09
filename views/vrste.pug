@@ -29,7 +29,7 @@ block content
                 a.modal-trigger(href=`/zemlje/${vino.zemlja}`)
                     .col.s12.m6.l3
                         .card.z-depth-2
-                            .card-image.sliphover-target(data-caption=`<a class="modal-trigger sliphover-options" href='#${vino.slug}'>${vino.naziv}</a>`)
+                            .card-image.sliphover-target(data-caption=`<a class="modal-trigger sliphover-options" href='#${vino.slug}'><div class="sliphover-wrapper"><p>${vino.naziv}</p></div></a>`)
                                 img(src=`/images/${vino.slika || 'slika.jpg'}` )
                                 .korisnik
                                     p.card-ime= vino.ime

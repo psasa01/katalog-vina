@@ -453,7 +453,8 @@ select:-webkit-autofill:focus {
   -webkit-transition: all .6s ease;
   -o-transition: all .6s ease;
   transition: all .6s ease;
-  background-color: black; }
+  background-color: black;
+  cursor: pointer; }
 
 @media (max-width: 960px) {
   .card:hover {
@@ -895,7 +896,11 @@ h4 {
 .container {
   width: 80% !important; }
 
-.sliphover-options {
+.sliphover-wrapper {
+  height: 100%;
+  width: 100%; }
+
+.sliphover-options p {
   position: absolute;
   line-height: 2em;
   bottom: .5em;
