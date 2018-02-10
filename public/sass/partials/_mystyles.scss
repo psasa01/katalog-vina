@@ -79,12 +79,14 @@ select:-webkit-autofill:focus {
 
 .action-style p {
     position: absolute;
-    right: .7em;
-    bottom: -.7em;
+    right: 0em;
+    bottom: -1em;
     font-size: 1.2rem;
     color: #444;
     line-height: 1.1em;
-    padding-left: .6em;
+    padding-right: .6em;
+    padding-top: 1.2em;
+    padding-bottom: .4em
 }
 
 h2 {
@@ -160,6 +162,7 @@ input.file-path.validate.valid[type=text] {
 .modal {
     width: 80% !important;
     height: 90% !important;
+    z-index: 999999 !important;
 }
 
 @media (max-width: 600px) {
@@ -320,7 +323,13 @@ tr button {
     right: .7em;
     bottom: -1.1em;
     font-size: .7em;
-    color: $brownLighten3
+    color: $brownLighten4;
+    z-index: 9991;
+}
+
+.card-zemlje p {
+    width: 100%;
+    text-align: right;
 }
 
 .dropdown-content,
@@ -598,16 +607,18 @@ h4 {
 
 }
 
+
 .sliphover-options p {
     position: absolute; 
     line-height: 2em; 
-    bottom: .5em; 
+    bottom: -.5em; 
     font-size: 1.1em; 
     padding-left: .5em; 
     display: block; 
     color:#eee; 
     background-color: rgba(0,0,0,.2); 
     width: 100%;
+
 }
 
 .sliphover-izbrisi {
@@ -618,6 +629,8 @@ h4 {
     transform: translate(-50%, -50%);
     opacity: .8;
 }
+
+
 
 .spinner-wrapper {
     position: fixed;

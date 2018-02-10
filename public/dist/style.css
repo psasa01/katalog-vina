@@ -489,12 +489,14 @@ select:-webkit-autofill:focus {
 
 .action-style p {
   position: absolute;
-  right: .7em;
-  bottom: -.7em;
+  right: 0em;
+  bottom: -1em;
   font-size: 1.2rem;
   color: #444;
   line-height: 1.1em;
-  padding-left: .6em; }
+  padding-right: .6em;
+  padding-top: 1.2em;
+  padding-bottom: .4em; }
 
 h2 {
   color: #795548; }
@@ -553,7 +555,8 @@ input.file-path.validate.valid[type=text] {
 
 .modal {
   width: 80% !important;
-  height: 90% !important; }
+  height: 90% !important;
+  z-index: 999999 !important; }
 
 @media (max-width: 600px) {
   height: 100% !important; }
@@ -685,7 +688,12 @@ tr button {
   right: .7em;
   bottom: -1.1em;
   font-size: .7em;
-  color: #bcaaa4; }
+  color: #d7ccc8;
+  z-index: 9991; }
+
+.card-zemlje p {
+  width: 100%;
+  text-align: right; }
 
 .dropdown-content,
 .dropdown-content li {
@@ -903,7 +911,7 @@ h4 {
 .sliphover-options p {
   position: absolute;
   line-height: 2em;
-  bottom: .5em;
+  bottom: -.5em;
   font-size: 1.1em;
   padding-left: .5em;
   display: block;
