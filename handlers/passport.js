@@ -11,11 +11,11 @@ passport.use(new facebookStrategy(secret.facebook, (accessToken, refreshToken, p
     process.nextTick(() => {
         User.findOne({
             $or: [{
-                    'facebook.id': profile.id
-                },
-                {
-                    'email': profile.emails[0].value
-                }
+                'facebook.id': profile.id
+            },
+            {
+                'email': profile.emails[0].value
+            }
             ]
         }, (err, user) => {
             if (err) return done(err);
@@ -26,6 +26,7 @@ passport.use(new facebookStrategy(secret.facebook, (accessToken, refreshToken, p
                     user.facebook.token = accessToken;
                     user.facebook.email = profile.emails[0].value;
                     user.facebook.name = `${profile.name.givenName} ${profile.name.familyName}`;
+                    user.slika = `https://graph.facebook.com/${profile.id}/picture?type=large`;
                     user.save();
 
                 }
