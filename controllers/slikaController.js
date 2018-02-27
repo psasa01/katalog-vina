@@ -62,7 +62,7 @@ exports.resize1200 = async (req, res, next) => {
     req.body.big = `${name}.${ext}`;
     // resize
     const slika = await jimp.read(req.file.buffer);
-    const resize = slika.resize(jimp.AUTO, 1200);
+    const resize = slika.resize(jimp.AUTO, 800);
     const write = slika.write(`./public/images/big/big_${req.body.big}`);
     Promise.all([resize, write]);
     next();
