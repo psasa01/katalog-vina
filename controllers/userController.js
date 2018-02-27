@@ -11,7 +11,7 @@ exports.login = (req, res) => {
     console.log(req.body);
     res.render('login', {
         title: 'Login',
-        user : req.user,
+        user: req.user,
         error: req.flash('Greška pri prijavljivanju!')
     });
 };
@@ -48,7 +48,7 @@ exports.validateRegister = (req, res, next) => {
     next(); // no errors
 }
 
-exports.register = async(req, res) => {
+exports.register = async (req, res) => {
     const userFind = await User.findOne({
         email: req.body.email
     });
@@ -80,7 +80,7 @@ exports.register = async(req, res) => {
             <br>
             Zelimo Vam ugodan dan!`
 
-        await mailer.sendEmail('admin@mojakolekcijavina.com', user.email, 'Molimo Vas da verifikujete zahtjev za registraciju na www.mojakolekcijavina.com', html);
+        await mailer.sendEmail('admin@vina.sava.ba', user.email, 'Molimo Vas da verifikujete zahtjev za registraciju na vina.sava.ba', html);
 
         const register = promisify(User.register, User);
         await register(user, req.body.password);
@@ -96,7 +96,7 @@ exports.racun = (req, res) => {
     });
 };
 
-exports.urediKorisnickiRacun = async(req, res) => {
+exports.urediKorisnickiRacun = async (req, res) => {
     const updates = {
         ime: req.body.name,
         email: req.body.email
@@ -104,17 +104,17 @@ exports.urediKorisnickiRacun = async(req, res) => {
     const user = await User.findOneAndUpdate({
         _id: req.user._id
     }, {
-        $set: updates
-    }, {
-        new: true,
-        runValidators: true,
-        context: 'query'
-    });
+            $set: updates
+        }, {
+            new: true,
+            runValidators: true,
+            context: 'query'
+        });
     req.flash('success', `Uspješno ste promjenili podatke za korisnika: ${user.ime}`);
     res.redirect('/');
 };
 
-exports.adminPanel = async(req, res) => {
+exports.adminPanel = async (req, res) => {
     const korisnici = await User.find().sort([
         ['level', 'ascending']
     ]);
@@ -127,28 +127,28 @@ exports.adminPanel = async(req, res) => {
     });
 };
 
-exports.oduzmiAdminPrava = async(req, res) => {
+exports.oduzmiAdminPrava = async (req, res) => {
     const user = await User.findOneAndUpdate({
         _id: req.params.id
     }, {
-        level: 30
-    }, {
-        new: true,
-        runValidators: true
-    });
+            level: 30
+        }, {
+            new: true,
+            runValidators: true
+        });
     req.flash('success', `Uspješno ste oduzeli administratorska prava korisniku ${user.ime}`);
     res.redirect('back');
 }
 
-exports.dodijeliAdminPrava = async(req, res) => {
+exports.dodijeliAdminPrava = async (req, res) => {
     const user = await User.findOneAndUpdate({
         _id: req.params.id
     }, {
-        level: 10
-    }, {
-        new: true,
-        runValidators: true
-    });
+            level: 10
+        }, {
+            new: true,
+            runValidators: true
+        });
     req.flash('success', `Uspješno ste dodjelili administratorska prava korisniku ${user.ime}`);
     res.redirect('back');
 };
@@ -168,7 +168,7 @@ exports.reset = (req, res) => {
     });
 };
 
-exports.resetEmailForm = async(req, res) => {
+exports.resetEmailForm = async (req, res) => {
     const user = await User.findOne({
         email: req.body.reset,
         active: true
@@ -202,14 +202,14 @@ exports.resetEmailForm = async(req, res) => {
         <br>
         Želimo Vam ugodan dan!`;
 
-        await mailer.sendEmail('admin@mojakolekcijavina.com', user.email, 'Poslali ste zahtjev za promjenu šifre na mojaKolekcijaVina', html);
+        await mailer.sendEmail('admin@vina.sava.ba', user.email, 'Poslali ste zahtjev za promjenu šifre na vina.sava.ba', html);
 
         req.flash('success', 'Poslali smo Vam email sa potrebnim podacima za promjenu šifre.');
         res.redirect('/');
     };
 };
 
-exports.promjenaSifre = async(req, res) => {
+exports.promjenaSifre = async (req, res) => {
 
     const user = await User.findOne({
         resetPasswordToken: req.params.token,
@@ -231,7 +231,7 @@ exports.promjenaSifre = async(req, res) => {
     };
 };
 
-exports.promjenaSifreFinal = async(req, res) => {
+exports.promjenaSifreFinal = async (req, res) => {
     const user = await User.findOne({
         resetPasswordToken: req.params.token
 
