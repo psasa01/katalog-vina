@@ -86,6 +86,16 @@ __webpack_require__(2);
 
 $(document).ready(function () {
 
+  // zatvori flash
+  // http://activelab.io/code-snippets/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
+  $(document).mouseup(function (e) {
+    var subject = $('.flash');
+
+    if (e.target.id != subject.attr('id') && !subject.has(e.target).length) {
+      subject.remove();
+    }
+  });
+
   $('#prikaz-forme').click(function () {
     $('#dodaj-sliku-forma').toggleClass('show');
   });

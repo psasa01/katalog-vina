@@ -101,7 +101,7 @@ exports.snimiVino = async (req, res) => {
 }
 
 exports.prikaziVina = async (req, res) => {
-  const vina = await Vino.find();
+  const vina = await Vino.find().sort({ zemlja: 1 });
 
   res.render('vina', {
     title: "Kolekcija Vina",
@@ -145,7 +145,7 @@ exports.pretragaPoZemljama = async (req, res) => {
   const zemljaPromise = Vino.listaZemalja();
   const vinoPromise = Vino.find({
     zemlja: zemlja
-  });
+  }).sort({ datum: 1 });
   const [zemlje, vina] = await Promise.all([zemljaPromise, vinoPromise]);
   res.render('zemlje', {
     title: 'Pregled vina po zemljama',
@@ -161,7 +161,7 @@ exports.pretragaPoVrstama = async (req, res) => {
   const vrstaPromise = Vino.popisVrsti();
   const vinoPromise = Vino.find({
     vrsta
-  });
+  }).sort({ zemlja: 1 });
   const [vrste, vina] = await Promise.all([vrstaPromise, vinoPromise]);
   res.render('vrste', {
     title: 'Pregled vina po vrstama',
@@ -176,12 +176,27 @@ exports.pretragaPoKorisnicima = async (req, res) => {
   const korisnikPromise = Vino.popisKorisnika();
   const vinoPromise = Vino.find({
     ime: korisnik
-  });
+  }).sort({ zemlja: 1 });
   const [korisnici, vina] = await Promise.all([korisnikPromise, vinoPromise]);
   res.render('korisnici', {
     title: 'Pregled vina po korisnicima',
     korisnik,
     korisnici,
+    vina
+  });
+};
+
+exports.pretragaPoGodinama = async (req, res) => {
+  const godina = req.params.godina;
+  const godinaPromise = Vino.popisGodina();
+  const vinoPromise = Vino.find({
+    godina
+  }).sort({ zemlja: 1 });
+  const [godine, vina] = await Promise.all([godinaPromise, vinoPromise]);
+  res.render('godine', {
+    title: 'Pregled vina po godinama',
+    godina,
+    godine,
     vina
   });
 };

@@ -44,6 +44,9 @@ router.get('/vrste/:vrsta', catchErrors(vinoController.pretragaPoVrstama));
 router.get('/korisnici', catchErrors(vinoController.pretragaPoKorisnicima));
 router.get('/korisnici/:korisnik', catchErrors(vinoController.pretragaPoKorisnicima));
 
+router.get('/godine', catchErrors(vinoController.pretragaPoGodinama));
+router.get('/godine/:godina', catchErrors(vinoController.pretragaPoGodinama));
+
 router.get('/login', userController.login);
 router.post('/login', catchErrors(authController.isActive), authController.login);
 

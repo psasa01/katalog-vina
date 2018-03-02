@@ -90,67 +90,90 @@ vinoSchema.pre('save', async function (next) {
 
 vinoSchema.statics.listaZemalja = function () {
     return this.aggregate([{
-            $unwind: '$zemlja'
-        },
-        {
-            $group: {
-                _id: '$zemlja',
-                count: {
-                    $sum: 1
-                }
-            }
-        },
-        {
-            $sort: {
-                _id: 1
+        $unwind: '$zemlja'
+    },
+    {
+        $group: {
+            _id: '$zemlja',
+            count: {
+                $sum: 1
             }
         }
+    },
+    {
+        $sort: {
+            _id: 1
+        }
+    }
     ]);
 };
 
 vinoSchema.statics.popisVrsti = function () {
     return this.aggregate([{
-            $unwind: {
-                path: '$vrsta',
+        $unwind: {
+            path: '$vrsta',
 
-            }
-        },
-        {
-            $group: {
-                _id: '$vrsta',
-                count: {
-                    $sum: 1
-                }
-            }
-        },
-        {
-            $sort: {
-                _id: 1
+        }
+    },
+    {
+        $group: {
+            _id: '$vrsta',
+            count: {
+                $sum: 1
             }
         }
+    },
+    {
+        $sort: {
+            _id: 1
+        }
+    }
     ]);
 };
 
 vinoSchema.statics.popisKorisnika = function () {
     return this.aggregate([{
-            $unwind: {
-                path: '$ime',
-                preserveNullAndEmptyArrays: true
-            }
-        },
-        {
-            $group: {
-                _id: '$ime',
-                count: {
-                    $sum: 1
-                }
-            }
-        },
-        {
-            $sort: {
-                _id: 1
+        $unwind: {
+            path: '$ime',
+            preserveNullAndEmptyArrays: true
+        }
+    },
+    {
+        $group: {
+            _id: '$ime',
+            count: {
+                $sum: 1
             }
         }
+    },
+    {
+        $sort: {
+            _id: 1
+        }
+    }
+    ]);
+};
+
+vinoSchema.statics.popisGodina = function () {
+    return this.aggregate([{
+        $unwind: {
+            path: '$godina',
+            preserveNullAndEmptyArrays: true
+        }
+    },
+    {
+        $group: {
+            _id: '$godina',
+            count: {
+                $sum: 1
+            }
+        }
+    },
+    {
+        $sort: {
+            _id: 1
+        }
+    }
     ]);
 };
 
