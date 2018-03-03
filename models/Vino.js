@@ -105,7 +105,7 @@ vinoSchema.statics.listaZemalja = function () {
             _id: 1
         }
     }
-    ]);
+    ]).collation({ locale: "hr", strength: 2 });
 };
 
 vinoSchema.statics.popisVrsti = function () {
