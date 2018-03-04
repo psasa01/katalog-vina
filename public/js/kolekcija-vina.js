@@ -23,8 +23,6 @@ $(document).ready(function () {
     }
   });
 
-
-
   $('#prikaz-forme').click(function () {
     $('#dodaj-sliku-forma').toggleClass('show');
   });
