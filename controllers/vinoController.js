@@ -22,9 +22,10 @@ const multerOptions = {
 
 
 
+
 exports.getIndex = async (req, res) => {
   await res.render('index', {
-    title: 'Ovo je Vinski Index'
+    title: 'Index'
   });
 };
 
@@ -102,8 +103,59 @@ exports.snimiVino = async (req, res) => {
   res.redirect('/');
 }
 
+exports.prikazi20ZadnjihVina = async (req, res) => {
+  const vina = await Vino
+    .find()
+    .collation({ locale: "hr", strength: 2 })
+    .sort({ datum: -1 })
+    .limit(20)
+
+  res.render('vina', {
+    title: "Zadnje unesena vina",
+    vina
+  });
+}
+
+exports.mojaKolekcijaVina = async (req, res) => {
+
+  if (!req.user) {
+    res.redirect('/');
+    return;
+  }
+
+  const loggedUser = req.user.ime
+
+
+
+  // const page = req.params.page || 1;
+  // const limit = 12;
+  // const skip = (page * limit) - limit;
+
+  const vina = await Vino
+    .find({ ime: loggedUser })
+    .collation({ locale: "hr", strength: 2 })
+    .sort({ zemlja: 1 })
+  // .skip(skip)
+  // .limit(limit);
+
+  res.render('vina', {
+    title: `Kolekcija Vina - ${loggedUser}`,
+    vina
+  });
+}
+
 exports.prikaziVina = async (req, res) => {
-  const vina = await Vino.find().collation({ locale: "hr", strength: 2 }).sort({ zemlja: 1 });
+
+  // const page = req.params.page || 1;
+  // const limit = 12;
+  // const skip = (page * limit) - limit;
+
+  const vina = await Vino
+    .find()
+    .collation({ locale: "hr", strength: 2 })
+    .sort({ zemlja: 1 })
+  // .skip(skip)
+  // .limit(limit);
 
   res.render('vina', {
     title: "Kolekcija Vina",

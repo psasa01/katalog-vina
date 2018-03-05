@@ -23,6 +23,24 @@ $(document).ready(function () {
     }
   });
 
+  // $('.infinite-scr').infiniteScroll({
+  //   // options
+  //   path: '/{{#}}',
+  //   append: '#sliphover',
+  //   history: false
+  // });
+
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    duration: 400
+  });
+  autoplay()
+  function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 6000);
+  }
+
+
   $('#prikaz-forme').click(function () {
     $('#dodaj-sliku-forma').toggleClass('show');
   });

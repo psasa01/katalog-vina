@@ -9,7 +9,8 @@ block content
         +spinner
 
     .container
-        .row#sliphover
+        .row#sliphover.infinite-scr
+            h2= title
             br
             each vino in vina
 
@@ -44,21 +45,21 @@ block content
                             .tekst1
                                 .row
                                     
-                                       
+                                        
                                     .col.l6.offset-l4
                                         h5.brown-text.left-align Naziv Vina: #{vino.naziv}
                                         h5.brown-text.left-align Zemlja Porijekla: #{vino.zemlja}
                             .tekst2 
-                                                                          
+                                                                            
                                         
                                     .col.l6.offset-l4
-                                       
+                                        
                                         h5.brown-text.left-align Proizvođač: #{vino.proizvodjac}
                                         h5.brown-text.left-align Vrsta: #{vino.vrsta}
                                                                                 
                             
                             .tekst3 
-                                                                           
+                                                                            
                                     .col.l6.offset-l4
                                         
                                         h5.brown-text.left-align Godina berbe: #{vino.godina}
@@ -76,7 +77,7 @@ block content
                         - h.moment.locale('bs')
                             p.modal-datum #{ime} Dodao #{vino.ime}, #{h.moment(vino.datum).fromNow()}
 
-                           
+                            
                         if user && vino.korisnik.equals(user._id)
                             .fixed-action-btn.button-fab
                                 a.btn-floating.btn-large.brown
