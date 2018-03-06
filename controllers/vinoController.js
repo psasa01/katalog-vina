@@ -70,7 +70,7 @@ exports.resize = async (req, res, next) => {
   // resize
   const slika = await jimp.read(req.file.buffer);
   const resize800 = slika.resize(jimp.AUTO, 800);
-  const write800 = slika.write(`./public/images/${req.body.slika}`);
+  const write800 = slika.write(`./public/images/vina-big/${req.body.slika}`);
   const resize400 = slika.resize(jimp.AUTO, 400);
   const write400 = slika.write(`./public/images/vina-thumbs/${req.body.slika}`);
   Promise.all([resize800, write800, resize400, write400]);
