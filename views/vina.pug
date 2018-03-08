@@ -2,6 +2,7 @@ extends layout
 //- include mixins/_vino-card
 //- include mixins/_modal
 include mixins/_spinner
+include mixins/_home-button
 
 block content
 
@@ -110,6 +111,7 @@ block content
                     .modal-footer
                         a.modal-action.modal-close.btn.red.modal-btn(href=`/vino/${vino._id}/ukloni`) Ukloni
                         a.modal-action.modal-close.btn.green.modal-btn(href='#!') Zatvori
-
+        
+        +home-button
 
 

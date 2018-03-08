@@ -24,6 +24,9 @@ const userSchema = new Schema({
             'Nažalost niste unijeli validnu email adresu!'
         ]
     },
+    zadnjiPutVidjen: {
+        type: Date
+    },
     facebook: {
         id: String,
         token: String,

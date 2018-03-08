@@ -12,6 +12,8 @@ mixin userTabela(korisnik = {})
                 td 
                     strong Registrovan
                 td 
+                    strong Zadnja posjeta
+                td 
                     strong Broj vina
                 td 
                     strong Uloga
@@ -25,6 +27,9 @@ mixin userTabela(korisnik = {})
                     td
                         - h.moment.locale('bs')
                             p #{h.moment(korisnik.registrovan).format('ll')}, #{h.moment(korisnik.registrovan).format('LT')}
+                    td
+                        - h.moment.locale('bs')
+                            p #{h.moment(korisnik.zadnjiPutVidjen).format('ll')}, #{h.moment(korisnik.zadnjiPutVidjen).format('LT')}
 
                     td= korisnik.brojVina
 
