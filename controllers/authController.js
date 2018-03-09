@@ -9,7 +9,13 @@ exports.login = passport.authenticate('local', {
     successFlash: 'Uspješno ste se prijavili. Dobrodošli na "Moju Kolekciju Vina"!'
 });
 
-exports.logout = (req, res) => {
+exports.logout = async (req, res) => {
+    const user = await User.findById(req.user._id);
+    user.zadnjiPutVidjen = Date.now();
+    await user.save();
+
+    console.log(user)
+
     req.logout();
     req.flash('success', 'Uspješno ste se odjavili! Doviđenja :)');
     res.redirect('/');
@@ -26,20 +32,20 @@ exports.isLoggedIn = (req, res, next) => {
 };
 
 exports.isAdministrator = (req, res, next) => {
-    if(req.user && req.user.level < 11) {
+    if (req.user && req.user.level < 11) {
         next();
-        return;        
+        return;
     } else {
         req.flash('error', 'Morate biti administrator da biste dodali novo vino!');
         res.redirect('/');
     }
 }
 
-exports.isActive = async(req, res, next) => {
+exports.isActive = async (req, res, next) => {
     const user = await User.findOne({
         email: req.body.email
     });
-    if(!user) {
+    if (!user) {
         req.flash('error', 'Nažalost, u bazi ne postoji korisnik s navedenim podacima!');
         res.redirect('login');
     }
@@ -57,7 +63,7 @@ exports.aktivacija = (req, res) => {
     });
 };
 
-exports.aktiviraj = async(req, res) => {
+exports.aktiviraj = async (req, res) => {
     const token = req.body.token;
 
     const user = await User.findOne({
