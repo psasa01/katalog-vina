@@ -165,31 +165,42 @@ exports.prikaziVina = async (req, res) => {
 
 exports.ukloniVino = async (req, res) => {
 
-  const vino = await Vino.findOneAndRemove({
-    _id: req.params.id
-  });
+  const loggedUser = req.user;
+  const vinoToDelete = await Vino.findById(req.params.id);
 
-  const user = await User.findOneAndUpdate({
-    ime: vino.ime
-  }, {
-      $inc: { brojVina: -1 }
+  if(loggedUser && loggedUser._id.toString() === vinoToDelete.korisnik.toString() || loggedUser.level === 1) {
+    const vino = await Vino.findOneAndRemove({
+      _id: req.params.id
+    });
+
+    const user = await User.findOneAndUpdate({
+      ime: vino.ime
     }, {
-      new: true,
-      runValidators: true
-    }).exec();
-
-
-
-  fs.unlink(`./public/images/${vino.slika}`, (err) => {
-    if (err) {
-      req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);
+        $inc: { brojVina: -1 }
+      }, {
+        new: true,
+        runValidators: true
+      }).exec();
+      req.flash('success', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong>`);
       res.redirect('/');
-    } else {
-      req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga i sliku iz baze!`);
-      res.redirect('/');
-    }
+  } else {
+    req.flash('error', 'Nemate pravo da izbrišete ovo vino!');
+    res.redirect('/');
+  }
 
-  });
+
+
+
+  // fs.unlink(`./public/images/${vino.slika}`, (err) => {
+  //   if (err) {
+  //     req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);
+  //     res.redirect('/');
+  //   } else {
+  //     req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga i sliku iz baze!`);
+  //     res.redirect('/');
+  //   }
+
+  // });
 
 
 }
