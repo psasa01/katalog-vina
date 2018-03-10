@@ -168,7 +168,7 @@ exports.ukloniVino = async (req, res) => {
   const loggedUser = req.user;
   const vinoToDelete = await Vino.findById(req.params.id);
 
-  if(loggedUser && loggedUser._id.toString() === vinoToDelete.korisnik.toString() || loggedUser.level === 1) {
+  if (loggedUser && loggedUser._id.toString() === vinoToDelete.korisnik.toString() || loggedUser.level === 1) {
     const vino = await Vino.findOneAndRemove({
       _id: req.params.id
     });
@@ -181,8 +181,8 @@ exports.ukloniVino = async (req, res) => {
         new: true,
         runValidators: true
       }).exec();
-      req.flash('success', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong>`);
-      res.redirect('/');
+    req.flash('success', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong>`);
+    res.redirect('/');
   } else {
     req.flash('error', 'Nemate pravo da izbrišete ovo vino!');
     res.redirect('/');
