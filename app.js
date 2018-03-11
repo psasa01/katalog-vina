@@ -3,7 +3,7 @@
 
 const express = require('express');
 const session = require('express-session');
-// const helmet = require('helmet');
+const helmet = require('helmet');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const path = require('path');
@@ -23,11 +23,13 @@ require('./handlers/passport');
 const app = express();
 
 // helmet
-// app.use(helmet.contentSecurityPolicy({
-//   directives: {
-//     defaultSrc: ["'self'"]
-//   }
-// }));
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    styleSrc: ["'self'", "'unsafe-inline'"]
+
+  }
+}));
 
 // view engine
 app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
