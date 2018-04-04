@@ -20,9 +20,6 @@ const multerOptions = {
   }
 };
 
-
-
-
 exports.getIndex = async (req, res) => {
   await res.render('index', {
     title: 'Index'
@@ -88,8 +85,6 @@ exports.snimiVino = async (req, res) => {
       runValidators: true
     }).exec();
 
-
-
   req.body.korisnik = req.user._id;
 
   const vino = new Vino(req.body);
@@ -116,6 +111,15 @@ exports.prikazi20ZadnjihVina = async (req, res) => {
   });
 }
 
+exports.prikaziJednoVino = async (req, res) => {
+  const vino = await Vino.findById(req.params.id);
+  res.render('jedno-vino', {
+    pageId: 'jedno-vino',
+    title: vino.naziv,
+    vino
+  })
+}
+
 exports.mojaKolekcijaVina = async (req, res) => {
 
   if (!req.user) {
@@ -124,8 +128,6 @@ exports.mojaKolekcijaVina = async (req, res) => {
   }
 
   const loggedUser = req.user.ime
-
-
 
   // const page = req.params.page || 1;
   // const limit = 12;
@@ -188,9 +190,6 @@ exports.ukloniVino = async (req, res) => {
     res.redirect('/');
   }
 
-
-
-
   // fs.unlink(`./public/images/${vino.slika}`, (err) => {
   //   if (err) {
   //     req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);
@@ -201,8 +200,6 @@ exports.ukloniVino = async (req, res) => {
   //   }
 
   // });
-
-
 }
 
 exports.pretragaPoZemljama = async (req, res) => {

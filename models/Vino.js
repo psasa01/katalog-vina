@@ -3,6 +3,7 @@ mongoose.Promise = global.Promise;
 const slug = require('slugs');
 require('mongoose-strip-html-tags')(mongoose);
 const mongodbErrorHandler = require('mongoose-mongodb-errors');
+const mongooseAlgolia = require('mongoose-algolia');
 
 const vinoSchema = new mongoose.Schema({
     naziv: {
@@ -177,6 +178,42 @@ vinoSchema.statics.popisGodina = function () {
     ]);
 };
 
+vinoSchema.plugin(mongooseAlgolia, {
+    appId: process.env.ALGOLIA_API_ID,
+    apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
+    indexName: 'vinoSchema', //The name of the index in Algolia, you can also pass in a function
+    selector: 'naziv _id proizvodjac zemlja godina slika korisnik slug alkohol velicina datum', //You can decide which field that are getting synced to Algolia (same as selector in mongoose)
+    populate: {
+        path: 'korisnik',
+        select: 'ime'
+    },
+    defaults: {
+        author: 'unknown'
+    },
+    mappings: {
+        title: function (value) {
+            return `Book: ${value}`
+        }
+    },
+    // virtuals: {
+    //   whatever: function(doc) {
+    //     return `Custom data ${doc.title}`
+    //   }
+    // },
+    // filter: function(doc) {
+    //   return !doc.softdelete
+    // },
+    debug: true // Default: false -> If true operations are logged out in your console
+});
+
+
+let Model = mongoose.model('Vino', vinoSchema);
+
+Model.SyncToAlgolia(); //Clears the Algolia index for this schema and synchronizes all documents to Algolia (based on the settings defined in your plugin settings)
+Model.SetAlgoliaSettings({
+    searchableAttributes: ['naziv', 'proizvodjac', 'zemlja', 'godina', 'korisnik.ime', 'slug'] //Sets the settings for this schema, see [Algolia's Index settings parameters](https://www.algolia.com/doc/api-client/javascript/settings#set-settings) for more info.
+});
+
 vinoSchema.plugin(mongodbErrorHandler);
 
-module.exports = mongoose.model('Vino', vinoSchema);
+module.exports = Model;

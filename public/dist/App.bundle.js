@@ -74,6 +74,7 @@ __webpack_require__(1);
 
 __webpack_require__(2);
 
+// Algolia search
 // import $ from 'jquery'
 // import 'materialize-css/dist/js/materialize.min.js'
 // import 'materialize-css/dist/css/materialize.min.css'
@@ -83,6 +84,24 @@ __webpack_require__(2);
 // import 'unitegallery/dist/themes/tiles/ug-theme-tiles.js';
 // import 'masonry-layout/dist/masonry.pkgd.min'
 // import 'imagesloaded/imagesloaded.pkgd.min'
+
+var client = algoliasearch('I2MFF9YJMM', 'e82b335c522c7b70472f25e370a72a6e');
+var index = client.initIndex('vinoSchema');
+
+//initialize autocomplete on search input (ID selector must match)
+autocomplete('#aa-search-input', { hint: false }, {
+  source: autocomplete.sources.hits(index, { hitsPerPage: 10 }),
+  //value to be displayed in input control after user's suggestion selection
+  displayKey: 'name',
+  //hash of templates used when rendering dataset
+  templates: {
+    //'suggestion' templating function used to render a single suggestion
+    suggestion: function suggestion(_suggestion) {
+      console.log(_suggestion);
+      return '\n                  <span style="line-height: 1.8em;"><a style="width: 120% !important; font-size: 1em;" class="anchor-search brown-text" href="/vino/' + _suggestion.objectID + '">' + _suggestion._highlightResult.naziv.value + '</a></span>\n                  ';
+    }
+  }
+});
 
 $(document).ready(function () {
 

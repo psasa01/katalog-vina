@@ -1,0 +1,60 @@
+extends layout
+include mixins/_home-button
+
+block content
+
+    .container
+        br
+        br
+        .row.z-depth-2.brown.lighten-5(style="position: relative; padding: 2em 2em 0 2em;")
+            .col.l4.s12.slika
+                img.z-depth-2(src=`/images/vina-big/${vino.slika}` style="width: 100%")
+                - h.moment.locale('bs')
+                    p.brown-text(style="font-size: 1em;") Dodao #{vino.ime}, #{h.moment(vino.datum).format('LL')}. u #{h.moment(vino.datum).format('LT')} sati
+            .col.l1
+
+            .col.l7.s12.brown-text(style="")
+                
+                h4 #{vino.naziv} 
+                br
+                h5 Zemlja porijekla:  #{vino.zemlja}
+                h5 Proizvođač: #{vino.proizvodjac}
+                h6 Vrsta: #{vino.vrsta}
+                br
+                h5 Godina berbe: #{vino.godina}
+                h5 Procenat alkohola: #{vino.alkohol}%
+                h5 Veličina boce: #{vino.velicina} litara
+
+
+                if user && vino.korisnik.equals(user._id)
+                    .fixed-action-btn.button-fab-single
+                        a.btn-floating.btn-large.brown
+                            i.large.material-icons chevron_left
+                        ul
+                            li
+                                a.btn-floating.red.modal-trigger.modal-close(href=`#ukloni_${vino._id}`)
+                                    i.material-icons clear
+                            li
+                                a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
+                                    i.material-icons mode_edit
+                
+                else if user && user.level === 1
+                    .fixed-action-btn.button-fab-single
+                        a.btn-floating.btn-large.brown
+                            i.large.material-icons chevron_left
+                        ul
+                            li
+                                a.btn-floating.red.modal-trigger(href=`#ukloni_${vino._id}`)
+                                    i.material-icons clear
+                            li
+                                a.btn-floating.green(href=`/vino/${vino._id}/uredi`)
+                                    i.material-icons mode_edit
+                
+                .div(id=`ukloni_${vino._id}`).modal.izbrisi-vino-modal
+                    .modal-content
+                        h5 Da li zaista želite da uklonite #{vino.naziv} vino?
+                    .modal-footer
+                        a.modal-action.modal-close.btn.red.modal-btn(href=`/vino/${vino._id}/ukloni`) Ukloni
+                        a.modal-action.modal-close.btn.green.modal-btn(href='#!') Zatvori                
+
+        +home-button       

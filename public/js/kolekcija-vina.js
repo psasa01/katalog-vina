@@ -11,6 +11,28 @@
 import 'normalize-css/normalize.css';
 import '../sass/style.scss'
 
+// Algolia search
+const client = algoliasearch('I2MFF9YJMM', 'e82b335c522c7b70472f25e370a72a6e');
+const index = client.initIndex('vinoSchema');
+
+//initialize autocomplete on search input (ID selector must match)
+autocomplete('#aa-search-input',
+  { hint: false }, {
+    source: autocomplete.sources.hits(index, { hitsPerPage: 10 }),
+    //value to be displayed in input control after user's suggestion selection
+    displayKey: 'name',
+    //hash of templates used when rendering dataset
+    templates: {
+      //'suggestion' templating function used to render a single suggestion
+      suggestion: function (suggestion) {
+        console.log(suggestion);
+        return `
+                  <span style="line-height: 1.8em;"><a style="width: 120% !important; font-size: 1em;" class="anchor-search brown-text" href="/vino/${suggestion.objectID}">${suggestion._highlightResult.naziv.value}</a></span>
+                  `;
+      }
+    }
+  });
+
 $(document).ready(function () {
 
   // zatvori flash

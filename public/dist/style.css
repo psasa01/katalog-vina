@@ -705,6 +705,9 @@ tr button {
   position: absolute !important;
   bottom: .7em !important; }
 
+.button-fab-single {
+  position: absolute !important; }
+
 .dropdown-content li span,
 .dropdown-content li a {
   color: #795548 !important;
@@ -995,7 +998,8 @@ h4 {
   -webkit-animation: sk-rotate 2.0s infinite linear;
   animation: sk-rotate 2.0s infinite linear; }
 
-.dot1, .dot2 {
+.dot1,
+.dot2 {
   width: 60%;
   height: 60%;
   display: inline-block;
@@ -1022,17 +1026,42 @@ h4 {
     -webkit-transform: rotate(360deg); } }
 
 @-webkit-keyframes sk-bounce {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: scale(0); }
   50% {
     -webkit-transform: scale(1); } }
 
 @keyframes sk-bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(0);
     -webkit-transform: scale(0); }
   50% {
     transform: scale(1);
     -webkit-transform: scale(1); } }
+
+input[id="aa-search-input"] {
+  margin-top: .5em !important;
+  -webkit-text-fill-color: #d7ccc8;
+  border-bottom: 1px solid #a1887f !important;
+  padding-left: 1em !important;
+  width: 25em !important;
+  height: 45px !important; }
+
+.search-input {
+  background-color: #795548;
+  height: 45px !important;
+  margin-top: 10px;
+  margin-right: 1em; }
+
+.anchor-search {
+  background-color: #d7ccc8; }
+
+.anchor-search:hover {
+  background-color: white; }
+
+#jedno-vino {
+  overflow-y: hidden; }
 
 /*# sourceMappingURL=style.css.map*/
