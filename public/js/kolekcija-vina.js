@@ -23,32 +23,7 @@ $('#sliphover').sliphover({
   target: '.sliphover-target'
 });
 
-// Unite gallery
 
-$('#gallery').unitegallery({
-  gallery_skin: "alexis",
-  slider_bullets_skin: "alexis"
-});
-
-
-if ($(window).width() < 960) {
-  $('.grid-item').hover(function () {
-    $(this).children().addClass('icon-izbrisi-show', 2000, 'swing');
-  }, (function () {
-    $(this).children().removeClass('icon-izbrisi-show', 2000, 'swing');
-  }));
-}
-
-// external js: masonry.pkgd.js, imagesloaded.pkgd.js
-
-// init Masonry after all images have loaded
-var $grid = $('.grid').imagesLoaded(function () {
-  $grid.masonry({
-    itemSelector: '.grid-item',
-    percentPosition: true,
-    columnWidth: '.grid-sizer'
-  });
-});
 
 $(document).ready(function () {
 
@@ -133,7 +108,32 @@ $(document).ready(function () {
   });
 
 
+  // Unite gallery
 
+  $('#gallery').unitegallery({
+    gallery_skin: "alexis",
+    slider_bullets_skin: "alexis"
+  });
+
+
+  if ($(window).width() < 960) {
+    $('.grid-item').hover(function () {
+      $(this).children().addClass('icon-izbrisi-show', 2000, 'swing');
+    }, (function () {
+      $(this).children().removeClass('icon-izbrisi-show', 2000, 'swing');
+    }));
+  }
+
+  // external js: masonry.pkgd.js, imagesloaded.pkgd.js
+
+  // init Masonry after all images have loaded
+  var $grid = $('.grid').imagesLoaded(function () {
+    $grid.masonry({
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      columnWidth: '.grid-sizer'
+    });
+  });
 
 
 
