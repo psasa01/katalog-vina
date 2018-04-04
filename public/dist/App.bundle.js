@@ -186,17 +186,6 @@ $(document).ready(function () {
       $(this).children().removeClass('icon-izbrisi-show', 2000, 'swing');
     });
   }
-
-  // external js: masonry.pkgd.js, imagesloaded.pkgd.js
-
-  // init Masonry after all images have loaded
-  var $grid = $('.grid').imagesLoaded(function () {
-    $grid.masonry({
-      itemSelector: '.grid-item',
-      percentPosition: true,
-      columnWidth: '.grid-sizer'
-    });
-  });
 });
 
 function showSpinner() {
@@ -220,6 +209,17 @@ autocomplete('#aa-search-input', { hint: false }, {
       return '\n                  <span style="line-height: 1.8em;"><a style="width: 120% !important; font-size: 1em;" class="anchor-search brown-text" href="/vino/' + _suggestion.objectID + '">' + _suggestion._highlightResult.naziv.value + '</a></span>\n                  ';
     }
   }
+});
+
+// external js: masonry.pkgd.js, imagesloaded.pkgd.js
+
+// init Masonry after all images have loaded
+var $grid = $('.grid').imagesLoaded(function () {
+  $grid.masonry({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    columnWidth: '.grid-sizer'
+  });
 });
 
 /***/ }),
