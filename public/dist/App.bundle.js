@@ -74,7 +74,8 @@ __webpack_require__(1);
 
 __webpack_require__(2);
 
-// Algolia search
+// Sliphover
+
 // import $ from 'jquery'
 // import 'materialize-css/dist/js/materialize.min.js'
 // import 'materialize-css/dist/css/materialize.min.css'
@@ -85,22 +86,40 @@ __webpack_require__(2);
 // import 'masonry-layout/dist/masonry.pkgd.min'
 // import 'imagesloaded/imagesloaded.pkgd.min'
 
-var client = algoliasearch('I2MFF9YJMM', 'e82b335c522c7b70472f25e370a72a6e');
-var index = client.initIndex('vinoSchema');
+$('#sliphover').sliphover({
+  caption: 'data-caption',
+  backgroundColor: 'rgba(0,0,0,.175)',
+  fontColor: '#ddd',
+  verticalMiddle: false,
+  textAlign: 'left',
+  withLink: true,
+  target: '.sliphover-target'
+});
 
-//initialize autocomplete on search input (ID selector must match)
-autocomplete('#aa-search-input', { hint: false }, {
-  source: autocomplete.sources.hits(index, { hitsPerPage: 10 }),
-  //value to be displayed in input control after user's suggestion selection
-  displayKey: 'name',
-  //hash of templates used when rendering dataset
-  templates: {
-    //'suggestion' templating function used to render a single suggestion
-    suggestion: function suggestion(_suggestion) {
-      console.log(_suggestion);
-      return '\n                  <span style="line-height: 1.8em;"><a style="width: 120% !important; font-size: 1em;" class="anchor-search brown-text" href="/vino/' + _suggestion.objectID + '">' + _suggestion._highlightResult.naziv.value + '</a></span>\n                  ';
-    }
-  }
+// Unite gallery
+
+$('#gallery').unitegallery({
+  gallery_skin: "alexis",
+  slider_bullets_skin: "alexis"
+});
+
+if ($(window).width() < 960) {
+  $('.grid-item').hover(function () {
+    $(this).children().addClass('icon-izbrisi-show', 2000, 'swing');
+  }, function () {
+    $(this).children().removeClass('icon-izbrisi-show', 2000, 'swing');
+  });
+}
+
+// external js: masonry.pkgd.js, imagesloaded.pkgd.js
+
+// init Masonry after all images have loaded
+var $grid = $('.grid').imagesLoaded(function () {
+  $grid.masonry({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    columnWidth: '.grid-sizer'
+  });
 });
 
 $(document).ready(function () {
@@ -172,51 +191,36 @@ $(document).ready(function () {
 
   });
 
-  $('#gallery').unitegallery({
-    gallery_skin: "alexis",
-    slider_bullets_skin: "alexis"
-  });
-
-  if ($(window).width() < 960) {
-    $('.grid-item').hover(function () {
-      $(this).children().addClass('icon-izbrisi-show', 2000, 'swing');
-    }, function () {
-      $(this).children().removeClass('icon-izbrisi-show', 2000, 'swing');
-    });
-  }
-
   $('.button-collapse').sidenav({
     menuWidth: 300,
     edge: 'right',
     closeOnClick: true,
     draggable: true
   });
-
-  $('#sliphover').sliphover({
-    caption: 'data-caption',
-    backgroundColor: 'rgba(0,0,0,.175)',
-    fontColor: '#ddd',
-    verticalMiddle: false,
-    textAlign: 'left',
-    withLink: true,
-    target: '.sliphover-target'
-  });
-
-  // external js: masonry.pkgd.js, imagesloaded.pkgd.js
-
-  // init Masonry after all images have loaded
-  var $grid = $('.grid').imagesLoaded(function () {
-    $grid.masonry({
-      itemSelector: '.grid-item',
-      percentPosition: true,
-      columnWidth: '.grid-sizer'
-    });
-  });
 });
 
 function showSpinner() {
   $('#spinner').css('display', 'block');
 }
+
+// Algolia search
+var client = algoliasearch('I2MFF9YJMM', 'e82b335c522c7b70472f25e370a72a6e');
+var index = client.initIndex('vinoSchema');
+
+//initialize autocomplete on search input (ID selector must match)
+autocomplete('#aa-search-input', { hint: false }, {
+  source: autocomplete.sources.hits(index, { hitsPerPage: 10 }),
+  //value to be displayed in input control after user's suggestion selection
+  displayKey: 'name',
+  //hash of templates used when rendering dataset
+  templates: {
+    //'suggestion' templating function used to render a single suggestion
+    suggestion: function suggestion(_suggestion) {
+      console.log(_suggestion);
+      return '\n                  <span style="line-height: 1.8em;"><a style="width: 120% !important; font-size: 1em;" class="anchor-search brown-text" href="/vino/' + _suggestion.objectID + '">' + _suggestion._highlightResult.naziv.value + '</a></span>\n                  ';
+    }
+  }
+});
 
 /***/ }),
 /* 1 */
