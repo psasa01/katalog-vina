@@ -5,17 +5,17 @@ block content
 
     .container
         br
-        br
-        .row.z-depth-2.brown.lighten-5(style="position: relative; padding: 2em 2em 0 2em;")
+        .row.z-depth-2.brown.lighten-5(style="position: relative; padding: 2em 2em 0 2em; ")
             .col.l4.s12.slika
-                img.z-depth-2(src=`/images/vina-big/${vino.slika}` style="width: 100%")
+                img.z-depth-2(src=`/images/vina-big/${vino.slika}` style="width: 90%")
                 - h.moment.locale('bs')
-                    p.brown-text(style="font-size: 1em;") Dodao #{vino.ime}, #{h.moment(vino.datum).format('LL')}. u #{h.moment(vino.datum).format('LT')} sati
+                    p.brown-text(style="font-size: 1em;") Dodao #{vino.ime}, #{h.moment(vino.datum).format('LL')}. u #{h.moment(vino.datum).format('LT')}
             .col.l1
 
             .col.l7.s12.brown-text(style="")
                 
                 h4 #{vino.naziv} 
+                br
                 br
                 h5 Zemlja porijekla:  #{vino.zemlja}
                 h5 Proizvođač: #{vino.proizvodjac}
