@@ -144,6 +144,11 @@ $(document).ready(function () {
 
   $('.fixed-action-btn').floatingActionButton({
     hoverEnabled: false,
+    direction: 'top'
+  });
+
+  $('.button-fab-single').floatingActionButton({
+    hoverEnabled: false,
     direction: 'left'
   });
 
@@ -198,7 +203,7 @@ var index = client.initIndex('vinoSchema');
 
 //initialize autocomplete on search input (ID selector must match)
 autocomplete('#aa-search-input', { hint: false }, {
-  source: autocomplete.sources.hits(index, { hitsPerPage: 10 }),
+  source: autocomplete.sources.hits(index, { hitsPerPage: 15 }),
   //value to be displayed in input control after user's suggestion selection
   displayKey: 'name',
   //hash of templates used when rendering dataset
@@ -206,7 +211,7 @@ autocomplete('#aa-search-input', { hint: false }, {
     //'suggestion' templating function used to render a single suggestion
     suggestion: function suggestion(_suggestion) {
       console.log(_suggestion);
-      return '\n                  <span style="line-height: 1.8em;"><a style="width: 120% !important; font-size: 1em;" class="anchor-search brown-text" href="/vino/' + _suggestion.objectID + '">' + _suggestion._highlightResult.naziv.value + '</a></span>\n                  ';
+      return '\n                  <span style="line-height: 1.8em;"><a style="width: 130% !important; font-size: 1em;" class="anchor-search brown-text" href="/vino/' + _suggestion.objectID + '">' + _suggestion._highlightResult.naziv.value + '</a></span>\n                  ';
     }
   }
 });
