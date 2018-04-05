@@ -142,12 +142,17 @@ $(document).ready(function () {
     $('.modal').removeClass('modal-full');
   });
 
-  $('.fixed-action-btn').floatingActionButton({
+  $('#home-button').floatingActionButton({
     hoverEnabled: false,
     direction: 'top'
   });
 
   $('.button-fab-single').floatingActionButton({
+    hoverEnabled: false,
+    direction: 'left'
+  });
+
+  $('.button-edit').floatingActionButton({
     hoverEnabled: false,
     direction: 'left'
   });

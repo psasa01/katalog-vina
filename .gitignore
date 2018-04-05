@@ -2,7 +2,4 @@ node_modules/
 variables.env
 *.log
 *.env
-/public/images/vina-thumbs/
-/public/images/vina-big/
-/public/images/big/
-/public/images/thumbs/
+
