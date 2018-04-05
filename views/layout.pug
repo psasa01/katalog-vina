@@ -35,7 +35,7 @@ html(lang="en")
                 nav
                     .nav-wrapper.brown
                         a(href='/mojaKolekcijaVina') 
-                            img.moja-kolekcija-vina(src="/images/logo.svg", alt="")
+                            img.moja-kolekcija-vina(src="/images/logo.svg", alt="mojaKolekcijaVina")
                             
                         a.sidenav-trigger(href='#' data-target='mobile-demo')
                             i.material-icons menu
@@ -104,11 +104,8 @@ html(lang="en")
                     a(href='/racun') #{user.ime}       
                 li.divider
                 li
-                    a(href='/').mobile-home
-                        img(src="/images/logo-mobile.svg", alt="hghg")  
-                li.divider          
-                li
-                    a(href='/dodaj-vino') Novo Vino
+                    a(href='/mojaKolekcijaVina').mobile-home
+                        img(src="/images/logo-mobile.svg", alt="mojaKolekcijaVina
                 li
                     a(href='/galerija') Galerija
                 li
