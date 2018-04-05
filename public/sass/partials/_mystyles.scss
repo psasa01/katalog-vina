@@ -751,7 +751,7 @@ input[id="aa-search-input"] {
     -webkit-text-fill-color: $brownLighten4;
     border-bottom: 1px solid #a1887f !important;
     padding-left: 1em !important;
-    width: 21em !important;
+    // width: 21em !important;
     height: 45px !important;
     
     
@@ -781,4 +781,12 @@ input[id="aa-search-input"] {
     margin-top: 1em;
     margin-bottom: 1em;
     transform:rotate(-3deg);
+}
+
+.input-uski {
+    width: 21em !important;
+}
+
+.input-siroki {
+    width: 31.5em !important;
 }

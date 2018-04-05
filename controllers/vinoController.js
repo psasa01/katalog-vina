@@ -5,6 +5,7 @@ const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
 const fs = require('fs');
+const mongooseAlgolia = require('mongoose-algolia');
 
 const multerOptions = {
   storage: multer.memoryStorage(),
@@ -50,6 +51,9 @@ exports.snimiUredjenoVino = async (req, res) => {
       new: true,
       runValidators: true
     }).exec();
+
+  Vino.SyncToAlgolia();
+
   req.flash('success', `Uspješno ste uredili vino <strong>${vino.naziv}</strong>!`);
   res.redirect('/');
 }
@@ -91,8 +95,9 @@ exports.snimiVino = async (req, res) => {
   vino.ime = req.user.ime;
 
   const vinoPromise = vino.save();
+  const algoliaPromise = Vino.SyncToAlgolia();
 
-  await Promise.all([vinoPromise, userPromise]);
+  await Promise.all([vinoPromise, userPromise, algoliaPromise]);
 
   req.flash('success', 'Uspješno ste unijeli novo vino u bazu');
   res.redirect('/');
@@ -174,6 +179,8 @@ exports.ukloniVino = async (req, res) => {
     const vino = await Vino.findOneAndRemove({
       _id: req.params.id
     });
+
+    Vino.SyncToAlgolia();
 
     const user = await User.findOneAndUpdate({
       ime: vino.ime

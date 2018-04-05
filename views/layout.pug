@@ -41,12 +41,15 @@ html(lang="en")
                             i.material-icons menu
                         ul.right.hide-on-med-and-down.right-margin
 
-                        
+
                             li
                                 .searchbar
                                     form.search-input
                                         .input-field.valign-wrapper
-                                            input#aa-search-input(type='search' placeholder="Pretraži Vina")
+                                            if user
+                                                input#aa-search-input(type='search' placeholder="Pretraži Vina" class="input-uski")
+                                            else
+                                                input#aa-search-input(type='search' placeholder="Pretraži Vina" class="input-siroki")
 
                             //- #aa-input-container.aa-input-container
                             //-     input#aa-search-input.aa-input-search(type='search' placeholder='Search for players or teams...' name='search' autocomplete='off')
