@@ -1060,7 +1060,7 @@ input[id="aa-search-input"] {
   background-color: #795548;
   height: 45px !important;
   margin-top: 10px;
-  margin-right: 1em; }
+  margin-right: .5em; }
 
 .anchor-search {
   background-color: #d7ccc8; }
@@ -1079,9 +1079,9 @@ input[id="aa-search-input"] {
           transform: rotate(-3deg); }
 
 .input-uski {
-  width: 21em !important; }
+  width: 20em !important; }
 
 .input-siroki {
-  width: 31.5em !important; }
+  width: 30em !important; }
 
 /*# sourceMappingURL=style.css.map*/

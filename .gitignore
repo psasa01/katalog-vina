@@ -2,10 +2,10 @@ node_modules/
 variables.env
 *.log
 *.env
-/public/images/big
-/public/images/thumbs
-/public/images/vina-big
-/public/images/vina-thumbs
+/public/images/big/
+/public/images/thumbs/
+/public/images/vina-big/
+/public/images/vina-thumbs/
 /public/dist
 
 
