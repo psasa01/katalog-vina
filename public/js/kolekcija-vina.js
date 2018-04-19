@@ -37,6 +37,13 @@ $(document).ready(function () {
     }
   });
 
+
+  if($('.flash').is(':visible')) {
+    setTimeout(() => {
+      $('.flash').fadeOut(600);
+    }, 1900)
+}
+
   // $('.infinite-scr').infiniteScroll({
   //   // options
   //   path: '/{{#}}',
