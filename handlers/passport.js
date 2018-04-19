@@ -8,6 +8,7 @@ const secret = require('./secret');
 passport.use(User.createStrategy());
 
 passport.use(new facebookStrategy(secret.facebook, (accessToken, refreshToken, profile, done) => {
+
     process.nextTick(() => {
         User.findOne({
             $or: [{

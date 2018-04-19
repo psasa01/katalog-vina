@@ -67,7 +67,7 @@ router.get('/racun', authController.isLoggedIn, userController.racun);
 router.post('/racun', catchErrors(userController.urediKorisnickiRacun));
 
 router.get('/auth/facebook', passport.authenticate('facebook', {
-  scope: 'email'
+  scope: ['email', 'public_profile']
 }));
 router.get('/auth/facebook/callback', passport.authenticate('facebook', {
   successRedirect: '/',

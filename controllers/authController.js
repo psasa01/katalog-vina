@@ -14,7 +14,7 @@ exports.logout = async (req, res) => {
     user.zadnjiPutVidjen = Date.now();
     await user.save();
 
-    console.log(user)
+    // console.log(user)
 
     req.logout();
     req.flash('success', 'Uspješno ste se odjavili! Doviđenja :)');

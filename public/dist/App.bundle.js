@@ -137,6 +137,11 @@ $(document).ready(function () {
     $('.modal').addClass('modal-full');
   });
 
+  $('.slika-fullscreen').on('click', function () {
+    $('.slika-fullscreen').css('display', 'none');
+    $('.modal').removeClass('modal-full');
+  });
+
   $('#slika-close').on('click', function () {
     $('.slika-fullscreen').css('display', 'none');
     $('.modal').removeClass('modal-full');
@@ -215,7 +220,7 @@ autocomplete('#aa-search-input', { hint: false }, {
   templates: {
     //'suggestion' templating function used to render a single suggestion
     suggestion: function suggestion(_suggestion) {
-      console.log(_suggestion);
+      // console.log(suggestion);
       return '\n                  <span style="line-height: 1.8em;"><a style="width: 130% !important; font-size: 1em;" class="anchor-search brown-text" href="/vino/' + _suggestion.objectID + '">' + _suggestion._highlightResult.naziv.value + '</a></span>\n                  ';
     }
   }

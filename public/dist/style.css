@@ -445,6 +445,10 @@ select:-webkit-autofill:focus {
   -o-transition: background-color 5000s ease-in-out 0s !important;
   transition: background-color 5000s ease-in-out 0s !important; }
 
+body {
+  background-image: url(dist/images/seamless.jpg);
+  background-attachment: fixed; }
+
 .background-img {
   width: 100vw;
   height: 86.7vh; }
@@ -514,6 +518,9 @@ select:-webkit-autofill:focus {
   padding-right: .6em;
   padding-top: 1.2em;
   padding-bottom: .4em; }
+
+.slika-trigger {
+  cursor: pointer; }
 
 .slika-fullscreen {
   z-index: 999999;

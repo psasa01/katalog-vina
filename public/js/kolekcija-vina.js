@@ -66,6 +66,12 @@ $(document).ready(function () {
     $('.modal').addClass('modal-full');
   })
 
+  $('.slika-fullscreen').on('click', () => {
+    $('.slika-fullscreen').css('display', 'none');
+    $('.modal').removeClass('modal-full');
+  }
+  );
+
   $('#slika-close').on('click', () => {
     $('.slika-fullscreen').css('display', 'none');
     $('.modal').removeClass('modal-full');
@@ -158,7 +164,7 @@ autocomplete('#aa-search-input',
     templates: {
       //'suggestion' templating function used to render a single suggestion
       suggestion: function (suggestion) {
-        console.log(suggestion);
+        // console.log(suggestion);
         return `
                   <span style="line-height: 1.8em;"><a style="width: 130% !important; font-size: 1em;" class="anchor-search brown-text" href="/vino/${suggestion.objectID}">${suggestion._highlightResult.naziv.value}</a></span>
                   `;

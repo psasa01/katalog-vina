@@ -8,7 +8,7 @@ const passport = require('passport');
 
 
 exports.login = (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     res.render('login', {
         title: 'Login',
         user: req.user,
@@ -218,7 +218,7 @@ exports.promjenaSifre = async (req, res) => {
         }
     });
 
-    console.log(user);
+    // console.log(user);
 
     if (!user) {
         req.flash('error', 'Nažalost, rok u kojem ste mogli promjeniti šifru je istekao!');
@@ -236,13 +236,13 @@ exports.promjenaSifreFinal = async (req, res) => {
         resetPasswordToken: req.params.token
 
     });
-    console.log(user);
+    // console.log(user);
 
     if (!user) {
         req.flash('error', 'Nažalost istekao je rok u kojem ste mogli promjeniti šifru');
         return res.redirect('/');
     } else {
-        console.log(req.body.password);
+        // console.log(req.body.password);
         const setPassword = promisify(user.setPassword, user);
         await setPassword(req.body.password);
 

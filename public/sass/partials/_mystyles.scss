@@ -24,8 +24,13 @@ select:-webkit-autofill:focus {
     -webkit-text-fill-color: $brown !important;
     -webkit-box-shadow: 0 0 0px 1000px $brownLighten5 inset !important;
     transition: background-color 5000s ease-in-out 0s !important;
-}
+} 
 
+body {
+    background-image: url(seamless.jpg);
+    background-attachment: fixed;
+
+}
 
 .background-img {
     width: 100vw;
@@ -45,7 +50,7 @@ select:-webkit-autofill:focus {
     position: absolute;
     bottom: -.4em;
 }
-
+ 
 .card {
     transition: all .6s ease;
     background-color: black;
@@ -103,6 +108,10 @@ select:-webkit-autofill:focus {
     padding-right: .6em;
     padding-top: 1.2em;
     padding-bottom: .4em
+}
+
+.slika-trigger {
+    cursor: pointer;
 }
 
 .slika-fullscreen {
