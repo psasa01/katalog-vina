@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+    .container  
+        .row
+            h2= title
+            hr
+
+            a(href="/forum/nova-tema")
+                button.right.btn.btn-large.waves-effect.green.lighten-1 Nova Tema
+
+            each post in posts
+
+                h1= post.naslov

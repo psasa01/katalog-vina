@@ -4,6 +4,7 @@ const vinoController = require('../controllers/vinoController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
 const slikaController = require('../controllers/slikaController');
+const forumController = require('../controllers/forumController');
 const passport = require('passport');
 const passportConfig = require('../handlers/passport');
 
@@ -101,5 +102,10 @@ router.post('/dodajSliku',
 
 router.get('/izbrisi-sliku', catchErrors(slikaController.izbrisiSlikuPage));
 router.get('/slika/:id/ukloni', catchErrors(slikaController.izbrisiSliku));
+
+router.get('/forum', forumController.forum);
+router.get('/forum/nova-tema', forumController.novaTema);
+
+router.post('/forum/nova-tema', catchErrors(forumController.postaviNovuTemu));
 
 module.exports = router;

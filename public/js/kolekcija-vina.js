@@ -38,11 +38,11 @@ $(document).ready(function () {
   });
 
 
-  if($('.flash').is(':visible')) {
+  if ($('.flash').is(':visible')) {
     setTimeout(() => {
       $('.flash').fadeOut(600);
     }, 1900)
-}
+  }
 
   // $('.infinite-scr').infiniteScroll({
   //   // options
@@ -62,6 +62,9 @@ $(document).ready(function () {
   //   $('.carousel').carousel('next');
   //   setTimeout(autoplay, 6000);
   // }
+
+
+  // var simplemde = new SimpleMDE({ element: $("#sadrzaj")[0] });
 
 
   $('#prikaz-forme').click(function () {

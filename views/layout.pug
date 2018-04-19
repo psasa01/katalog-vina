@@ -13,6 +13,8 @@ html(lang="en")
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
         link(rel='icon' type='image/png' href='./public/images/favicon-32.png' sizes='32x32')
 
+        // link(rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css")
+
         
         
         
@@ -79,6 +81,8 @@ html(lang="en")
 
                             else if user.level > 10
                                 li
+                                    a.orange-text.text-lighten-4(href='/forum') Forum
+                                li
                                     a(href='/logout') Odjava
                                 li
                                     a.nav-slika(href=('/racun'))
@@ -88,6 +92,8 @@ html(lang="en")
                             else if user.level < 11
                                 li  
                                     a(href='/admin') Admin
+                                li
+                                    a.orange-text.text-lighten-4(href='/forum') Forum
                                 li
                                     a(href='/logout') Odjava
                                 li
@@ -191,6 +197,8 @@ html(lang="en")
 
             script(src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js")
             script(src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js")
+
+            // script(src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js")
 
 
             script(src="/dist/App.bundle.js")      

@@ -134,6 +134,9 @@ $(document).ready(function () {
   // }
 
 
+  // var simplemde = new SimpleMDE({ element: $("#sadrzaj")[0] });
+
+
   $('#prikaz-forme').click(function () {
     $('#dodaj-sliku-forma').toggleClass('show');
   });

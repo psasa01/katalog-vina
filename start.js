@@ -16,6 +16,7 @@ mongoose.connection.on('error', (err) => {
 require('./models/Vino');
 require('./models/User');
 require('./models/Slika');
+require('./models/Post');
 
 // Start app!
 const app = require('./app');
