@@ -91,9 +91,43 @@ $(document).ready(function () {
     //For custom messages
     messages: {
       naslov: {
-        required: "Morate unijeti naslov"
+        required: "Morate unijeti naslov teme"
       },
-      sadrzaj: "Tema ne smije biti prazna!",
+      sadrzaj: "Tema ne smije biti prazna",
+    },
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
+  $("#vinoFormValidate").validate({
+    rules: {
+      naziv: {
+        required: true
+      },
+      proizvodjac: {
+        required: true
+      },
+      zemlja: {
+        required: true
+      },
+      vrsta: {
+        required: true
+      }
+
+    },
+    //For custom messages
+    messages: {
+      naziv: "Morate unijeti naziv vina",
+      proizvodjac: "Morate unijeti ime proizvođača",
+      zemlja: "Morate unijeti zemlju porijekla",
+      vrsta: "Morate unijeti vrstu vina"
     },
     errorElement: 'div',
     errorPlacement: function (error, element) {

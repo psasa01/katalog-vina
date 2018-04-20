@@ -1,6 +1,6 @@
 mixin dodaj-vino(vino = {})
 
-    form.col.s12(action=`/dodaj-vino/${vino._id || ''}` method="POST" enctype="multipart/form-data")
+    form.col.s12#vinoFormValidate(action=`/dodaj-vino/${vino._id || ''}` method="POST" enctype="multipart/form-data")
         .input-field.col.s12
             input#naziv.validate(type="text" name="naziv" value=vino.naziv)
             label(for="naziv") Naziv vina
