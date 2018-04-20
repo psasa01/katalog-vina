@@ -22,6 +22,9 @@ const postSchema = new mongoose.Schema({
     ime: {
         type: String
     },
+    avatar: {
+        type: String
+    },
     datum: {
         type: Date,
         default: Date.now
@@ -31,23 +34,18 @@ const postSchema = new mongoose.Schema({
             type: String,
             required: 'Odgovor ne može biti prazan!'
         },
-        odgovorio: {
-            type: mongoose.Schema.ObjectId,
-            ref: 'User',
-            required: true,
-            autopopulate: {
-                select: 'ime'
-            }
-        },
         ime: {
+            type: String
+        },
+        avatar: {
+            type: String
+        },
+        korisnik: {
             type: String
         },
         datum: {
             type: Date,
             default: Date.now
-        },
-        redniBroj: {
-            type: Number
         }
     }]
 })

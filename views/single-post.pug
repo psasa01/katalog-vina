@@ -7,12 +7,53 @@ block content
             .col.l12
                 h3.brown-text= title
                 hr
-                p= post.sadrzaj
+                .row(style="margin-bottom: .2em !important;")
+                    .col.l2
+                        img.circle.responsive-img.user-image(src=post.avatar || '/images/user.png')
+                        br  
+                        label.brown-text= post.ime
+                        br
+                        label.brown-text #{h.moment(post.datum).format('ll')}, #{h.moment(post.datum).format('LT')}
+                    .col.l9
+                        p.brown-text= post.sadrzaj
+                    .col.l1
                 hr
+                
+                each odgovor in post.odgovor
+                    
+                    .row(style="margin-bottom: .2em !important;")
+                        .col.l2
+                            img.circle.responsive-img.user-image(src=odgovor.avatar)
+                            br  
+                            label.brown-text= odgovor.ime
+                            br
+                            label.brown-text #{h.moment(odgovor.datum).format('ll')}, #{h.moment(odgovor.datum).format('LT')}                     
+                        .col.l8
+                            p.brown-text= odgovor.body
+                        if user && user._id.equals(odgovor.korisnik) || user && user.level === 1
+                            .col.l2
+                                a(href="#")
+                                    button.btn.red.lighten-1.waves-effect.waves-light.white-text.modal-trigger.right(href=`#obrisi_${odgovor.id}`) obriši post
+                        else    
+                            .col.l2
 
-        .row
-            .col.l12
-                form(action=`/forum/${post._id}/odgovor` method="POST")
-                    .input-field
-                        textarea#sadrzaj.materialize-textarea(type='text' name="odgovor")
-                        label(for='odgovor') Upišite odgovor
+
+                    .div(id=`obrisi_${odgovor.id}`).modal.izbrisi-vino-modal
+                        .modal-content
+                            h5 Da li zaista želite da obrišete post?
+                        .modal-footer
+                            a.modal-action.modal-close.btn.red.modal-btn(href=`/forum/${odgovor.id}/obrisi-odgovor/${post.id}`) Obriši
+                            a.modal-action.modal-close.btn.green.modal-btn(href='#!') Zatvori
+                            
+                            
+                    hr
+        if user
+            .row
+                .col.l12
+                    form(action=`/forum/${post._id}/odgovor` method="POST")
+                        .input-field
+                            textarea#sadrzaj.materialize-textarea(type='text' name="odgovor")
+                            label(for='odgovor') Upišite odgovor
+                            button.btn.green.lighten-1.waves-effect.right(type="submit") Pošaljite odgovor
+
+                

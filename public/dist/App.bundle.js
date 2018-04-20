@@ -140,6 +140,14 @@ $(document).ready(function () {
   //   height: 300
   // });
 
+  function process() {
+    var textareaText = $('#sadrzaj').val();
+    // $('#output1').html(textareaText);
+
+    textareaText = textareaText.replace(/\r?\n/g, '<br />');
+    // $('#output2').html(textareaText);
+  }
+
   $("#formValidate").validate({
     rules: {
       naslov: {

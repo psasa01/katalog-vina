@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Post = mongoose.model('Post');
+const _ = require('lodash');
 
 // const html2pug = require('html2pug')
- 
+
 
 
 exports.forum = async (req, res) => {
@@ -13,7 +14,7 @@ exports.forum = async (req, res) => {
         posts
     })
 }
- 
+
 exports.novaTema = (req, res) => {
     res.render('nova-tema', {
         title: 'Moja Kolekcija Vina - Nova Tema'
@@ -26,10 +27,11 @@ exports.postaviNovuTemu = async (req, res) => {
     // const pug = html2pug(html, { tabs: true })
 
     req.body.pokrenuo = req.user._id;
-    
+
 
     const post = new Post(req.body);
     post.ime = req.user.ime;
+    post.avatar = req.user.slika;
     // post.sadrzaj = pug;
     await post.save();
 
@@ -45,4 +47,54 @@ exports.prikaziPost = async (req, res) => {
         title: post.naslov,
         post
     })
+}
+
+exports.posaljiOdgovor = async (req, res) => {
+    const post = await Post.findById(req.params.id);
+    const odgovor = post.odgovor;
+
+    odgovor.push({
+        body: req.body.odgovor,
+        ime: req.user.ime,
+        korisnik: req.user._id,
+        avatar: req.user.slika
+    });
+
+    await post.save();
+    res.redirect('back');
+}
+
+exports.obrisiTemu = async (req, res) => {
+    const loggedUser = req.user;
+    const postToDelete = await Post.findById(req.params.id);
+
+    if (loggedUser && loggedUser._id.toString() === postToDelete.pokrenuo.toString() || loggedUser.level === 1) {
+        const post = await Post.findOneAndRemove({
+            _id: req.params.id
+        });
+        req.flash('success', 'Uspješno ste obrisali temu!');
+        res.redirect('/forum');
+    } else {
+        req.flash('error', 'Nemate pravo obrisati temu!');
+        res.redirect('/');
+    }
+}
+
+exports.obrisiOdgovor = async (req, res) => {
+    const loggedUser = req.user;
+    const postZaObrisatiOdgovor = await Post.findById(req.params.postId);
+    const array = postZaObrisatiOdgovor.odgovor;
+
+    const obrisano = _.remove(array, (e) => {
+        return e._id != req.params.id;
+    });
+
+    await Post.findOneAndUpdate({
+        _id: req.params.postId
+    }, { odgovor: obrisano }, {
+            new: true
+        }).exec();
+
+    req.flash('success', 'Uspješno ste obrisali post!')
+    res.redirect('back');
 }

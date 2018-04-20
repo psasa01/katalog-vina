@@ -450,6 +450,9 @@ body {
   background-image: url(dist/images/seamless.jpg);
   background-attachment: fixed; }
 
+p {
+  white-space: pre-line !important; }
+
 .background-img {
   width: 100vw;
   height: 86.7vh; }

@@ -6,14 +6,16 @@ block content
         .row
             .col.s10
                 h2= title
+                
            
             .col.s2
-                a(href="/forum/nova-tema")
-                    button.right.btn.btn-large.waves-effect.green.lighten-1(style="margin-top: 2.5em") Nova Tema
+                if user
+                    a(href="/forum/nova-tema")
+                        button.right.btn.btn-large.waves-effect.green.lighten-1(style="margin-top: 2.5em") Nova Tema
         .row
-            
+            br    
             table.bordered.highlight.responsive-table
-                thead
+                thead.brown-text.text-darken-3
                     tr(style="height: 1em !important; padding: 0em !important;")
                         th 
                             strong Naslov Teme
@@ -23,6 +25,7 @@ block content
                             strong Broj odgovora
                         th 
                             strong Datum pokretanja
+                        th
 
                 tbody
                     each post in posts
@@ -30,11 +33,23 @@ block content
                             td(style="padding: 8px !important;")
                                 a(href=`/forum/post/${post.id}`)
                                     if post.naslov.length>50
-                                        p.brown-text= post.naslov.substring(0,50) + '...' 
+                                        p.brown-text.text-darken-2= post.naslov.substring(0,50) + '...' 
                                     else 
-                                        p.brown-text= post.naslov
-                            td(style="padding: 8px !important;")= post.ime
-                            td(style="padding: 8px !important;") 
-                            td(style="padding: 8px !important;")
+                                        p.brown-text.text-darken-2= post.naslov
+                            td.brown-text.text-darken-2(style="padding: 8px !important;")= post.ime
+                            td.brown-text.text-darken-2(style="padding: 8px !important;")= post.odgovor.length 
+                            td.brown-text.text-darken-2(style="padding: 8px !important;")
                                 - h.moment.locale('bs')
-                                    p #{h.moment(post.datum).format('ll')}, #{h.moment(post.datum).format('LT')}
+                                    p.brown-text.text-darken-2 #{h.moment(post.datum).format('ll')}, #{h.moment(post.datum).format('LT')}
+                            if user && post.pokrenuo.equals(user._id) || user && user.level === 1
+                                td(style="padding: 8px !important;")  
+                                    button.btn.red.lighten-1.waves-effect.waves-light.white-text.modal-trigger.right(href=`#obrisi_${post.id}`) obriši temu
+                            else
+                                td(style="padding: 8px !important;")
+            
+                        .div(id=`obrisi_${post.id}`).modal.izbrisi-vino-modal
+                            .modal-content
+                                h5 Da li zaista želite da obrišete '#{post.naslov}' temu?
+                            .modal-footer
+                                a.modal-action.modal-close.btn.red.modal-btn(href=`/forum/${post.id}/obrisi`) Obriši
+                                a.modal-action.modal-close.btn.green.modal-btn(href='#!') Zatvori
