@@ -771,7 +771,6 @@ input[id="aa-search-input"] {
     height: 45px !important;
     // width: 10em !important;
     margin-top: 10px;
-    margin-right: .5em;
 }
 
 .anchor-search {
@@ -793,9 +792,26 @@ input[id="aa-search-input"] {
 }
 
 .input-uski {
-    width: 20em !important;
+    width: 18em !important;
 }
 
 .input-siroki {
     width: 30em !important;
+}
+
+// .note-btn,
+// .note-toolbar,
+// .note-statusbar {
+//     background-color: $brown !important;
+// }
+
+// .note-editor {
+//     border-left: 3px solid $brown !important;
+//     border-right: 3px solid $brown !important;
+// }
+
+.error {
+    color: #f44336 !important;
+    font-size: .6em !important;
+    text-align: right !important;
 }

@@ -66,6 +66,36 @@ $(document).ready(function () {
 
   // var simplemde = new SimpleMDE({ element: $("#sadrzaj")[0] });
 
+  // $('#sadrzaj').materialnote({      
+  //   height: 300
+  // });
+
+  $("#formValidate").validate({
+    rules: {
+        naslov: {
+            required: true
+        },
+        sadrzaj: {
+            required: true
+        }
+    },
+    //For custom messages
+    messages: {
+        naslov:{
+            required: "Morate unijeti naslov"
+        },
+        sadrzaj: "Tema ne smije biti prazna!",
+    },
+    errorElement : 'div',
+    errorPlacement: function(error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+ });
 
   $('#prikaz-forme').click(function () {
     $('#dodaj-sliku-forma').toggleClass('show');

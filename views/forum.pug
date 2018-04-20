@@ -4,12 +4,37 @@ block content
 
     .container  
         .row
-            h2= title
-            hr
+            .col.s10
+                h2= title
+           
+            .col.s2
+                a(href="/forum/nova-tema")
+                    button.right.btn.btn-large.waves-effect.green.lighten-1(style="margin-top: 2.5em") Nova Tema
+        .row
+            
+            table.bordered.highlight.responsive-table
+                thead
+                    tr(style="height: 1em !important; padding: 0em !important;")
+                        th 
+                            strong Naslov Teme
+                        th 
+                            strong Pokrenuo
+                        th 
+                            strong Broj odgovora
+                        th 
+                            strong Datum pokretanja
 
-            a(href="/forum/nova-tema")
-                button.right.btn.btn-large.waves-effect.green.lighten-1 Nova Tema
-
-            each post in posts
-
-                h1= post.naslov
+                tbody
+                    each post in posts
+                        tr(style="padding: 8px !important;")
+                            td(style="padding: 8px !important;")
+                                a(href=`/forum/post/${post.id}`)
+                                    if post.naslov.length>50
+                                        p.brown-text= post.naslov.substring(0,50) + '...' 
+                                    else 
+                                        p.brown-text= post.naslov
+                            td(style="padding: 8px !important;")= post.ime
+                            td(style="padding: 8px !important;") 
+                            td(style="padding: 8px !important;")
+                                - h.moment.locale('bs')
+                                    p #{h.moment(post.datum).format('ll')}, #{h.moment(post.datum).format('LT')}

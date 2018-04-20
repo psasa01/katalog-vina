@@ -1059,8 +1059,7 @@ input[id="aa-search-input"] {
 .search-input {
   background-color: #795548;
   height: 45px !important;
-  margin-top: 10px;
-  margin-right: .5em; }
+  margin-top: 10px; }
 
 .anchor-search {
   background-color: #d7ccc8; }
@@ -1079,9 +1078,14 @@ input[id="aa-search-input"] {
           transform: rotate(-3deg); }
 
 .input-uski {
-  width: 20em !important; }
+  width: 18em !important; }
 
 .input-siroki {
   width: 30em !important; }
+
+.error {
+  color: #f44336 !important;
+  font-size: .6em !important;
+  text-align: right !important; }
 
 /*# sourceMappingURL=style.css.map*/

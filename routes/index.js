@@ -8,7 +8,7 @@ const forumController = require('../controllers/forumController');
 const passport = require('passport');
 const passportConfig = require('../handlers/passport');
 
-
+ 
 const {
   catchErrors
 } = require('../handlers/errorHandlers');
@@ -104,6 +104,8 @@ router.get('/izbrisi-sliku', catchErrors(slikaController.izbrisiSlikuPage));
 router.get('/slika/:id/ukloni', catchErrors(slikaController.izbrisiSliku));
 
 router.get('/forum', forumController.forum);
+router.get('/forum/post/:id', catchErrors(forumController.prikaziPost));
+
 router.get('/forum/nova-tema', forumController.novaTema);
 
 router.post('/forum/nova-tema', catchErrors(forumController.postaviNovuTemu));

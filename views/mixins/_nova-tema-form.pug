@@ -1,30 +1,29 @@
 mixin nova-tema-form
 
-    .container
-        .row
-            br
-            br
-            .z-depth-3.brown.lighten-5.col.s12.login-forma
-                form(action='/forum/nova-tema' method="POST")
-                    h4.login-h4.brown-text.center-align.col.s10.offset-s1 Unesite naslov i sadržaj teme
-                        hr
-                        
-                        .input-field.col.s10.offset-s1
-                            input#naslov.validate(type='text' name="naslov")
-                            label(for='naslov') Naslov Teme
-                        .input-field.col.s10.offset-s1
-                            textarea#sadrzaj.materialize-textarea(type='text' name="sadrzaj")
-                            label(for='sadrzaj') Tema
-                        .col.s10.offset-s1
-                            br
-                            .row
 
-                                button#btn-reg.btn.btn-large.waves-effect.waves-light.col.m5.s12.l4.brown.right(type='submit' name='nova-tema') Postavi temu
+    .row
+        
+        .z-depth-3.brown.lighten-5.col.s12.login-forma
+            form#formValidate(action='/forum/nova-tema' method="POST")
+                h4.login-h4.brown-text.center-align.col.s12 Unesite naslov i sadržaj teme
+                   
+                    
+                    .input-field.col.s10.offset-s1
+                        input#naslov.validate(type='text' name="naslov")
+                        label(for='naslov') Naslov Teme
+                    .input-field.col.s10.offset-s1
+                        textarea#sadrzaj.materialize-textarea(type='text' name="sadrzaj")
+                        label(for='sadrzaj') Tema
+                    .col.s10.offset-s1
+                        br
+                        .row
+
+                            button#btn-reg.btn.btn-large.waves-effect.waves-light.col.m5.s12.l4.brown.right(type='submit' name='nova-tema') Postavi temu
+
+                            
+                                
 
                                 
-                                    
-
-                                  
 
 
-            
+        
