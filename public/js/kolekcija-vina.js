@@ -70,17 +70,14 @@ $(document).ready(function () {
   //   height: 300
   // });
 
-  tippy('.tooltip', {
-    delay: 100,
-    arrow: true,
-    arrowType: 'round',
-    size: 'large',
-    duration: 250,
-    inertia: true,
-    animation: 'scale',
-    placement: 'left',
-    theme: 'dark translucent'
-  });
+  function process() {
+    var textareaText = $('#sadrzaj').val();
+    // $('#output1').html(textareaText);
+
+    textareaText = textareaText.replace(/\r?\n/g, '<br />');
+    // $('#output2').html(textareaText);
+  }
+
 
   $("#formValidate").validate({
     rules: {
@@ -94,9 +91,9 @@ $(document).ready(function () {
     //For custom messages
     messages: {
       naslov: {
-        required: "Morate unijeti naslov teme!"
+        required: "Morate unijeti naslov teme"
       },
-      sadrzaj: "Tema mora imati sadržaj!",
+      sadrzaj: "Tema ne smije biti prazna!",
     },
     errorElement: 'div',
     errorPlacement: function (error, element) {
@@ -107,6 +104,52 @@ $(document).ready(function () {
         error.insertAfter(element);
       }
     }
+  });
+
+  $("#vinoFormValidate").validate({
+    rules: {
+      naziv: {
+        required: true
+      },
+      proizvodjac: {
+        required: true
+      },
+      zemlja: {
+        required: true
+      },
+      vrsta: {
+        required: true
+      }
+
+    },
+    //For custom messages
+    messages: {
+      naziv: "Morate unijeti naziv vina",
+      proizvodjac: "Morate unijeti ime proizvođača",
+      zemlja: "Morate unijeti zemlju porijekla",
+      vrsta: "Morate unijeti vrstu vina"
+    },
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
+  tippy('.tooltip', {
+    delay: 100,
+    arrow: true,
+    arrowType: 'round',
+    size: 'large',
+    duration: 250,
+    inertia: true,
+    animation: 'scale',
+    placement: 'left',
+    theme: 'dark translucent'
   });
 
   $('#prikaz-forme').click(function () {
@@ -148,8 +191,7 @@ $(document).ready(function () {
   $('.tooltipped').tooltip({
     outDuration: 20,
     exitDelay: 20,
-    position: 'left',
-    margin: '-4'
+    position: 'top'
   });
   $('.sidenav').sidenav();
   $('.modal').modal({
