@@ -204,7 +204,8 @@ $(document).ready(function () {
   $('.tooltipped').tooltip({
     outDuration: 20,
     exitDelay: 20,
-    position: 'top'
+    position: 'left',
+    margin: '-4'
   });
   $('.sidenav').sidenav();
   $('.modal').modal({

@@ -52,7 +52,7 @@ exports.snimiUredjenoVino = async (req, res) => {
       runValidators: true
     }).exec();
 
-  Vino.SyncToAlgolia();
+  // Vino.SyncToAlgolia();
 
   req.flash('success', `Uspješno ste uredili vino <strong>${vino.naziv}</strong>!`);
   res.redirect('/');
@@ -95,9 +95,10 @@ exports.snimiVino = async (req, res) => {
   vino.ime = req.user.ime;
 
   const vinoPromise = vino.save();
-  const algoliaPromise = Vino.SyncToAlgolia();
+  // const algoliaPromise = Vino.SyncToAlgolia();
 
-  await Promise.all([vinoPromise, userPromise, algoliaPromise]);
+  // await Promise.all([vinoPromise, userPromise, algoliaPromise]);
+  await Promise.all([vinoPromise, userPromise]);
 
   req.flash('success', 'Uspješno ste unijeli novo vino u bazu');
   res.redirect('/');
@@ -180,7 +181,7 @@ exports.ukloniVino = async (req, res) => {
       _id: req.params.id
     });
 
-    Vino.SyncToAlgolia();
+    // Vino.SyncToAlgolia();
 
     const user = await User.findOneAndUpdate({
       ime: vino.ime

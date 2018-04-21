@@ -35,8 +35,6 @@ exports.postaviNovuTemu = async (req, res) => {
     // post.sadrzaj = pug;
     await post.save();
 
-    req.flash('success', 'Uspješno ste dodali novu temu!')
-
     res.redirect('/forum');
 }
 
@@ -72,8 +70,8 @@ exports.obrisiTemu = async (req, res) => {
         const post = await Post.findOneAndRemove({
             _id: req.params.id
         });
-        req.flash('success', 'Uspješno ste obrisali temu!');
-        res.redirect('/forum');
+
+        res.redirect('back');
     } else {
         req.flash('error', 'Nemate pravo obrisati temu!');
         res.redirect('/');
@@ -88,13 +86,12 @@ exports.obrisiOdgovor = async (req, res) => {
     const obrisano = _.remove(array, (e) => {
         return e._id != req.params.id;
     });
- 
+
     await Post.findOneAndUpdate({
         _id: req.params.postId
     }, { odgovor: obrisano }, {
             new: true
         }).exec();
 
-    req.flash('success', 'Uspješno ste obrisali post!')
-    res.redirect('back');
+    res.redirect(`/forum`);
 }

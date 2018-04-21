@@ -72,22 +72,22 @@ $(document).ready(function () {
 
   $("#formValidate").validate({
     rules: {
-        naslov: {
-            required: true
-        },
-        sadrzaj: {
-            required: true
-        }
+      naslov: {
+        required: true
+      },
+      sadrzaj: {
+        required: true
+      }
     },
     //For custom messages
     messages: {
-        naslov:{
-            required: "Morate unijeti naslov teme!"
-        },
-        sadrzaj: "Tema mora imati sadržaj!",
+      naslov: {
+        required: "Morate unijeti naslov teme!"
+      },
+      sadrzaj: "Tema mora imati sadržaj!",
     },
-    errorElement : 'div',
-    errorPlacement: function(error, element) {
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
       var placement = $(element).data('error');
       if (placement) {
         $(placement).append(error)
@@ -95,7 +95,7 @@ $(document).ready(function () {
         error.insertAfter(element);
       }
     }
- });
+  });
 
   $('#prikaz-forme').click(function () {
     $('#dodaj-sliku-forma').toggleClass('show');
@@ -136,7 +136,8 @@ $(document).ready(function () {
   $('.tooltipped').tooltip({
     outDuration: 20,
     exitDelay: 20,
-    position: 'top'
+    position: 'left',
+    margin: '-4'
   });
   $('.sidenav').sidenav();
   $('.modal').modal({

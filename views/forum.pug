@@ -1,4 +1,5 @@
 extends layout
+include mixins/_home-button
 
 block content
 
@@ -53,3 +54,5 @@ block content
                             .modal-footer
                                 a.modal-action.modal-close.btn.red.modal-btn(href=`/forum/${post.id}/obrisi`) Obriši
                                 a.modal-action.modal-close.btn.green.modal-btn(href='#!') Zatvori
+    
+    +home-button

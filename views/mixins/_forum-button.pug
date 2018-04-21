@@ -1,4 +1,4 @@
-mixin home-button
+mixin forum-button
 
     .fixed-action-btn.button-fab#home-button
         a.btn-floating.btn-large.brown
@@ -10,3 +10,6 @@ mixin home-button
             li
                 button.btn-floating.blue.tooltipped(data-tooltip="Nazad" onclick=`history.back()`)
                     i.material-icons chevron_left
+            li
+                a.btn-floating.green.tooltipped(data-tooltip="Forum" href=`/forum`)
+                    i.material-icons list
