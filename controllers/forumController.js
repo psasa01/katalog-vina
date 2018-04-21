@@ -93,5 +93,5 @@ exports.obrisiOdgovor = async (req, res) => {
             new: true
         }).exec();
 
-    res.redirect(`/forum`);
+    res.redirect(`back`);
 }

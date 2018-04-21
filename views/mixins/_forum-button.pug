@@ -5,11 +5,11 @@ mixin forum-button
             i.large.material-icons keyboard_arrow_up
         ul
             li
-                a.btn-floating.red.tooltipped(data-tooltip="Početna" href=`/`)
+                a.btn-floating.red.tooltip(title="Početna" href=`/`)
                     i.material-icons home
             li
-                button.btn-floating.blue.tooltipped(data-tooltip="Nazad" onclick=`history.back()`)
+                button.btn-floating.blue.tooltip(title="Nazad" onclick=`history.back()`)
                     i.material-icons chevron_left
             li
-                a.btn-floating.green.tooltipped(data-tooltip="Forum" href=`/forum`)
+                a.btn-floating.green.tooltip(title="Forum" href=`/forum`)
                     i.material-icons list

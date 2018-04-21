@@ -34,7 +34,7 @@ block content
                         if user && user._id.equals(odgovor.korisnik) || user && user.level === 1
                             .col.l2
                                 a(href="#")
-                                    button.btn.red.lighten-1.waves-effect.waves-light.white-text.modal-trigger.right(href=`#obrisi_${odgovor.id}`) obriši post
+                                    button.btn.red.lighten-1.waves-effect.waves-light.white-text.modal-trigger.right(href=`#obrisi_${odgovor.id}`) obrišite post
                         else    
                             .col.l2
 
@@ -55,7 +55,7 @@ block content
                         .input-field
                             textarea#sadrzaj.materialize-textarea(type='text' name="odgovor")
                             label(for='odgovor') Upišite odgovor
-                            button.btn.green.lighten-1.waves-effect.right(type="submit") Pošaljite odgovor
+                            button.btn.green.lighten-1.waves-effect.right(type="submit") Dodajte komentar
     
     +forum-button
 

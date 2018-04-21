@@ -1,5 +1,5 @@
 extends layout
-include mixins/_home-button
+include mixins/_forum-button
 
 block content
 
@@ -47,6 +47,7 @@ block content
                                     button.btn.red.lighten-1.waves-effect.waves-light.white-text.modal-trigger.right(href=`#obrisi_${post.id}`) obriši temu
                             else
                                 td(style="padding: 8px !important;")
+
             
                         .div(id=`obrisi_${post.id}`).modal.izbrisi-vino-modal
                             .modal-content
@@ -54,5 +55,7 @@ block content
                             .modal-footer
                                 a.modal-action.modal-close.btn.red.modal-btn(href=`/forum/${post.id}/obrisi`) Obriši
                                 a.modal-action.modal-close.btn.green.modal-btn(href='#!') Zatvori
+
+    +forum-button
     
-    +home-button
+

@@ -70,6 +70,18 @@ $(document).ready(function () {
   //   height: 300
   // });
 
+  tippy('.tooltip', {
+    delay: 100,
+    arrow: true,
+    arrowType: 'round',
+    size: 'large',
+    duration: 250,
+    inertia: true,
+    animation: 'scale',
+    placement: 'left',
+    theme: 'dark translucent'
+  });
+
   $("#formValidate").validate({
     rules: {
       naslov: {
