@@ -19,9 +19,9 @@ block content
                 thead.brown-text.text-darken-3
                     tr(style="height: 1em !important; padding: 0em !important;")
                         th 
-                            strong Naslov Teme
+                            strong Temu pokrenuo
                         th 
-                            strong Pokrenuo
+                            strong Naslov          
                         th 
                             strong Broj odgovora
                         th 
@@ -30,23 +30,27 @@ block content
 
                 tbody
                     each post in posts
-                        tr(style="padding: 8px !important;")
-                            td(style="padding: 8px !important;")
+                        tr(style="padding: 4px !important;")
+                            td(style="display: inline-flex")
+                                img.circle.responsive-img.user-image(src=post.avatar || '/images/user.png' style="height: 3em !important")
+                                .brown-text.text-darken-2.left(style="padding: 25px !important;") #{post.ime}                        
+                            td(style="padding: 4px !important;")
                                 a(href=`/forum/post/${post.id}`)
                                     if post.naslov.length>50
-                                        p.brown-text.text-darken-2= post.naslov.substring(0,50) + '...' 
+                                        p.blue-text.text-darken-3
+                                            b= post.naslov.substring(0,50) + '...' 
                                     else 
-                                        p.brown-text.text-darken-2= post.naslov
-                            td.brown-text.text-darken-2(style="padding: 8px !important;")= post.ime
-                            td.brown-text.text-darken-2(style="padding: 8px !important;")= post.odgovor.length 
-                            td.brown-text.text-darken-2(style="padding: 8px !important;")
+                                        p.blue-text.text-darken-3
+                                            b= post.naslov                           
+                            td.brown-text.text-darken-2(style="padding: 4px !important;")= post.odgovor.length 
+                            td.brown-text.text-darken-2(style="padding: 4px !important;")
                                 - h.moment.locale('bs')
                                     p.brown-text.text-darken-2 #{h.moment(post.datum).format('ll')}, #{h.moment(post.datum).format('LT')}
                             if user && post.pokrenuo.equals(user._id) || user && user.level === 1
-                                td(style="padding: 8px !important;")  
+                                td(style="padding: 4px !important;")  
                                     button.btn.red.lighten-1.waves-effect.waves-light.white-text.modal-trigger.right(href=`#obrisi_${post.id}`) obriši temu
                             else
-                                td(style="padding: 8px !important;")
+                                td(style="padding: 4px !important;")
 
             
                         .div(id=`obrisi_${post.id}`).modal.izbrisi-vino-modal

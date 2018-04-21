@@ -40,7 +40,7 @@ exports.postaviNovuTemu = async (req, res) => {
 
 exports.prikaziPost = async (req, res) => {
     const post = await Post.findById(req.params.id);
-    console.log(post);
+    // console.log(post);
     res.render('single-post', {
         title: post.naslov,
         post
