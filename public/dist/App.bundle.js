@@ -140,14 +140,6 @@ $(document).ready(function () {
   //   height: 300
   // });
 
-  function process() {
-    var textareaText = $('#sadrzaj').val();
-    // $('#output1').html(textareaText);
-
-    textareaText = textareaText.replace(/\r?\n/g, '<br />');
-    // $('#output2').html(textareaText);
-  }
-
   $("#formValidate").validate({
     rules: {
       naslov: {
@@ -160,43 +152,9 @@ $(document).ready(function () {
     //For custom messages
     messages: {
       naslov: {
-        required: "Morate unijeti naslov teme"
+        required: "Morate unijeti naslov teme!"
       },
-      sadrzaj: "Tema ne smije biti prazna"
-    },
-    errorElement: 'div',
-    errorPlacement: function errorPlacement(error, element) {
-      var placement = $(element).data('error');
-      if (placement) {
-        $(placement).append(error);
-      } else {
-        error.insertAfter(element);
-      }
-    }
-  });
-
-  $("#vinoFormValidate").validate({
-    rules: {
-      naziv: {
-        required: true
-      },
-      proizvodjac: {
-        required: true
-      },
-      zemlja: {
-        required: true
-      },
-      vrsta: {
-        required: true
-      }
-
-    },
-    //For custom messages
-    messages: {
-      naziv: "Morate unijeti naziv vina",
-      proizvodjac: "Morate unijeti ime proizvođača",
-      zemlja: "Morate unijeti zemlju porijekla",
-      vrsta: "Morate unijeti vrstu vina"
+      sadrzaj: "Tema mora imati sadržaj!"
     },
     errorElement: 'div',
     errorPlacement: function errorPlacement(error, element) {
