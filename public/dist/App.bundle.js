@@ -209,6 +209,27 @@ $(document).ready(function () {
     }
   });
 
+  $("#odgovorValidate").validate({
+    rules: {
+      odgovor: {
+        required: true
+      }
+    },
+    //For custom messages
+    messages: {
+      odgovor: "Morate unijeti odgovor"
+    },
+    errorElement: 'div',
+    errorPlacement: function errorPlacement(error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error);
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
   tippy('.tooltip', {
     delay: 100,
     arrow: true,

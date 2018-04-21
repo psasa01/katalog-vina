@@ -51,7 +51,7 @@ block content
         if user
             .row
                 .col.l12
-                    form(action=`/forum/${post._id}/odgovor` method="POST")
+                    form#odgovorValidate(action=`/forum/${post._id}/odgovor` method="POST")
                         .input-field
                             textarea#sadrzaj.materialize-textarea(type='text' name="odgovor")
                             label(for='odgovor') Upišite odgovor
