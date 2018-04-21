@@ -88,7 +88,7 @@ exports.obrisiOdgovor = async (req, res) => {
     const obrisano = _.remove(array, (e) => {
         return e._id != req.params.id;
     });
-
+ 
     await Post.findOneAndUpdate({
         _id: req.params.postId
     }, { odgovor: obrisano }, {

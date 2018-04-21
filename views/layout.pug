@@ -51,10 +51,12 @@ html(lang="en")
                                     form.search-input
                                         .input-field.valign-wrapper
                                             if user
-                                                input#aa-search-input(type='search' placeholder="Pretraži Vina" class="input-uski")
+                                                input#aa-search-input(type='search' placeholder="Pretraži Vina" class="input-uski" style="background-image: url('/images/algolia40.png'); background-repeat: no-repeat; text-indent: 2em;")
+                                                
                                             else
                                                 input#aa-search-input(type='search' placeholder="Pretraži Vina" class="input-siroki")
-
+                                                
+                                
                             //- #aa-input-container.aa-input-container
                             //-     input#aa-search-input.aa-input-search(type='search' placeholder='Search for players or teams...' name='search' autocomplete='off')
                             //-     svg.aa-input-icon(viewbox='654 -372 1664 1664')
