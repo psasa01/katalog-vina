@@ -12,7 +12,7 @@ block content
             .col.s2
                 if user
                     a(href="/forum/nova-tema")
-                        button.right.btn.btn-large.waves-effect.green.lighten-1(style="margin-top: 2.5em") Nova Tema
+                        button.right.btn.btn-large.waves-effect.green.lighten-1(style="margin-top: 2.5em; margin-right: .66em;") Nova Tema
         .row
             br    
             table.bordered.highlight.responsive-table
@@ -32,13 +32,13 @@ block content
                     each post in posts
                         tr(style="padding: 4px !important;")
                             td(style="display: inline-flex")
-                                img.circle.responsive-img.user-image(src=post.avatar || '/images/user.png' style="height: 3em !important")
+                                img.circle.responsive-img.user-image(src=post.avatar || '/images/user.png' style="height: 3em !important; margin-left: 1em")
                                 .brown-text.text-darken-2.left(style="padding: 25px !important;") #{post.ime}                        
                             td(style="padding: 4px !important;")
                                 a(href=`/forum/post/${post.id}`)
                                     if post.naslov.length>50
                                         p.blue-text.text-darken-3
-                                            b= post.naslov.substring(0,50) + '...' 
+                                            b= post.naslov.substring(0,50)+'...' 
                                     else 
                                         p.blue-text.text-darken-3
                                             b= post.naslov                           
@@ -48,7 +48,7 @@ block content
                                     p.brown-text.text-darken-2 #{h.moment(post.datum).format('ll')}, #{h.moment(post.datum).format('LT')}
                             if user && post.pokrenuo.equals(user._id) || user && user.level === 1
                                 td(style="padding: 4px !important;")  
-                                    button.btn.red.lighten-1.waves-effect.waves-light.white-text.modal-trigger.right(href=`#obrisi_${post.id}`) obriši temu
+                                    button.btn.red.lighten-1.waves-effect.waves-light.white-text.modal-trigger.right(href=`#obrisi_${post.id}` style="margin-right: 1em") obriši temu
                             else
                                 td(style="padding: 4px !important;")
 
