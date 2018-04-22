@@ -53,6 +53,8 @@ router.get('/korisnici/:korisnik', catchErrors(vinoController.pretragaPoKorisnic
 router.get('/godine', catchErrors(vinoController.pretragaPoGodinama));
 router.get('/godine/:godina', catchErrors(vinoController.pretragaPoGodinama));
 
+router.get('/zadnjeDodani', catchErrors(vinoController.prikazi20ZadnjihVina));
+
 router.get('/login', userController.login);
 router.post('/login', catchErrors(authController.isActive), authController.login);
 

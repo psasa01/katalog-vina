@@ -112,7 +112,7 @@ exports.prikazi20ZadnjihVina = async (req, res) => {
     .limit(20)
 
   res.render('vina', {
-    title: "Zadnje unesena vina",
+    title: "Najnovije dodana vina",
     vina
   });
 }
