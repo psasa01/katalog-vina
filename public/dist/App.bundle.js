@@ -209,6 +209,40 @@ $(document).ready(function () {
     }
   });
 
+  $("#registerForm").validate({
+    rules: {
+      name: {
+        required: true
+      },
+      email: {
+        required: true
+      },
+      password: {
+        required: true
+      },
+      passwordPotvrda: {
+        required: true
+      }
+
+    },
+    //For custom messages
+    messages: {
+      name: "Morate unijeti korisničko ime",
+      email: "Morate unijeti email",
+      password: "Morate unijeti šifru",
+      passwordPotvrda: "Morate potvrditi šifru"
+    },
+    errorElement: 'div',
+    errorPlacement: function errorPlacement(error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error);
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
   $("#odgovorValidate").validate({
     rules: {
       odgovor: {

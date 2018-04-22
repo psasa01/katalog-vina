@@ -32,8 +32,8 @@ exports.validateRegister = (req, res, next) => {
         gmail_remove_subaddress: false
     });
     req.checkBody('password', 'Morate unijeti šifru!').notEmpty();
-    req.checkBody('password-potvrda', 'Morate potvrditi šifru!').notEmpty();
-    req.checkBody('password-potvrda', 'Nažalost, šifre se ne podudaraju!').equals(req.body.password);
+    req.checkBody('passwordPotvrda', 'Morate potvrditi šifru!').notEmpty();
+    req.checkBody('passwordPotvrda', 'Nažalost, šifre se ne podudaraju!').equals(req.body.password);
 
     const errors = req.validationErrors();
     if (errors) {
@@ -154,7 +154,7 @@ exports.dodijeliAdminPrava = async (req, res) => {
 };
 
 exports.uporediSifre = exports.confirmedPasswords = (req, res, next) => {
-    if (req.body.password === req.body['password-potvrda']) {
+    if (req.body.password === req.body['passwordPotvrda']) {
         return next();
     } else {
         req.flash('error', 'Šifre se ne podudaraju');
