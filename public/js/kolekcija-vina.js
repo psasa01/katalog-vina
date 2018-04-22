@@ -194,6 +194,35 @@ $(document).ready(function () {
     }
   });
 
+  $("#promjenaSifre").validate({
+    rules: {
+      password: {
+        required: true
+      },
+      passwordPotvrda: {
+        required: true,
+        equalTo: '#password'
+      }
+    },
+    //For custom messages
+    messages: {
+      password: "Morate unijeti šifru",
+      passwordPotvrda: {
+        required: "Morate potvrditi šifru",
+        equalTo: "Šifre moraju biti iste"
+      }
+    },
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
   $("#registerForm").validate({
     rules: {
       name: {
