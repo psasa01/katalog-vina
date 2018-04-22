@@ -173,6 +173,18 @@ $(document).ready(function () {
     theme: 'dark translucent'
   });
 
+  tippy('.tooltip-icon', {
+    delay: 75,
+    arrow: true,
+    arrowType: 'round',
+    size: 'large',
+    duration: 200,
+    inertia: true,
+    animation: 'shift-toward',
+    placement: 'bottom',
+    theme: 'dark translucent'
+  });
+
   $('#prikaz-forme').click(function () {
     $('#dodaj-sliku-forma').toggleClass('show');
   });

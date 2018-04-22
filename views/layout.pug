@@ -9,8 +9,9 @@ html(lang="en")
 
         //- link(rel='stylesheet' href='/materialnote/materialnote.css' type='text/css')
         
-        link(rel='stylesheet', href='/dist/style.css')
-        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css')
+        link(rel='stylesheet' href='/dist/style.css')
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css')
+        link(href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
         
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
         link(rel='icon' type='image/png' href='./public/images/favicon-32.png' sizes='32x32')
@@ -65,10 +66,11 @@ html(lang="en")
 
 
                             li
-                                a(href='/dodaj-vino') Novo Vino
+                                a(href='/dodaj-vino')
+                                    i.fa.fa-plus-square.fa-2x.tooltip-icon(title="Dodaj vino" style="font-size: 1.4em")
                             li
-                                a(href='/galerija') Galerija
-                            
+                                a(href='/galerija') 
+                                    i.fa.fa-photo.fa-2x.tooltip-icon(title="Galerija" style="font-size: 1.4em")
                            
                             // Dropdown Trigger
                             li
@@ -79,32 +81,42 @@ html(lang="en")
                             if !user
 
                                 li
-                                    a(href='/login') Prijava
+                                    a.green-text.text-lighten-2(href='/login') 
+                                        i.fa.fa-sign-in.fa-2x.tooltip-icon(title="Prijava" style="font-size: 1.4em")
                                 li
-                                    a(href='/register') Registracija
+                                    a(href='/auth/facebook')
+                                        i.fa.fa-facebook.fa-2x.tooltip-icon(title="FB prijava" style="color: #6392f5; font-size: 1.4em")
+                                li
+                                    a(href='/register') 
+                                        i.fa.fa-user-plus.fa-2x.tooltip-icon(title="Registracija" style="font-size: 1.4em")
 
                             else if user.level > 10
                                 li
-                                    a.orange-text.text-lighten-4(href='/forum') Forum
+                                    a(href='/forum')
+                                        i.fa.fa-list.fa-2x.tooltip-icon(title="Forum" style="font-size: 1.4em")
                                 li
-                                    a(href='/logout') Odjava
+                                    a(href='/logout').red-text.text-lighten-1
+                                        i.fa.fa-sign-out.fa-2x.tooltip-icon(title="Odjava" style="font-size: 1.4em")
                                 li
                                     a.nav-slika(href=('/racun'))
                                         img.circle.responsive-img.user-image(src=user.slika || user.gravatar)
                                 li= user.ime 
-                                    | &nbsp;&nbsp;
+                                   
                             else if user.level < 11
+                                li
+                                    a(href='/forum')
+                                        i.fa.fa-list.fa-2x.tooltip-icon(title="Forum" style="font-size: 1.4em")
                                 li  
-                                    a(href='/admin') Admin
+                                    a(href='/admin')
+                                        i.fa.fa-user.fa-2x.tooltip-icon(title="Admin panel" style="font-size: 1.4em")
                                 li
-                                    a.orange-text.text-lighten-4(href='/forum') Forum
-                                li
-                                    a(href='/logout') Odjava
+                                    a(href='/logout').red-text.text-lighten-1
+                                        i.fa.fa-sign-out.fa-2x.tooltip-icon(title="Odjava" style="font-size: 1.4em")
                                 li
                                     a.nav-slika(href=('/racun'))
                                         img.circle.responsive-img.user-image(src=user.slika || user.gravatar)
                                 li= user.ime 
-                                    | &nbsp;&nbsp;
+                                    
 
 
 

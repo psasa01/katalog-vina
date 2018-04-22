@@ -560,8 +560,12 @@ h5 {
   -webkit-transform: rotate(-5deg);
       -ms-transform: rotate(-5deg);
           transform: rotate(-5deg);
-  left: 4em;
+  left: 2em;
   bottom: .7em; }
+
+@media only screen and (max-width: 992px) {
+  .moja-kolekcija-vina {
+    left: 4em !important; } }
 
 @media only screen and (min-width: 601px) {
   .moja-kolekcija-vina {
@@ -1082,10 +1086,10 @@ input[id="aa-search-input"] {
           transform: rotate(-3deg); }
 
 .input-uski {
-  width: 18em !important; }
+  width: 30em !important; }
 
 .input-siroki {
-  width: 30em !important; }
+  width: 42em !important; }
 
 .error {
   color: #f44336 !important;
