@@ -140,6 +140,31 @@ $(document).ready(function () {
     }
   });
 
+  $("#resetForm").validate({
+    rules: {
+      reset: {
+        email: true,
+        required: true
+      }
+    },
+    //For custom messages
+    messages: {
+      reset: {
+        required: "Morate unijeti email",
+        email: "Morate unijeti validan email"
+      }
+    },
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
   $("#loginForm").validate({
     rules: {
       email: {
