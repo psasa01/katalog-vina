@@ -140,28 +140,65 @@ $(document).ready(function () {
     }
   });
 
+  $("#loginForm").validate({
+    rules: {
+      email: {
+        email: true,
+        required: true
+      },
+      password: {
+        required: true
+      }
+    },
+    //For custom messages
+    messages: {
+      email: {
+        required: "Morate unijeti email",
+        email: "Morate unijeti validan email"
+      },
+      password: "Morate unijeti šifru",
+    },
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
   $("#registerForm").validate({
     rules: {
       name: {
         required: true
       },
       email: {
+        email: true,
         required: true
       },
       password: {
         required: true
       },
       passwordPotvrda: {
-        required: true
+        required: true,
+        equalTo: '#password'
       }
 
     },
     //For custom messages
     messages: {
       name: "Morate unijeti korisničko ime",
-      email: "Morate unijeti email",
+      email: {
+        required: "Morate unijeti email",
+        email: "Morate unijeti validan email"
+      },
       password: "Morate unijeti šifru",
-      passwordPotvrda: "Morate potvrditi šifru"
+      passwordPotvrda: {
+        required: "Morate potvrditi šifru",
+        equalTo: "Šifre moraju biti iste"
+      }
     },
     errorElement: 'div',
     errorPlacement: function (error, element) {
