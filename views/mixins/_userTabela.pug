@@ -44,11 +44,11 @@ mixin userTabela(korisnik = {})
                         if korisnik.level > 10
                             td.right
                                 a(href=`/admin/dodijeli/${korisnik._id}`)    
-                                    button.btn.waves-effect.waves-light.indigo.lighten-1 Dodijeli admin prava   
+                                    button.btn.waves-effect.waves-light.indigo.lighten-1.white-text(style="padding: 0em 1em; margin-right: 1em") Dodijeli admin prava   
                         else if korisnik.level < 11 && korisnik.level > 1
                             td.right
                                 a(href=`/admin/oduzmi/${korisnik._id}`)
-                                    button.btn.waves-effect.waves-light.red.lighten-1 Oduzmi admin prava        
+                                    button.btn.waves-effect.waves-light.red.lighten-1.white-text(style="padding: 0em 1.1em; margin-right: 1em") Oduzmi admin prava        
                         else
                             td.right 
                     else

@@ -183,15 +183,16 @@ html(lang="en")
 
         block messages
             if locals.flashes
-                .container
-                    .flash-messages
-                        - const categories = Object.keys(locals.flashes)
-                        each category in categories
-                            each message in flashes[category]
-                                .flash(class=`flash--${category}`)
-                                    p.flash__text!= message
-                                    button.flash__remove(onClick="this.parentElement.remove()") &times;
-          
+                .container 
+                    .col.l10.offset-1              
+                        .flash-messages.center-align
+                            - const categories = Object.keys(locals.flashes)
+                            each category in categories
+                                each message in flashes[category]
+                                    .flash(class=`flash--${category}`)
+                                        p.flash__text!= message
+                                        
+            
         block content
 
         block footer

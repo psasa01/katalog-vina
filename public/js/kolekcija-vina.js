@@ -168,7 +168,7 @@ $(document).ready(function () {
     size: 'large',
     duration: 250,
     inertia: true,
-    animation: 'scale',
+    animation: 'shift-toward',
     placement: 'left',
     theme: 'dark translucent'
   });
@@ -184,6 +184,8 @@ $(document).ready(function () {
     placement: 'bottom',
     theme: 'dark translucent'
   });
+
+
 
   $('#prikaz-forme').click(function () {
     $('#dodaj-sliku-forma').toggleClass('show');

@@ -237,7 +237,7 @@ $(document).ready(function () {
     size: 'large',
     duration: 250,
     inertia: true,
-    animation: 'scale',
+    animation: 'shift-toward',
     placement: 'left',
     theme: 'dark translucent'
   });
