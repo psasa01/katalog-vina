@@ -73,3 +73,10 @@
     margin: 0;
   }
 }
+
+@media (max-width: 600px) {
+  .flash {
+    left: 1%;
+    width: 98%;
+  }
+}
