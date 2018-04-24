@@ -61,13 +61,13 @@ exports.register = async (req, res) => {
 
 
 
-            await userFind.setPassword(req.body.password);
+
 
             // secret token
             const secretToken = randomstring.generate();
             userFind.secretToken = secretToken;
 
-            await userFind.save();
+
 
             const html = `
             Poštovani,
@@ -86,7 +86,8 @@ exports.register = async (req, res) => {
 
             await mailer.sendEmail('admin@vina.sava.ba', user.email, 'Molimo Vas da verifikujete zahtjev za registraciju na vina.sava.ba', html);
 
-
+            await userFind.setPassword(req.body.password);
+            await userFind.save();
 
             req.flash({ 'success': 'Uspješno ste dodali šifru na postojeći profil! Poslali smo Vam aktivacijski kod na email. Da bi se prijavili morate aktivirati korisnički račun' });
             res.redirect('/login');
