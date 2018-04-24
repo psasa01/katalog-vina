@@ -78,7 +78,7 @@ exports.register = async (req, res) => {
             <br>
             Zelimo Vam ugodan dan!`
 
-            await mailer.sendEmail('admin@vina.sava.ba', user.email, 'Molimo Vas da verifikujete zahtjev za registraciju na vina.sava.ba', html);
+            await mailer.sendEmail('admin@vina.sava.ba', userFind.email, 'Molimo Vas da verifikujete zahtjev za registraciju na vina.sava.ba', html);
 
             await userFind.setPassword(req.body.password);
             userFind.secretToken = secretToken;
