@@ -59,29 +59,34 @@ exports.register = async (req, res) => {
             res.redirect('/login');
         } else {
 
+
+
+            await userFind.setPassword(req.body.password);
+            
             // secret token
             const secretToken = randomstring.generate();
             userFind.secretToken = secretToken;
 
-            const html = `
-            Poštovani,
-            <br>
-            zahvaljujemo Vam se na registraciji. Da biste aktivirali korisnički račun potrebno je da pratite link ispod, 
-            te unesete aktivacijski kod!
-            <br>
-            Aktivacijski kod: 
-            <br>
-            <strong>${secretToken}</strong>
-            <br>
-            <a href="http://${req.headers.host}/aktivacija"> Aktiviraj korisnički račun </a>
-            <br>
-            <br>
-            Zelimo Vam ugodan dan!`
-
-            await mailer.sendEmail('admin@vina.sava.ba', user.email, 'Molimo Vas da verifikujete zahtjev za registraciju na vina.sava.ba', html);
-
-            await userFind.setPassword(req.body.password);
             await userFind.save();
+
+            // const html = `
+            // Poštovani,
+            // <br>
+            // zahvaljujemo Vam se na registraciji. Da biste aktivirali korisnički račun potrebno je da pratite link ispod, 
+            // te unesete aktivacijski kod!
+            // <br>
+            // Aktivacijski kod: 
+            // <br>
+            // <strong>${secretToken}</strong>
+            // <br>
+            // <a href="http://${req.headers.host}/aktivacija"> Aktiviraj korisnički račun </a>
+            // <br>
+            // <br>
+            // Zelimo Vam ugodan dan!`
+
+            // await mailer.sendEmail('admin@vina.sava.ba', user.email, 'Molimo Vas da verifikujete zahtjev za registraciju na vina.sava.ba', html);
+
+
 
             req.flash({ 'success': 'Uspješno ste dodali šifru na postojeći profil! Poslali smo Vam aktivacijski kod na email. Da bi se prijavili morate aktivirati korisnički račun' });
             res.redirect('/login');
