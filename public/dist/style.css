@@ -424,6 +424,7 @@ table {
 @media (max-width: 600px) {
   .flash {
     left: 1%;
+    bottom: 3.5em;
     width: 98%; } }
 
 input:-webkit-autofill,
