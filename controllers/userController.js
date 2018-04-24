@@ -49,7 +49,7 @@ exports.validateRegister = (req, res, next) => {
 }
 
 exports.register = async (req, res) => {
-   
+
     const userFind = await User.findOne({
         email: req.body.email
     });
@@ -58,17 +58,16 @@ exports.register = async (req, res) => {
             req.flash({ 'error': 'Korisnik s navedenom email adresom veÄ‡ postoji!' });
             res.redirect('/login');
         } else {
-            
+
             await userFind.setPassword(req.body.password);
-            await userFind.save();
 
             // secret token
             const secretToken = randomstring.generate();
-            const user = new User({
-                email: req.body.email,
-                ime: req.body.name,
-                secretToken,
-            });
+            userFind.secretToken = secretToken;
+
+            await userFind.save();
+
+
 
             const html = `
             Poštovani,
