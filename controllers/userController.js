@@ -49,12 +49,21 @@ exports.validateRegister = (req, res, next) => {
 }
 
 exports.register = async (req, res) => {
+   
     const userFind = await User.findOne({
         email: req.body.email
     });
     if (userFind) {
-        req.flash('error', 'Korisnik s navedenom email adresom već postoji!');
-        res.redirect('/register');
+        if (userFind.hash) {
+            req.flash({ 'error': 'Korisnik s navedenom email adresom veÄ‡ postoji!' });
+            res.redirect('/login');
+        } else {
+            
+            await userFind.setPassword(req.body.password);
+            await userFind.save();
+            // req.flash({ 'success': 'Uspješno ste dodali šifru na postojeći profil!' });
+            res.redirect('/login');
+        }
     } else {
 
         // secret token
@@ -65,28 +74,30 @@ exports.register = async (req, res) => {
             secretToken,
         });
 
-        const html = `
-            Poštovani,
-            <br>
-            zahvaljujemo Vam se na registraciji. Da biste aktivirali korisnički račun potrebno je da pratite link ispod, 
-            te unesete aktivacijski kod!
-            <br>
-            Aktivacijski kod: 
-            <br>
-            <strong>${secretToken}</strong>
-            <br>
-            <a href="http://${req.headers.host}/aktivacija"> Aktiviraj korisnički račun </a>
-            <br>
-            <br>
-            Zelimo Vam ugodan dan!`
 
-        await mailer.sendEmail('admin@vina.sava.ba', user.email, 'Molimo Vas da verifikujete zahtjev za registraciju na vina.sava.ba', html);
+
+        // const html = `
+        //     Poštovani,
+        //     <br>
+        //     zahvaljujemo Vam se na registraciji. Da biste aktivirali korisnički račun potrebno je da pratite link ispod, 
+        //     te unesete aktivacijski kod!
+        //     <br>
+        //     Aktivacijski kod: 
+        //     <br>
+        //     <strong>${secretToken}</strong>
+        //     <br>
+        //     <a href="http://${req.headers.host}/aktivacija"> Aktiviraj korisnički račun </a>
+        //     <br>
+        //     <br>
+        //     Zelimo Vam ugodan dan!`
+
+        // await mailer.sendEmail('admin@vina.sava.ba', user.email, 'Molimo Vas da verifikujete zahtjev za registraciju na vina.sava.ba', html);
 
         const register = promisify(User.register, User);
         await register(user, req.body.password);
 
         req.flash('success', 'Uspješno ste se registrovali. Ubrzo ćemo Vam poslati email sa aktivacijskim kodom.');
-        res.redirect('login');
+        res.redirect('/login');
     }
 };
 

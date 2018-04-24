@@ -87,6 +87,9 @@ html(lang="en")
                                     a(href='/auth/facebook')
                                         i.fa.fa-facebook.fa-2x.tooltip-icon(title="FB prijava" style="color: #6392f5; font-size: 1.4em")
                                 li
+                                    a(href='/auth/google')
+                                        i.fa.fa-google.fa-2x.tooltip-icon(title="Google prijava" style="color: #db3236; font-size: 1.4em")                                
+                                li
                                     a(href='/register') 
                                         i.fa.fa-user-plus.fa-2x.tooltip-icon(title="Registracija" style="font-size: 1.4em")
 
@@ -94,13 +97,14 @@ html(lang="en")
                                 li
                                     a(href='/forum')
                                         i.fa.fa-list.fa-2x.tooltip-icon(title="Forum" style="font-size: 1.4em;")
-                                li
-                                    a(href='/logout').red-text.text-lighten-1
-                                        i.fa.fa-sign-out.fa-2x.tooltip-icon(title="Odjava" style="font-size: 1.4em")
+
                                 li
                                     a.nav-slika(href=('/racun'))
                                         img.circle.responsive-img.user-image(src=user.slika || user.gravatar)
-                                li= user.ime 
+                                li #{user.ime} &nbsp;&nbsp;
+                                li
+                                    a(href='/logout').red-text.text-lighten-1
+                                        i.fa.fa-sign-out.fa-2x.tooltip-icon(title="Odjava" style="font-size: 1.4em")
                                    
                             else if user.level < 11
                                 li
@@ -110,12 +114,12 @@ html(lang="en")
                                     a(href='/admin')
                                         i.fa.fa-user.fa-2x.tooltip-icon(title="Admin panel" style="font-size: 1.4em")
                                 li
-                                    a(href='/logout').red-text.text-lighten-1
-                                        i.fa.fa-sign-out.fa-2x.tooltip-icon(title="Odjava" style="font-size: 1.4em")
-                                li
                                     a.nav-slika(href=('/racun'))
                                         img.circle.responsive-img.user-image(src=user.slika || user.gravatar)
-                                li= user.ime 
+                                li #{user.ime} &nbsp;&nbsp;
+                                li
+                                    a(href='/logout').red-text.text-lighten-1
+                                        i.fa.fa-sign-out.fa-2x.tooltip-icon(title="Odjava" style="font-size: 1.4em")                                
                                     
 
 

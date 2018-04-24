@@ -27,10 +27,14 @@ const userSchema = new Schema({
     zadnjiPutVidjen: {
         type: Date
     },
+    google: {
+        id: String,
+        name: String,
+        token: String
+    },
     facebook: {
         id: String,
         token: String,
-        email: String,
         ime: String
     },
     slika: {
@@ -64,7 +68,12 @@ const userSchema = new Schema({
         type: Date,
         default: undefined
     }
-});
+},
+    // https://stackoverflow.com/questions/13133911/cant-get-mongoose-virtuals-to-be-part-of-the-result-object
+    {
+        toObject: { virtuals: true }
+    });
+
 
 userSchema.virtual('gravatar').get(function () {
     const hash = md5(this.email);

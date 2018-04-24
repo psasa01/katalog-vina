@@ -78,6 +78,20 @@ router.get('/auth/facebook/callback', passport.authenticate('facebook', {
   failureRedirect: '/login'
 }))
 
+router.get('/auth/google', passport.authenticate('google', {
+      scope: ['profile', 'email']
+  }));
+
+router.get('/auth/google/callback', passport.authenticate('google'),
+  (req, res) => {
+
+      req.flash('success', 'Uspješno ste se prijavili putem Google korisničkog računa! Dobrodošli!');
+      res.redirect('/');
+  }
+
+);
+
+
 router.get('/admin', catchErrors(userController.adminPanel));
 
 router.get('/admin/oduzmi/:id', catchErrors(userController.oduzmiAdminPrava));
@@ -117,3 +131,4 @@ router.get('/forum/:id/obrisi', catchErrors(forumController.obrisiTemu));
 router.get('/forum/:id/obrisi-odgovor/:postId', catchErrors(forumController.obrisiOdgovor));
 
 module.exports = router;
+
