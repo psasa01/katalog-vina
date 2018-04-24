@@ -951,6 +951,10 @@ h4 {
   bottom: 2em !important;
   position: fixed !important; }
 
+@media (max-width: 680px) {
+  #home-button {
+    right: .75em !important; } }
+
 .footer {
   width: 100%;
   position: fixed;
