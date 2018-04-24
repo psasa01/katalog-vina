@@ -84,7 +84,7 @@ exports.register = async (req, res) => {
             userFind.secretToken = secretToken;
             await userFind.save();
 
-            req.flash({ 'success': 'Uspješno ste dodali šifru na postojeći profil! Poslali smo Vam aktivacijski kod na email. Da bi se prijavili morate aktivirati korisnički račun' });
+            req.flash('success', 'Uspješno ste dodali šifru na postojeći profil! Poslali smo Vam aktivacijski kod na email.\n Da bi se prijavili morate aktivirati korisnički račun');
             res.redirect('/login');
         }
     } else {
