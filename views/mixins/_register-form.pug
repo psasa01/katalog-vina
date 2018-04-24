@@ -28,8 +28,11 @@ mixin register-form
                             br
                             .row
                                 
-                                a#btn-reg.btn.btn-large.waves-effect.waves-light.col.s12.m5.l4.blue.darken-4.right(href='/auth/facebook') 
-                                    | Facebook prijava
-                                button#btn-reg.btn.btn-large.waves-effect.waves-light.col.m5.s12.l4.brown.right(type='submit' name='register') Registracija
+                                a#btn-reg.btn-floating.btn-large.left.tooltip-icon(title="Facebook prijava" href='/auth/facebook' style="border-radius: 0; background-color: #3b5998")
+                                    i.fa.fa-facebook
+                                a#btn-reg.btn-floating.btn-large.left.tooltip-icon(title="Google prijava" href='/auth/google' style="border-radius: 0; background-color: #db3236")
+                                    i.fa.fa-google                               
+                                button#btn-reg.green.btn-floating.btn-large.right.tooltip-icon(title="Registracija" type='submit' style="border-radius: 0;")
+                                    i.fa.fa-user-plus
 
       

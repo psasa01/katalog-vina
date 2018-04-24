@@ -9,17 +9,25 @@ const passport = require('passport');
 
 exports.login = (req, res) => {
     // console.log(req.body);
-    res.render('login', {
-        title: 'Login',
-        user: req.user,
-        error: req.flash('Greška pri prijavljivanju!')
-    });
+    if (!req.user) {
+        res.render('login', {
+            title: 'Login',
+            user: req.user,
+            error: req.flash('Greška pri prijavljivanju!')
+        });
+    } else {
+        res.redirect('/');
+    }
 };
 
 exports.registerForm = (req, res) => {
-    res.render('register', {
-        title: 'Registracija'
-    });
+    if (!req.user) {
+        res.render('register', {
+            title: 'Registracija'
+        });
+    } else {
+        res.redirect('/');
+    }
 }
 
 exports.validateRegister = (req, res, next) => {
