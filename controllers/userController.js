@@ -79,9 +79,11 @@ exports.register = async (req, res) => {
             <br>
             Aktivacijski kod: 
             <br>
-            <strong>${secretToken}</strong>
+            // <strong>${secretToken}</strong>
             <br>
-            <a href="http://${req.headers.host}/aktivacija/${secretToken}"> Aktiviraj korisnički račun </a>
+            <a href="http://${req.headers.host}/aktivacija/${secretToken}"> 
+            <button>Aktiviraj korisnički račun</button> 
+            </a>
             <br>
             <br>
             Zelimo Vam ugodan dan!`
@@ -115,9 +117,11 @@ exports.register = async (req, res) => {
             <br>
             Aktivacijski kod: 
             <br>
-            <strong>${secretToken}</strong>
+            // <strong>${secretToken}</strong>
             <br>
-            <a href="http://${req.headers.host}/aktivacija/${secretToken}"> Aktiviraj korisnički račun </a>
+            <a href="http://${req.headers.host}/aktivacija/${secretToken}"> 
+            <button>Aktiviraj korisnički račun</button> 
+            </a>
             <br>
             <br>
             Zelimo Vam ugodan dan!`
