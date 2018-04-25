@@ -965,7 +965,7 @@ module.exports = `
                                                                 <tbody>
                                                                     <tr>
                                                                         <td align="center" valign="middle" class="mcnButtonContent" style="font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, sans-serif; font-size: 18px; padding: 18px;">
-                                                                            <a class="mcnButton " title="Aktivirajte korisnički račun" href="${req.headers.host}/aktivacija/${secretToken}" target="_blank"
+                                                                            <a class="mcnButton " title="Aktivirajte korisnički račun" href="https://vina.sava.ba/aktivacija/${secretToken}" target="_blank"
                                                                                 style="font-weight: normal;letter-spacing: -0.5px;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Aktivirajte korisnički račun</a>
                                                                         </td>
                                                                     </tr>
