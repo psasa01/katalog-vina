@@ -636,7 +636,7 @@ exports.register = async (req, res) => {
                         
                             <h3 style="text-align: center;">Poštovani korisniče,</h3>
 
-<p style="text-align: justify;">Ovaj email je odgovor na zahtjev da dodavate mogućnost email/password logina na web stranici mojaKolekcijaVina (https://vina.sava.ba). Ukoliko niste poslali zahtjev za registraciju, molimo Vas da ignorišete ovaj email. U slučaju da zaista želite da potvrdite svoj korisnički profil, pratite link ispod slike.&nbsp;</p>
+<p style="text-align: justify;">Ovaj email je odgovor na zahtjev da dodate mogućnost email/password logina na web stranici mojaKolekcijaVina (https://vina.sava.ba). Ukoliko niste poslali zahtjev za registraciju, molimo Vas da ignorišete ovaj email. U slučaju da zaista želite da potvrdite svoj korisnički profil, pratite link ispod slike.&nbsp;</p>
 
                         </td>
                     </tr>
