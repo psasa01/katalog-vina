@@ -59,7 +59,8 @@ exports.isActive = async (req, res, next) => {
 
 exports.aktivacija = (req, res) => {
     res.render('aktivacija', {
-        title: 'Aktivacija korisničkog računa'
+        title: 'Aktivacija korisničkog računa',
+        token: req.params.id
     });
 };
 
