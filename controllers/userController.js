@@ -62,9 +62,10 @@ exports.register = async (req, res) => {
         email: req.body.email
     });
     if (userFind) {
-        if (userFind.hash !== undefined) {
+        if (userFind.hash.length) {
             req.flash({ 'error': 'Korisnik s navedenom email adresom veÄ‡ postoji!' });
             res.redirect('/login');
+            return;
         } else {
 
             // secret token
@@ -636,7 +637,7 @@ exports.register = async (req, res) => {
                         
                             <h3 style="text-align: center;">Poštovani korisniče,</h3>
 
-<p style="text-align: justify;">Ovaj email je odgovor na zahtjev za registraciju korisničkog profila na web stranici mojaKolekcijaVina (https://vina.sava.ba). Ukoliko niste poslali zahtjev za registraciju, molimo Vas da ignorišete ovaj email. U slučaju da zaista želite da potvrdite svoj korisnički profil, pratite link ispod slike.&nbsp;</p>
+<p style="text-align: justify;">Ovaj email je odgovor na zahtjev da dodavate mogućnost email/password logina na web stranici mojaKolekcijaVina (https://vina.sava.ba). Ukoliko niste poslali zahtjev za registraciju, molimo Vas da ignorišete ovaj email. U slučaju da zaista želite da potvrdite svoj korisnički profil, pratite link ispod slike.&nbsp;</p>
 
                         </td>
                     </tr>
