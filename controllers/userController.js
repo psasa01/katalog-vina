@@ -4,7 +4,7 @@ const Vino = mongoose.model('Vino');
 const promisify = require('es6-promisify');
 const randomstring = require('randomstring');
 const mailer = require('../handlers/mailer');
-const html = require('..handlers/html');
+const html = require('../handlers/html');
 const passport = require('passport');
 
 

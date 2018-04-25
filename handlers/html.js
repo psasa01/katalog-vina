@@ -811,7 +811,7 @@ module.exports = `
                                                                         <td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;">
 
 
-                                                                            <img align="center" alt="" src="vina.sava.ba/images/logo.png" width="564" style="max-width:1008px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
+                                                                            <img align="center" alt="" src="https://vina.sava.ba/images/logo.png" width="564" style="max-width:1008px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
                                                                                 class="mcnImage">
 
 
