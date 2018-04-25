@@ -10,7 +10,7 @@ mixin activate-form
                         hr
                         br    
                         .input-field.col.s10.offset-s1
-                            input#token(type='text' name="token")
+                            input#token(type='text' name="token" value=`${req.query}`)
                             label(for='token') Molimo unesite aktivacijski kod
                         
                         .col.s10.offset-s1

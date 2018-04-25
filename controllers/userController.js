@@ -81,7 +81,7 @@ exports.register = async (req, res) => {
             <br>
             <strong>${secretToken}</strong>
             <br>
-            <a href="http://${req.headers.host}/aktivacija"> Aktiviraj korisnički račun </a>
+            <a href="http://${req.headers.host}/aktivacija?${secretToken}"> Aktiviraj korisnički račun </a>
             <br>
             <br>
             Zelimo Vam ugodan dan!`
@@ -117,7 +117,7 @@ exports.register = async (req, res) => {
             <br>
             <strong>${secretToken}</strong>
             <br>
-            <a href="http://${req.headers.host}/aktivacija"> Aktiviraj korisnički račun </a>
+            <a href="http://${req.headers.host}/aktivacija?${secretToken}"> Aktiviraj korisnički račun </a>
             <br>
             <br>
             Zelimo Vam ugodan dan!`
