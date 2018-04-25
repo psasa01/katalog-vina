@@ -62,7 +62,7 @@ exports.register = async (req, res) => {
         email: req.body.email
     });
     if (userFind) {
-        if (userFind.hash != undefined) {
+        if (userFind.hash !== undefined) {
             req.flash('error', 'Korisnik s navedenom email adresom već postoji!');
             res.redirect('/login');
         } else {
