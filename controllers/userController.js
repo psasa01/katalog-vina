@@ -65,7 +65,6 @@ exports.register = async (req, res) => {
         if (userFind.hash.length) {
             req.flash({ 'error': 'Korisnik s navedenom email adresom veÄ‡ postoji!' });
             res.redirect('/login');
-            return;
         } else {
 
             // secret token
