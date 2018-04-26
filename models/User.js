@@ -45,6 +45,10 @@ const userSchema = new Schema({
         type: Number,
         default: 30
     },
+    reg: {
+        type: String,
+        default: 'ne'
+    },
     brojVina: {
         type: Number,
         default: 0

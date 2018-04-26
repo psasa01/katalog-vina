@@ -62,7 +62,7 @@ exports.register = async (req, res) => {
         email: req.body.email
     });
     if (userFind) {
-        if (userFind.hash !== undefined) {
+        if (userFind.reg === 'da') {
             req.flash('error', 'Korisnik s navedenom email adresom već postoji!');
             res.redirect('/login');
         } else {
@@ -816,6 +816,7 @@ exports.register = async (req, res) => {
 
             await userFind.setPassword(req.body.password);
             userFind.secretToken = secretToken;
+            userFind.reg = 'da';
             await userFind.save();
 
             req.flash('success', 'Uspješno ste dodali šifru na postojeći profil! Poslali smo Vam aktivacijski kod na email.\n Da bi se prijavili morate aktivirati korisnički račun');
@@ -828,6 +829,7 @@ exports.register = async (req, res) => {
         const user = new User({
             email: req.body.email,
             ime: req.body.name,
+            reg: 'da',
             secretToken,
         });
 
