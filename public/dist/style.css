@@ -563,7 +563,8 @@ p {
   position: absolute;
   background-color: black;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  overflow: hidden; }
   .slika-fullscreen img {
     position: absolute;
     height: 100%;

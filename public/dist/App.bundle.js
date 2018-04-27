@@ -392,11 +392,13 @@ $(document).ready(function () {
 
   $('.slika-trigger').on('click', function () {
     $('.slika-fullscreen').css('display', 'block');
+    $('html').css('overflow', 'hidden');
     $('.modal').addClass('modal-full');
   });
 
   $('.slika-fullscreen').on('click', function () {
     $('.slika-fullscreen').css('display', 'none');
+    $('html').css('overflow', 'auto');
     $('.modal').removeClass('modal-full');
   });
 

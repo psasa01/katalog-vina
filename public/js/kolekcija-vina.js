@@ -310,7 +310,6 @@ $(document).ready(function () {
     theme: 'dark translucent'
   });
 
-
   // Autofill - preklapanje value i label kod login forme
   $('input:-webkit-autofill').each(function () {
     if ($(this).val().length !== "") {
@@ -324,11 +323,13 @@ $(document).ready(function () {
 
   $('.slika-trigger').on('click', () => {
     $('.slika-fullscreen').css('display', 'block');
+    $('html').css('overflow', 'hidden');
     $('.modal').addClass('modal-full');
   })
 
   $('.slika-fullscreen').on('click', () => {
     $('.slika-fullscreen').css('display', 'none');
+    $('html').css('overflow', 'auto');
     $('.modal').removeClass('modal-full');
   }
   );
