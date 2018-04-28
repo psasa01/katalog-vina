@@ -36,7 +36,7 @@ exports.isAdministrator = (req, res, next) => {
         next();
         return;
     } else {
-        req.flash('error', 'Morate biti administrator da biste dodali novo vino!');
+        req.flash('error', 'Nažalost nemate pristup! Morate biti administrator');
         res.redirect('/');
     }
 }

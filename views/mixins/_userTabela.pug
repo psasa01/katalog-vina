@@ -25,13 +25,19 @@ mixin userTabela(korisnik = {})
                     td(style="display: inline-flex")
                         img.circle.responsive-img.user-image(src=korisnik.slika || '/images/user.png' style="height: 3em !important; margin-left: 1em")
                         .brown-text.text-darken-2.left(style="padding: 25px !important;") #{korisnik.ime}      
-                    td= korisnik.email
+
+
+                    td
+                        if korisnik.email.length>30
+                            p.tooltip-icon(title=`${korisnik.email}`)= korisnik.email.substring(0,30)+'...'
+                        else
+                            p= korisnik.email
                     td
                         - h.moment.locale('bs')
-                            p #{h.moment(korisnik.registrovan).format('ll')}, #{h.moment(korisnik.registrovan).format('LT')}
+                            p #{h.moment(korisnik.registrovan).format('L')}, #{h.moment(korisnik.registrovan).format('LT')}
                     td
                         - h.moment.locale('bs')
-                            p #{h.moment(korisnik.zadnjiPutVidjen).format('ll')}, #{h.moment(korisnik.zadnjiPutVidjen).format('LT')}
+                            p #{h.moment(korisnik.zadnjiPutVidjen).format('L')}, #{h.moment(korisnik.zadnjiPutVidjen).format('LT')}
 
                     td= korisnik.brojVina
 
@@ -44,13 +50,14 @@ mixin userTabela(korisnik = {})
 
                     if user.level == 1
                         if korisnik.level > 10
-                            td.right
-                                a(href=`/admin/dodijeli/${korisnik._id}`)    
-                                    button.btn.waves-effect.waves-light.indigo.lighten-1.white-text(style="padding: 0em 1em; margin-right: 1em") Dodijeli admin prava   
+                            td
+                                a.tooltip-icon.blue.lighten-1.white-text(title="Dodijeli admin prava" href=`/admin/dodijeli/${korisnik._id}` style="padding: 0 .5em .2em .5em; font-size: 2em; box-shadow: 1px 1px 2px grey; margin: 0") +
+                                    
                         else if korisnik.level < 11 && korisnik.level > 1
-                            td.right
-                                a(href=`/admin/oduzmi/${korisnik._id}`)
-                                    button.btn.waves-effect.waves-light.red.lighten-1.white-text(style="padding: 0em 1.1em; margin-right: 1em") Oduzmi admin prava        
+                            td
+                                a.tooltip-icon.red.lighten-1.white-text(title="Oduzmi admin prava" href=`/admin/oduzmi/${korisnik._id}` style="padding: 0 .65em .2em .65em; font-size: 2em; box-shadow: 1px 1px 2px grey; margin: 0") -
+                                    
+                                        
                         else
                             td.right 
                     else

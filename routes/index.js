@@ -92,7 +92,7 @@ router.get('/auth/google/callback', passport.authenticate('google'),
 );
 
 
-router.get('/admin', catchErrors(userController.adminPanel));
+router.get('/admin', authController.isAdministrator, catchErrors(userController.adminPanel));
 
 router.get('/admin/oduzmi/:id', catchErrors(userController.oduzmiAdminPrava));
 router.get('/admin/dodijeli/:id', catchErrors(userController.dodijeliAdminPrava));
