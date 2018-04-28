@@ -325,14 +325,13 @@ $(document).ready(function () {
     $('.slika-fullscreen').css('display', 'block');
     $('html').css('overflow', 'hidden');
     $('.modal').addClass('modal-full');
-  })
+  });
 
   $('.slika-fullscreen').on('click', () => {
     $('.slika-fullscreen').css('display', 'none');
     $('html').css('overflow', 'auto');
     $('.modal').removeClass('modal-full');
-  }
-  );
+  });
 
   $('#slika-close').on('click', () => {
     $('.slika-fullscreen').css('display', 'none');

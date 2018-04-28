@@ -6,9 +6,9 @@ mixin userTabela(korisnik = {})
         thead
             tr
                 td 
-                    strong Korisničko ime
+                    strong Korisnik
                 td 
-                    strong Korisnički Email
+                    strong Email
                 td 
                     strong Registrovan
                 td 
@@ -22,7 +22,9 @@ mixin userTabela(korisnik = {})
 
             tbody
                 tr  
-                    td= korisnik.ime
+                    td(style="display: inline-flex")
+                        img.circle.responsive-img.user-image(src=korisnik.slika || '/images/user.png' style="height: 3em !important; margin-left: 1em")
+                        .brown-text.text-darken-2.left(style="padding: 25px !important;") #{korisnik.ime}      
                     td= korisnik.email
                     td
                         - h.moment.locale('bs')
