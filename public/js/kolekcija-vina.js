@@ -363,6 +363,7 @@ $(document).ready(function () {
     position: 'top'
   });
   $('.sidenav').sidenav();
+
   $('.modal').modal({
     onCloseEnd: () => {
       $('.slika-fullscreen').css('display', 'none');

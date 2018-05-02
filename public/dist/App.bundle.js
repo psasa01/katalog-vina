@@ -429,6 +429,7 @@ $(document).ready(function () {
     position: 'top'
   });
   $('.sidenav').sidenav();
+
   $('.modal').modal({
     onCloseEnd: function onCloseEnd() {
       $('.slika-fullscreen').css('display', 'none');
