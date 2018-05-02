@@ -321,6 +321,8 @@ $(document).ready(function () {
     $('#dodaj-sliku-forma').toggleClass('show');
   });
 
+
+
   $('.slika-trigger').on('click', () => {
     $('.slika-fullscreen').css('display', 'block');
     $('html').css('overflow', 'hidden');
@@ -335,6 +337,7 @@ $(document).ready(function () {
 
   $('#slika-close').on('click', () => {
     $('.slika-fullscreen').css('display', 'none');
+    $('html').css('overflow', 'auto');
     $('.modal').removeClass('modal-full');
   })
 
@@ -363,6 +366,7 @@ $(document).ready(function () {
   $('.modal').modal({
     onCloseEnd: () => {
       $('.slika-fullscreen').css('display', 'none');
+      $('html').css('overflow', 'auto');
       $('.modal').removeClass('modal-full');
 
     }

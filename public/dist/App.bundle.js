@@ -404,6 +404,7 @@ $(document).ready(function () {
 
   $('#slika-close').on('click', function () {
     $('.slika-fullscreen').css('display', 'none');
+    $('html').css('overflow', 'auto');
     $('.modal').removeClass('modal-full');
   });
 
@@ -431,6 +432,7 @@ $(document).ready(function () {
   $('.modal').modal({
     onCloseEnd: function onCloseEnd() {
       $('.slika-fullscreen').css('display', 'none');
+      $('html').css('overflow', 'auto');
       $('.modal').removeClass('modal-full');
     }
   });
