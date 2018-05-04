@@ -31,7 +31,7 @@
     "masonry-layout": "^4.2.1",
     "materialize-css": "^0.100.2",
     "materialsummernote": "^1.2.3",
-    "md5": "^2.2.1",
+    "md5": "^2.0.0",
     "moment": "^2.20.1",
     "mongoose": "^5.0.0-rc1",
     "mongoose-algolia": "^1.7.1",

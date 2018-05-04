@@ -471,7 +471,7 @@ function showSpinner() {
 }
 
 // Algolia search
-var client = algoliasearch('I2MFF9YJMM', 'e82b335c522c7b70472f25e370a72a6e');
+var client = algoliasearch('I2MFF9YJMM', '4c90218eecba183027c6d91eaada15f2');
 var index = client.initIndex('vinoSchema');
 
 //initialize autocomplete on search input (ID selector must match)
